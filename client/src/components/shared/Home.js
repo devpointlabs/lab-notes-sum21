@@ -1,10 +1,12 @@
-import { Header } from 'react-bootstrap';
+import { Jumbotron } from 'react-bootstrap';
 
 
 const Home = () => (
-    <>
-    <Header>HomePage</Header>
-    </>
+  <>
+    <Jumbotron>
+      <p>Home Page</p>
+    </Jumbotron>
+  </>
 )
 
-export default Header;
+export default Home;

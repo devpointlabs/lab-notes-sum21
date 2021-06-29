@@ -1,18 +1,11 @@
-import { Menu } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap'
 
 const MainNavbar = () => (
-
-        <Menu>
-        <NavLink to='/'>
-            <Menu.Item>
-                Home
-            </Menu.Item>
-        </NavLink>
-        </Menu>
-    )
-
-
-    
+  <Navbar bg="dark" variant="dark">
+    <Nav>
+      <Nav.Link href="/">Home</Nav.Link>
+    </Nav>
+  </Navbar>
+)
 
 export default MainNavbar;

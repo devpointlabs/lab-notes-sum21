@@ -1,12 +1,12 @@
-import { Header, Link } from 'react-bootstrap';
+import { Jumbotron } from 'react-bootstrap';
 
 
 const Nomatch = () => (
     <>
-    <Header>404 page.</Header>
-    <Link to="/">
-        Home
-    </Link>
+      <Jumbotron>
+        <p>404 page</p>
+
+      </Jumbotron>
     </>
 )
 
