@@ -1,4 +1,5 @@
-import { Header, Link } from 'react-bootstrap';
+import { Header } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 
 const Nomatch = () => (

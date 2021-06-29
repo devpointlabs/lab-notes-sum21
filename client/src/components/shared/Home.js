@@ -1,5 +1,4 @@
-import { Header } from 'react-bootstrap';
-
+import { Header } from 'semantic-ui-react';
 
 const Home = () => (
     <>
@@ -7,4 +6,4 @@ const Home = () => (
     </>
 )
 
-export default Header;
+export default Home;
