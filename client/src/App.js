@@ -12,15 +12,15 @@ const App = () => (
   <>
     <MainNavbar />
     <FetchUser>
-    <Container>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route component={Nomatch} />
-      </Switch>
-    </Container>   
+      <Container>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <Route component={Nomatch} />
+        </Switch>
+      </Container>   
     </FetchUser>
   </>
 )
