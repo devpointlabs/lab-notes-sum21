@@ -1,13 +1,45 @@
-import { Jumbotron } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { AuthConsumer } from '../../providers/AuthProvider';
 
+const FetchUser = ({ authenticated, children, setUser }) => {
+  const [loaded, setLoaded] = useState(false)
 
-const FetchUser = () => (
-    <>
-      <Jumbotron>
-        <p>FetchUser page</p>
+  useEffect ( () => {
+    if (authenticated) {
+      load();
+    } else {
+      if (checkLocalToken()) {
+        axios.get('/api/auth/validate_token')
+          .then( res => {
+            setUser(res.data.data);
+            load();
+          })
+          .catch( res => {
+            load();
+          })
+      } else {
+        load();
+      }
+    }
+  }, [])
 
-      </Jumbotron>
-    </>
-)
+  const checkLocalToken = () => {
+    const token = localStorage.getItem('access-token');
+    return token;
+  }
+    
+    const load = () => setLoaded(true);
+    
+    return loaded ? children : null;
+  }
 
-export default FetchUser;
+  const ConnectedFetchUser = (props) => (
+    <AuthConsumer>
+      { auth =>
+        <FetchUser {...props} {...auth} />
+      }
+    </AuthConsumer>
+  )
+
+export default ConnectedFetchUser;

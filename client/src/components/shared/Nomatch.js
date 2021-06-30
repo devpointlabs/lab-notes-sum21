@@ -2,12 +2,12 @@ import { Jumbotron } from 'react-bootstrap';
 
 
 const Nomatch = () => (
-    <>
-      <Jumbotron>
-        <p>404 page</p>
+  <>
+    <Jumbotron>
+      <p>404 page</p>
 
-      </Jumbotron>
-    </>
+    </Jumbotron>
+  </>
 )
 
 export default Nomatch;
