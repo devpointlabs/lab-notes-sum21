@@ -56,7 +56,7 @@ const Register = ({ handleRegister, history }) => {
   )
 }
 
-const ConnectedRegister = ({props}) => (
+const ConnectedRegister = (props) => (
   <AuthConsumer>
     { auth => 
       <Register {...props} {...auth} />

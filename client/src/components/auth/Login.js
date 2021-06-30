@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import AuthConsumer from '../../providers/AuthProvider';
+import { AuthConsumer } from '../../providers/AuthProvider';
 import { Button, Form } from 'react-bootstrap';
 
 const Login = ({ handleLogin, history }) => {
-  // const defaultEmail = email ? email : "";
   const [user, setUser] = useState({ email: '', password: '' })
 
   const handleSubmit = (e) => {
@@ -23,7 +22,6 @@ const Login = ({ handleLogin, history }) => {
           name="email"
           value={user.email}
           onChange={(e) => setUser({...user, email: e.target.value})}
-          // defaultValue = {defaultEmail}
         />
       </Form.Group>
       <Form.Group controlId="formBasicPassword">
@@ -46,9 +44,7 @@ const Login = ({ handleLogin, history }) => {
 
 const ConnectedLogin = (props) => (
   <AuthConsumer>
-    { auth =>
-      <Login {...props} {...auth} />
-    }
+    { auth => <Login {...props} {...auth} /> }
   </AuthConsumer>
 )
 
