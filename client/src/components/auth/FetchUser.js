@@ -42,4 +42,8 @@ const FetchUser = ({ authenticated, children, setUser }) => {
     </AuthConsumer>
   )
 
+<<<<<<< HEAD
 export default ConnectedFetchUser;
+=======
+export default ConnectedFetchUser;
+>>>>>>> e7255a8 (Added Devise auth)
