@@ -4,5 +4,4 @@ class Col < ApplicationRecord
 
   validates :title, presence: true
   validates :title, uniqueness: true
-  validates :title, length: { in: 2..20 }
 end
