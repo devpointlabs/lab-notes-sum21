@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Link, withRouter } from 'react-router-dom';
 import { Navbar, Nav, Button } from 'react-bootstrap';
@@ -39,6 +40,16 @@ const ConnectedMainNavbar = (props) => (
       <MainNavbar {...props} {...auth} />
     }
   </AuthConsumer>
+=======
+import { Navbar, Nav } from 'react-bootstrap'
+
+const MainNavbar = () => (
+  <Navbar bg="dark" variant="dark">
+    <Nav>
+      <Nav.Link href="/">Home</Nav.Link>
+    </Nav>
+  </Navbar>
+>>>>>>> 0e6348a (fixed changes)
 )
 
 export default withRouter(ConnectedMainNavbar);
