@@ -1,13 +1,12 @@
-import { Header } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import { Jumbotron } from 'react-bootstrap';
 
 
 const Nomatch = () => (
     <>
-    <Header>404 page.</Header>
-    <Link to="/">
-        Home
-    </Link>
+      <Jumbotron>
+        <p>404 page</p>
+
+      </Jumbotron>
     </>
 )
 

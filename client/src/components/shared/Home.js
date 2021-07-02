@@ -1,9 +1,12 @@
-import { Header } from 'semantic-ui-react';
+import { Jumbotron } from 'react-bootstrap';
+
 
 const Home = () => (
-    <>
-    <Header>HomePage</Header>
-    </>
+  <>
+    <Jumbotron>
+      <p>Home Page</p>
+    </Jumbotron>
+  </>
 )
 
 export default Home;

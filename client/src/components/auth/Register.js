@@ -1,8 +1,12 @@
-import { Header } from 'semantic-ui-react';
+import { Jumbotron } from 'react-bootstrap';
+
 
 const Register = () => (
     <>
-    <Header>Register</Header>
+      <Jumbotron>
+        <p>Register page</p>
+
+      </Jumbotron>
     </>
 )
 

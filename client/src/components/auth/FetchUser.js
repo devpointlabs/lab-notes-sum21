@@ -1,8 +1,12 @@
-import { Header } from 'semantic-ui-react';
+import { Jumbotron } from 'react-bootstrap';
+
 
 const FetchUser = () => (
     <>
-    <Header>FetchUser</Header>
+      <Jumbotron>
+        <p>FetchUser page</p>
+
+      </Jumbotron>
     </>
 )
 

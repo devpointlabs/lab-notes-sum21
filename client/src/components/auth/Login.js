@@ -1,8 +1,12 @@
-import { Header } from 'semantic-ui-react';
+import { Jumbotron } from 'react-bootstrap';
+
 
 const Login = () => (
     <>
-    <Header>Login</Header>
+      <Jumbotron>
+        <p>Login page</p>
+
+      </Jumbotron>
     </>
 )
 
