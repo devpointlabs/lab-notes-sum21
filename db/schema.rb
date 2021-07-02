@@ -10,10 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_022604) do
+ActiveRecord::Schema.define(version: 2021_07_02_021917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "descript"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "color"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.string "title"
+    t.datetime "end_time"
+    t.text "notes"
+    t.bigint "col_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["col_id"], name: "index_cards_on_col_id"
+  end
+
+  create_table "cols", force: :cascade do |t|
+    t.string "title"
+    t.bigint "day_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["day_id"], name: "index_cols_on_day_id"
+  end
+
+  create_table "days", force: :cascade do |t|
+    t.date "day_date"
+    t.bigint "book_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_days_on_book_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -45,4 +83,8 @@ ActiveRecord::Schema.define(version: 2021_06_29_022604) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "books", "users"
+  add_foreign_key "cards", "cols"
+  add_foreign_key "cols", "days"
+  add_foreign_key "days", "books"
 end
