@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { initMiddleware } from 'devise-axios';
+import BookProvider from './providers/BookProvider';
 import AuthProvider from './providers/AuthProvider';
 
 initMiddleware();
@@ -13,9 +14,11 @@ initMiddleware();
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <BookProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </BookProvider>
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')
