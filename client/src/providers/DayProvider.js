@@ -15,7 +15,7 @@ const DayProvider = ({children}) => {
   }
   
   const addDay = (day) => {
-    axios.post(`/api/books/${id}/days`)
+    axios.post(`/api/books/${id}/days`, {day} )
       .then( res => {
         setDays([...days, res.data])
       })
@@ -23,7 +23,7 @@ const DayProvider = ({children}) => {
   }
 
   const updateDay = (id, day, history) => {
-    axios.put(`/api/books/${id}/days/${id}`)
+    axios.put(`/api/books/${id}/days/${id}`, {day} )
       .then( res => {
         const updatedDays = days.map( d => {
           if (days.id == id) {
