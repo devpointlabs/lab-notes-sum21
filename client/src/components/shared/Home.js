@@ -1,6 +1,5 @@
 import { Jumbotron } from 'react-bootstrap';
 
-
 const Home = () => (
   <>
     <Jumbotron>
