@@ -1,10 +1,10 @@
-// import BookForm from './BookForm';
+import BookForm from './BookForm';
 
-// const Books = () => (
-//     <>
-//     <h1>Books Page</h1>
-//     <BookForm />
-//     </>
-// )
+const Books = () => (
+    <>
+    <h1>Books Page</h1>
+    <BookForm />
+    </>
+)
 
-// export default Books;
+export default Books;
