@@ -4,7 +4,7 @@ import Home from './components/shared/Home';
 import Nomatch from './components/shared/Nomatch';
 import Login from './components/auth/Login';
 import MainNavbar from './components/shared/MainNavbar';
-// import FetchUser from './components/auth/FetchUser';
+import FetchUser from './components/auth/FetchUser';
 import Register from './components/auth/Register';
 
 
