@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "semantic-ui-css/semantic.min.css";
 import { initMiddleware } from 'devise-axios';
 import BookProvider from './providers/BookProvider';
 import AuthProvider from './providers/AuthProvider';
