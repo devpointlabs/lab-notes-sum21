@@ -127,4 +127,3 @@ export default withRouter(ConnectedBookForm);
 //     { key: "o", text: "orange", value: "#D66E33", },
 //     { key: "a", text: "aqua", value: "#44BCE0", },
 //     { key: "n", text: "bluepurple", value: "#42487E"
-
