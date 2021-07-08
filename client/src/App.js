@@ -7,6 +7,7 @@ import MainNavbar from './components/shared/MainNavbar';
 import FetchUser from './components/auth/FetchUser';
 import Register from './components/auth/Register';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import Books from './components/books/Books';
 
 
 const App = () => (
@@ -19,6 +20,7 @@ const App = () => (
           <ProtectedRoute exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/books" component={Books}/>
           <Route component={Nomatch} />
         </Switch>
       </Container>   

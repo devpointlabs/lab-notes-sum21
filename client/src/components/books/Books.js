@@ -1,9 +1,11 @@
 import BookForm from './BookForm';
+import BookList from './BookList';
 
 const Books = () => (
     <>
-    <h1>Books Page</h1>
+    <h1>My Books:</h1>
     <BookForm />
+    <BookList/>
     </>
 )
 

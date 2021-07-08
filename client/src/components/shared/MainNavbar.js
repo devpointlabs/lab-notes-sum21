@@ -24,11 +24,19 @@ const MainNavbar = ({ user, handleLogout, history }) => {
   }
 
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="light" variant="light">
       <Link to="/">
-        <Navbar.Brand>Home</Navbar.Brand>
+        <Navbar.Brand href="#home">
+          <img
+            alt=""
+            src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1625707186/logo_hy0ksx.png"
+            width="130"
+            height="30"
+            className="d-inline-block align-top"
+            />{' '}
+        </Navbar.Brand>
       </Link>
-      { rightNavItems() }
+      { rightNavItems()}
     </Navbar>
   )
 }

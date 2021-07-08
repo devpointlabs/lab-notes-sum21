@@ -8,11 +8,15 @@ export const BookConsumer = BookContext.Consumer;
 const BookProvider = ({ children }) => {
     // this will grab all the books and fill the array up with books from database
     const [books, setBooks] = useState([])
-    useEffect( () => {
+    // useEffect( () => {
+    const getAllBooks = () => {
         axios.get('/api/books')
-        .then( res => setBooks(res.data))
-        .catch(err => console.log(err))
-    }, [])
+            .then( res => {
+                setBooks(res.data)
+            })
+            .catch(err => console.log(err))
+    }
+    // }, [])
 
    const addBook = (book) => {
        axios.post('/api/books', { book })
@@ -49,11 +53,10 @@ const BookProvider = ({ children }) => {
     return (
         <BookContext.Provider value={{
             books, 
+            getAllBooks: getAllBooks,
             addBook: addBook,
             updateBook: updateBook,
             deleteBook: deleteBook,
-
-
         }}>
             { children }
         </BookContext.Provider>
