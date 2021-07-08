@@ -7,6 +7,8 @@ import MainNavbar from './components/shared/MainNavbar';
 import FetchUser from './components/auth/FetchUser';
 import Register from './components/auth/Register';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import Books from './components/books/Books';
+
 
 
 const App = () => (
@@ -15,8 +17,9 @@ const App = () => (
     <FetchUser>
       <Container>
         <Switch>
-          <Route exact path="/" component={Login} />
+          <Route exact path="/" component={Home} />
           <ProtectedRoute exact path="/home" component={Home} />
+          <Route exact path="/books" component={Books} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route component={Nomatch} />
