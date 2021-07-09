@@ -24,15 +24,6 @@ const MainNavbar = ({ user, handleLogout, history }) => {
   }
 
   return (
-<<<<<<< HEAD
-    <Navbar bg="dark" variant="dark">
-        <Link to="/books">
-          <Navbar.Brand>Home</Navbar.Brand>
-        </Link>
-       
-     
-      { rightNavItems() }
-=======
     <Navbar bg="light" variant="light">
       <Link to="/">
         <Navbar.Brand href="#home">
@@ -46,7 +37,6 @@ const MainNavbar = ({ user, handleLogout, history }) => {
         </Navbar.Brand>
       </Link>
       { rightNavItems()}
->>>>>>> 1e2bb87 (profile.js)
     </Navbar>
   )
 }
