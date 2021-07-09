@@ -12,7 +12,7 @@ const AuthProvider = ({children}) => {
       .then( res => {
         setUser(res.data.data);
         // change this to /books once we've created that page and route
-        history.push("/home");
+        history.push("/books");
       })
       .catch( err => console.log(err) )
   }
@@ -21,7 +21,7 @@ const AuthProvider = ({children}) => {
     axios.post("/api/auth/sign_in", user)
       .then( res => {
         setUser(res.data.data);
-        history.push("/home");
+        history.push("/books");
         // history <= 0 ? "No history" : "there is history"
       })
       .catch( err => console.log(err) )
