@@ -90,7 +90,7 @@ const Profile = ({ user, updateUser }) => {
       </Form>
     )
   }
-  
+ 
   return(
     <Container>
       <Grid>
