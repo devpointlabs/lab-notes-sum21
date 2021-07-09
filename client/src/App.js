@@ -8,6 +8,7 @@ import FetchUser from './components/auth/FetchUser';
 import Register from './components/auth/Register';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Books from './components/books/Books';
+import Profile from './components/auth/Profile';
 
 
 const App = () => (
@@ -21,6 +22,7 @@ const App = () => (
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/books" component={Books}/>
+          <ProtectedRoute exact path="/profile" component={Profile}/>
           <Route component={Nomatch} />
         </Switch>
       </Container>   
