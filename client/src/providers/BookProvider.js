@@ -57,8 +57,6 @@ const BookProvider = ({ children }) => {
             addBook: addBook,
             updateBook: updateBook,
             deleteBook: deleteBook,
-
-
         }}>
             { children }
         </BookContext.Provider>

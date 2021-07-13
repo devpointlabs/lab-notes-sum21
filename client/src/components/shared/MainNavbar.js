@@ -24,6 +24,7 @@ const MainNavbar = ({ user, handleLogout, history }) => {
   }
 
   return (
+<<<<<<< HEAD
     <Navbar bg="dark" variant="dark">
         <Link to="/books">
           <Navbar.Brand>Home</Navbar.Brand>
@@ -31,6 +32,21 @@ const MainNavbar = ({ user, handleLogout, history }) => {
        
      
       { rightNavItems() }
+=======
+    <Navbar bg="light" variant="light">
+      <Link to="/">
+        <Navbar.Brand href="#home">
+          <img
+            alt=""
+            src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1625707186/logo_hy0ksx.png"
+            width="130"
+            height="30"
+            className="d-inline-block align-top"
+            />{' '}
+        </Navbar.Brand>
+      </Link>
+      { rightNavItems()}
+>>>>>>> 1e2bb87 (profile.js)
     </Navbar>
   )
 }
