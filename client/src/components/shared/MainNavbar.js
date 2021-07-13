@@ -1,6 +1,6 @@
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Link, withRouter } from 'react-router-dom';
-import { Navbar, Nav, Button } from 'react-bootstrap';
+import { Navbar, Nav, Button, Container } from 'react-bootstrap';
 
 const MainNavbar = ({ user, handleLogout, history }) => {
 
@@ -25,9 +25,11 @@ const MainNavbar = ({ user, handleLogout, history }) => {
 
   return (
     <Navbar bg="dark" variant="dark">
-      <Link to="/books">
-        <Navbar.Brand>Home</Navbar.Brand>
-      </Link>
+        <Link to="/books">
+          <Navbar.Brand>Home</Navbar.Brand>
+        </Link>
+       
+     
       { rightNavItems() }
     </Navbar>
   )

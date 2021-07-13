@@ -8,9 +8,9 @@ const Books = () => (
       <p>My Books</p>
       {/* </Jumbotron> */}
       <BookList />
-      <Modal>
+      {/* <Modal> */}
         <BookForm />
-      </Modal>
+      {/* </Modal> */}
     </Container>
   </>
 );

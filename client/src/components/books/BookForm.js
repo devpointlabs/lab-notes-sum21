@@ -90,26 +90,24 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
                     
                         <ColorStyles
                             bg="#9848FF"
-                            onClick={() => setBook({...book, 
-                                color: "linear-gradient(to right, rgba(152, 72, 255, 100),rgba(152, 72, 255, 73))",
-                                    })}
+                            onClick={() => setBook({...book, color: "linear-gradient(to right, rgba(152, 72, 150, 1), rgba(152, 72, 255, .73))"})}
                         ></ColorStyles>
                         <ColorStyles 
                             bg="#407D60" 
-                            onClick={() => setBook({...book, color: "#407D60"})}
+                            onClick={() => setBook({...book, color: "linear-gradient(to right, rgba(64, 125, 96, 1), rgba(64, 125, 96, 0.75))"})}
                         ></ColorStyles>
                         <ColorStyles
                             bg="#D66E33" 
-                            onClick={() => setBook({...book, color: "#D66E33"})}
+                            onClick={() => setBook({...book, color: "linear-gradient(to right, rgba(215, 110, 51, 0.9), rgba(215, 110, 51, 0.63))"})}
                         ></ColorStyles>
                         <ColorStyles
                             bg="#44BCE0" 
-                            onClick={() => setBook({...book, color: "#44BCE0"})}
+                            onClick={() => setBook({...book, color: "linear-gradient(to right, rgba(68, 188, 224, 0.9), rgba(68, 188, 224, 0.55))"})}
                         ></ColorStyles>
                         <ColorStyles 
                             bg="#42487E" 
                             onClick={() => setBook({...book, 
-                                color: "#42487E"})}
+                                color: "linear-gradient(to right, rgba(66, 72, 127, 1), rgba(66, 72, 127, 0.75))"})}
                         ></ColorStyles>
                     
                 
@@ -124,7 +122,7 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
         </Form>
     )
 }
-
+// , linear-gradient(to right, rgba(152, 72, 255, 100),rgba(152, 72, 255, 73)
 const ConnectedBookForm = (props) => (
     <BookConsumer>
         { value => (

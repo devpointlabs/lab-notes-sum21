@@ -40,11 +40,12 @@ const BookProvider = ({ children }) => {
         .catch( err => console.log(err) )
    }
 
-   const deleteBook = (id) => {
+   const deleteBook = (id, history) => {
        axios.delete(`/api/books/${id}`)
         .then( res => {
             setBooks(books.filter(b => b.id !== id))
             alert(res.data.message)
+            history.push ("/books")
         })
         .catch( err => console.log(err) )
    }
