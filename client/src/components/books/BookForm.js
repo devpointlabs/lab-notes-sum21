@@ -1,24 +1,39 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Form, Col, Button } from 'react-bootstrap';
 import { BookConsumer } from '../../providers/BookProvider';
-import BookColorOpts, { MyPurpleButton, MyGreenButton } from './BookColorOpts.js';
+import { ColorStyles } from '../styledComponents/sharedStyles';
+import { withRouter } from 'react-router-dom';
 
 
 
 
 
-const BookForm = ({ addBook }) => {
+
+const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, updateBook, handleEditClose, history }) => {
     // do we set up these date values to empty strings or to null?
-    const [book, setBook] = useState({ title: "", descript: "", start_date: null, end_date: null, color: "" })
+    const [book, setBook] = useState({ title: "", descript: "", start_date: "", end_date: "", color: "" })
 
+ useEffect( ()  => {
+     if (id) {
+         setBook({ title, descript, start_date, end_date, color })
+     }
+ }, [] )
     
-    
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        addBook(book)
-        setBook({ title: "", descript: "", start_date: null, end_date: null, color: "" })
+ const handleSubmit = (e) => {
+    e.preventDefault()
+    setBook({...book})
+    if (id) {
+      updateBook(id, book, history)
+      handleEditClose()
+    } else {
+      addBook(book)
     }
+    setBook({ title: "", descript: "", start_date: "", end_date: "", color: "" })
+  }
     return(
+
+
+        
         <Form onSubmit={handleSubmit}>
 
             <Form.Group controlId="title">
@@ -67,24 +82,39 @@ const BookForm = ({ addBook }) => {
                 </Form.Group>
 
             </Form.Row>  
-{/* 
-                // <Form.Group>
-                //     <Form.Label>Colors</Form.Label>
+            
+            <Form.Row>
+                
+                    <Form.Label>Color</Form.Label>              
+                             
+                    
+                        <ColorStyles
+                            bg="#9848FF"
+                            onClick={() => setBook({...book, color: "#9848FF"})}
+                        ></ColorStyles>
+                        <ColorStyles 
+                            bg="#407D60" 
+                            onClick={() => setBook({...book, color: "#407D60"})}
+                        ></ColorStyles>
+                        <ColorStyles
+                            bg="#D66E33" 
+                            onClick={() => setBook({...book, color: "#D66E33"})}
+                        ></ColorStyles>
+                        <ColorStyles
+                            bg="#44BCE0" 
+                            onClick={() => setBook({...book, color: "#44BCE0"})}
+                        ></ColorStyles>
+                        <ColorStyles 
+                            bg="#42487E" 
+                            onClick={() => setBook({...book, color: "#42487E"})}
+                        ></ColorStyles>
+                    
+                
+            </Form.Row>
+                
 
-                //     <MyPurpleButton></MyPurpleButton>
-                //     <MyGreenButton></MyGreenButton>
-                        
-                //             {/* <Button variant="purple-btn"></Button>{' '}
-                //             <Button variant="green-btn"></Button>{' '}
-                //             <Button variant="orange-btn"></Button>{' '}
-                //             <Button variant="aqua-btn"></Button>{' '}
-                //             <Button variant="bluepurple-btn"></Button>{' '}    */}
-                        
-                {/* // </Form.Group> */} 
-
-
-
-
+                
+        
             <Button variant="primary" type="submit">
                 Done
             </Button>
@@ -100,7 +130,13 @@ const ConnectedBookForm = (props) => (
     </BookConsumer>
 )
 
-export default ConnectedBookForm;
+export default withRouter(ConnectedBookForm);
+
+//     { key: "p", text: "purple", value: "#9848FF", },
+//     { key: "g", text: "green", value: "#407D60", },
+//     { key: "o", text: "orange", value: "#D66E33", },
+//     { key: "a", text: "aqua", value: "#44BCE0", },
+//     { key: "n", text: "bluepurple", value: "#42487E"
 
 
 

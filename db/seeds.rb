@@ -1,7 +1,8 @@
 5.times do
   book = Book.create(
     title: Faker::Job.position,
-    descript: Faker::Marketing.buzzwords
+    descript: Faker::Marketing.buzzwords,
+
   )
   3.times do
     day = Day.create(
