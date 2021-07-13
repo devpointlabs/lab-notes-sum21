@@ -40,7 +40,7 @@ const Profile = ({ user, updateUser }) => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    updateUser(user.user.id, editUser)
+    updateUser(user.id, editUser)
     setUser({name: '', email: '', file: ''})
     setEditing(false)
   }
@@ -90,7 +90,6 @@ const Profile = ({ user, updateUser }) => {
       </Form>
     )
   }
- 
   return(
     <Container>
       <Grid>
