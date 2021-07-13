@@ -8,9 +8,11 @@ const MainNavbar = ({ user, handleLogout, history }) => {
     if (user) {
       return(
         <Nav className="justify-content-end">
+          <Nav.Link href="/profile">Profile</Nav.Link>
           <Button variant="outline-info" onClick={() => handleLogout(history)}>
             Logout
           </Button>
+          
         </Nav>
       )
     } else {

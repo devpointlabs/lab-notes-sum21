@@ -3,13 +3,13 @@ import { AuthConsumer } from '../../providers/AuthProvider';
 import { Button, Form } from 'react-bootstrap';
 
 const Register = ({ handleRegister, history }) => {
-  const [user, setUser] = useState({email: "", password: "", passwordConfirmation: ""})
+  const [user, setUser] = useState({name:"", email: "", password: "", passwordConfirmation: ""})
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (user.password === user.passwordConfirmation) {
       handleRegister(user, history)
-      setUser({ email: '', password: '', passwordConfirmation: '' })
+      setUser({ name: '', email: '', password: '', passwordConfirmation: '' })
     } else {
       alert('Passwords Do Not Match!')
     }
@@ -18,6 +18,16 @@ const Register = ({ handleRegister, history }) => {
   return (
     <>
       <Form onSubmit={handleSubmit}>
+      <Form.Group controlId="formBasicName">
+          <Form.Label>Name</Form.Label>
+          <Form.Control 
+            type="name" 
+            placeholder="bob vance" 
+            name="name"
+            value={user.name}
+            onChange={(e) => setUser({...user, name: e.target.value})}
+          />
+        </Form.Group>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control 
