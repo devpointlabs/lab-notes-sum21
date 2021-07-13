@@ -16,7 +16,7 @@ initMiddleware();
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
-      <BookProvider>j
+      <BookProvider>
         <DayProvider>
           <ColProvider>
             <BrowserRouter>
