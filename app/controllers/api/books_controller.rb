@@ -13,9 +13,19 @@ class Api::BooksController < ApplicationController
   def create
     @book = current_user.books.new(book_params)
     if @book.save
+      @start = @book.start_date
+      @endDate = @book.end_date
+      @daysArray = (@start..@endDate).to_a
+      createDays(@daysArray, @book.id)
       render json: @book
     else
       render json: { errors: @book.errors }, status: :unprocessable_entity
+    end
+  end
+
+  def createDays(daysArr, bookId)
+    daysArr.each_with_index do | day, index | 
+      Day.create(day_date: daysArr[index], book_id: bookId)
     end
   end
 

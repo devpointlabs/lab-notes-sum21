@@ -8,6 +8,11 @@ import Moment from 'react-moment';
 
 const BookShow = ({ location, deleteBook, match, history}) => {
  
+import DayList from '../days/DayList';
+import DayForm from '../days/DayForm';
+
+const BookShow = ({ location, deleteBook, match }) => {
+  // const bookContext = useContext(BookContext);
   const [editshow, setEditShow] = useState(false);
   const handleEditClose = () => setEditShow(false);
   const handleEditShow = () => setEditShow(true);
@@ -49,6 +54,7 @@ const BookShow = ({ location, deleteBook, match, history}) => {
       </Modal>
 
       <Button variant="danger" onClick={() => deleteBook(match.params.id, history)}>Delete</Button>
+      <DayList bookId={location.state.id}/>
     </>
   )
 }

@@ -4,7 +4,7 @@ import axios from 'axios';
 export const DayContext = React.createContext();
 export const DayConsumer = DayContext.Consumer;
 
-const DayProvider = ({children}) => {
+const DayProvider = ({ children}) => {
   const [days, setDays] = useState([])
   const getAllDays = (bookId) => {
     axios.get(`/api/books/${bookId}/days`)
@@ -23,16 +23,16 @@ const DayProvider = ({children}) => {
   }
 
   const updateDay = (bookId, id, day, history) => {
-    axios.put(`/api/books/${bookId}/days/${id}`, {day} )
+    axios.put(`/api/books/${bookId}/days/${id}`, {day})
       .then( res => {
         const updatedDays = days.map( d => {
-          if (days.id === id) {
+          if (d.id === id) {
             return res.data
           }
           return d
         })
         setDays(updatedDays)
-        history.push("/days")
+        history.push("/books/:book_id/days")
       })
       .catch( err => console.log(err) )
   }
@@ -42,7 +42,7 @@ const DayProvider = ({children}) => {
       .then( res => {
         setDays(days.filter( d => d.id !== id))
         alert(res.data.message)
-        history.push("/days")
+        history.push("/books/:book_id/days")
       })
       .catch( err => console.log(err) )
   }

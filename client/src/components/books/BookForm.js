@@ -4,6 +4,7 @@ import { BookConsumer } from '../../providers/BookProvider';
 import { ColorStyles } from '../styledComponents/sharedStyles';
 import { withRouter } from 'react-router-dom';
 
+
 const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, updateBook, handleEditClose, history }) => {
     // do we set up these date values to empty strings or to null?
     const [book, setBook] = useState({ title: "", descript: "", start_date: "", end_date: "", color: "" })

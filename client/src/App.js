@@ -14,6 +14,9 @@ import BookShow from './components/books/BookShow';
 import Profile from './components/auth/Profile';
 
 import BookForm from './components/books/BookForm';
+import Days from './components/days/Days';
+import DayShow from './components/days/DayShow';
+
 
 const App = () => (
   <>
@@ -24,6 +27,10 @@ const App = () => (
           <Route exact path="/" component={Login} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
+          <ProtectedRoute exact path="/books" component={Books} />
+          <ProtectedRoute exact path="/books/:id" component={BookShow} />
+          <ProtectedRoute exact path="/books/:bookId/days" component={Days} />
+          <ProtectedRoute exact path="/books/:bookId/days/:id" component={DayShow} />
           <Route exact path="/register" component={Register} />
           <ProtectedRoute exact path="/books" component={Books} />
           <ProtectedRoute exact path="/bookform" component={BookForm} />
