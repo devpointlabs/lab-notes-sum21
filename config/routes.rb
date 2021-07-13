@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :users, only: :update
       resources :books
-  end
+    end
     resources :books do
       resources :days
     end
@@ -15,5 +15,5 @@ Rails.application.routes.draw do
       resources :cards
     end
   end
-end
+
 
