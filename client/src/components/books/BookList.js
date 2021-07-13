@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { BookConsumer } from '../../providers/BookProvider';
 import { Link } from 'react-router-dom';
-import { ListGroup } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 
 const BookList= ({ books, getAllBooks }) => {
@@ -11,19 +11,24 @@ const BookList= ({ books, getAllBooks }) => {
   }, [])
   return (
     <>
-    <ListGroup>
+    <h1>My Cards</h1>
+    <Card>
         { books.map( b => 
-          <Link to={{
+          <Card.Link to={{
             pathname: `./books/${b.id}`,
             state: { ...b }
           }}>
-            <ListGroup.Item>
+            <Card.Title>
               Book Title: {b.title} 
-              Description: {b.descript} </ListGroup.Item>
+              </Card.Title>
+              <Card.Text>
+
+              Description: {b.descript} 
+              </Card.Text>
             
-          </Link>
+          </Card.Link>
         )}
-      </ListGroup>
+      </Card>
     
     </>
   )
