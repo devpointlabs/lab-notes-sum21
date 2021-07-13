@@ -90,7 +90,9 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
                     
                         <ColorStyles
                             bg="#9848FF"
-                            onClick={() => setBook({...book, color: "#9848FF"})}
+                            onClick={() => setBook({...book, 
+                                color: "linear-gradient(to right, rgba(152, 72, 255, 100),rgba(152, 72, 255, 73))",
+                                    })}
                         ></ColorStyles>
                         <ColorStyles 
                             bg="#407D60" 
@@ -106,7 +108,8 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
                         ></ColorStyles>
                         <ColorStyles 
                             bg="#42487E" 
-                            onClick={() => setBook({...book, color: "#42487E"})}
+                            onClick={() => setBook({...book, 
+                                color: "#42487E"})}
                         ></ColorStyles>
                     
                 

@@ -1,43 +1,45 @@
+import { useEffect, useContext } from "react";
+import { BookContext } from "../../providers/BookProvider";
+import { Link } from "react-router-dom";
+import { Card, Button, CardGroup } from "react-bootstrap";
+import { ColorStyles, ColorBoxes } from "../styledComponents/sharedStyles";
 
-import { useEffect } from 'react';
-import { BookConsumer } from '../../providers/BookProvider';
-import { Link } from 'react-router-dom';
-import { Card } from 'react-bootstrap';
+const BookList = ({}) => {
+  const bookContext = useContext(BookContext);
 
+  useEffect(() => {
+    bookContext?.getAllBooks();
+  }, []);
 
-const BookList= ({ books, getAllBooks }) => {
-  useEffect( () => {
-    getAllBooks()
-  }, [])
   return (
-    <>
-    <h1>My Cards</h1>
-    <Card>
-        { books.map( b => 
-          <Card.Link to={{
-            pathname: `./books/${b.id}`,
-            state: { ...b }
-          }}>
-            <Card.Title>
-              Book Title: {b.title} 
-              </Card.Title>
-              <Card.Text>
-
-              Description: {b.descript} 
-              </Card.Text>
+    <CardGroup>
+        {bookContext?.books?.length && bookContext?.books?.map((b) => {
+        // { bookContext?.books?.map?.((b) => {
+          console.log(b);
+          return (
             
-          </Card.Link>
-        )}
-      </Card>
-    
-    </>
-  )
-}
-const ConnectedBookList = (props) => (
-  <BookConsumer>
-    { value => 
-      <BookList {...props} {...value} />
-    }
-  </BookConsumer>
-)
-export default ConnectedBookList;
+            
+            <Link 
+              to={{
+                pathname: `/books/${b.id}`,
+                state: { ...b },
+              }}
+            >
+              <ColorBoxes bg={b.color}>
+              {/* <Card style={{background: "transparent", border: "none"}}> */}
+                <Card.Body>
+                  <Card.Title>{b.title}</Card.Title>
+                  <Card.Text>{b.descript}</Card.Text>
+                </Card.Body>
+              {/* </Card> */}
+              </ColorBoxes>
+            </Link>
+           
+           
+          );
+        })}
+    </CardGroup>
+  );
+};
+
+export default BookList;

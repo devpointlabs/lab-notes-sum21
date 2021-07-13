@@ -1,9 +1,10 @@
 import { Button, Modal } from 'react-bootstrap';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import BookForm from './BookForm';
-import { BookConsumer } from '../../providers/BookProvider';
+import { BookContext } from '../../providers/BookProvider';
 
-const BookShow = ({ location, match, deleteBook, history }) => {
+const BookShow = ({ location, deleteBook, match }) => {
+  const bookContext = useContext(BookContext);
   const [editshow, setEditShow] = useState(false);
   const handleEditClose = () => setEditShow(false);
   const handleEditShow = () => setEditShow(true);
@@ -25,7 +26,7 @@ const BookShow = ({ location, match, deleteBook, history }) => {
       </p>
       <Button variant="warning" onClick={() => handleEditShow()}>Edit</Button>
       {' '}
-      <Button variant="danger">Delete</Button>
+      
       <Modal show={editshow} onHide={handleEditClose}>
         <Modal.Header closeButton>
           <Modal.Title>Book {location.state.id} Edit</Modal.Title>
@@ -39,13 +40,10 @@ const BookShow = ({ location, match, deleteBook, history }) => {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      <Button variant="danger" onClick={() => deleteBook(match.params.id)}>Delete</Button>
     </>
   )
 }
 
-constConnectedBookShow = (props) => (
-    <BookConsumer>
-        { value => <BookShow {...props} {...value} />}
-    </BookConsumer>
-)
-export default ConnectedBookShow;
+export default BookShow;

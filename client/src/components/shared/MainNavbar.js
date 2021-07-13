@@ -25,7 +25,7 @@ const MainNavbar = ({ user, handleLogout, history }) => {
 
   return (
     <Navbar bg="dark" variant="dark">
-      <Link to="/">
+      <Link to="/books">
         <Navbar.Brand>Home</Navbar.Brand>
       </Link>
       { rightNavItems() }
