@@ -4,7 +4,6 @@ import { Form, Grid, Image, Container, Button, Header } from 'semantic-ui-react'
 import Dropzone from 'react-dropzone';
 
 const defaultImage = "https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png"
-
 const styles = {
   dropzone: {
     height: "150px",
@@ -21,9 +20,11 @@ const styles = {
 const Profile = ({ user, updateUser }) => {
   const [editing, setEditing] = useState(false)
   const [editUser, setUser] = useState({name: '', email: '', file: ''})
+  
   useEffect( () => {
     setUser({ name: user.user.name, email: user.user.email})
   }, [])
+  
   const profileView = () => {
     return (
       <>
@@ -40,7 +41,7 @@ const Profile = ({ user, updateUser }) => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    updateUser(user.user.id, editUser)
+    updateUser(user.id, editUser)
     setUser({name: '', email: '', file: ''})
     setEditing(false)
   }
@@ -90,7 +91,6 @@ const Profile = ({ user, updateUser }) => {
       </Form>
     )
   }
-  
   return(
     <Container>
       <Grid>
