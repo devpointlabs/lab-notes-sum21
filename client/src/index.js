@@ -8,6 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { initMiddleware } from 'devise-axios';
 import BookProvider from './providers/BookProvider';
 import AuthProvider from './providers/AuthProvider';
+import ColProvider from './providers/ColProvider';
+import DayProvider from './providers/DayProvider';
 
 initMiddleware();
 
@@ -15,9 +17,13 @@ ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <BookProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <DayProvider>
+          <ColProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </ColProvider>
+        </DayProvider>
       </BookProvider>
     </AuthProvider>
   </React.StrictMode>,

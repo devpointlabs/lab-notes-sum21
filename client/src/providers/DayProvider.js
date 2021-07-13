@@ -6,27 +6,27 @@ export const DayConsumer = DayContext.Consumer;
 
 const DayProvider = ({children}) => {
   const [days, setDays] = useState([])
-  const getAllDays = () => {
-    axios.get(`/api/books/${id}/days`)
+  const getAllDays = (bookId) => {
+    axios.get(`/api/books/${bookId}/days`)
       .then( res => {
         setDays(res.data)
       })
       .catch( err => console.log(err) )
   }
   
-  const addDay = (day) => {
-    axios.post(`/api/books/${id}/days`, {day} )
+  const addDay = (bookId, day) => {
+    axios.post(`/api/books/${bookId}/days`, {day} )
       .then( res => {
         setDays([...days, res.data])
       })
       .catch( err => console.log(err) )
   }
 
-  const updateDay = (id, day, history) => {
-    axios.put(`/api/books/${id}/days/${id}`, {day} )
+  const updateDay = (bookId, id, day, history) => {
+    axios.put(`/api/books/${bookId}/days/${id}`, {day} )
       .then( res => {
         const updatedDays = days.map( d => {
-          if (days.id == id) {
+          if (days.id === id) {
             return res.data
           }
           return d
@@ -37,8 +37,8 @@ const DayProvider = ({children}) => {
       .catch( err => console.log(err) )
   }
 
-  const deleteDay = (id, history) => {
-    axios.delete(`/api/books/${id}/days/${id}`)
+  const deleteDay = (bookId, id, history) => {
+    axios.delete(`/api/books/${bookId}/days/${id}`)
       .then( res => {
         setDays(days.filter( d => d.id !== id))
         alert(res.data.message)

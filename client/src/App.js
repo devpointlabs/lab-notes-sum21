@@ -7,7 +7,8 @@ import MainNavbar from './components/shared/MainNavbar';
 import FetchUser from './components/auth/FetchUser';
 import Register from './components/auth/Register';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-
+import ColShow from './components/cols/ColShow';
+import ColForm from './components/cols/ColForm';
 
 const App = () => (
   <>
@@ -16,9 +17,11 @@ const App = () => (
       <Container>
         <Switch>
           <Route exact path="/" component={Login} />
-          <ProtectedRoute exact path="/home" component={Home} />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <ProtectedRoute exact path="/days/:dayId/cols/:id" component={ColShow} />
+          <ProtectedRoute exact path="/days/:dayId/cols" component={ColForm} />
           <Route component={Nomatch} />
         </Switch>
       </Container>   
