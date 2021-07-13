@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
-import { Form, Grid, Image, Container, Button, Header } from 'semantic-ui-react';
+import { Form, Container, Button, Media } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
 
 const defaultImage = "https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png"
@@ -27,13 +27,19 @@ const Profile = ({ user, updateUser }) => {
   const profileView = () => {
     return (
       <>
-        <Grid.Column width={4}>
-          <Image src={user.user.image || defaultImage} />
-        </Grid.Column>
-        <Grid.Column width={8}>
-          <Header as="h1">{user.user.name}</Header>
-          <Header as="h1">{user.user.email}</Header>
-        </Grid.Column>
+        <Media>
+          <img
+            width={64}
+            height={64}
+            className="align-self-start mr-3"
+            src={user.user.image || defaultImage}
+            alt="Generic placeholder"
+          />
+          <Media.Body>
+            <h5>{user.user.name}</h5>
+            <h5>{user.user.email}</h5>
+          </Media.Body>
+        </Media>
       </>
     )
   }
@@ -48,7 +54,8 @@ const Profile = ({ user, updateUser }) => {
   const editView = () => {
     return (
       <Form onSubmit={handleSubmit}>
-        <Grid.Column width={4}>
+        <Media>
+          <Media.Body>
           <Dropzone
             onDrop={(files) => setUser({...editUser, file: files[0]})}
             multiple={false}
@@ -69,39 +76,49 @@ const Profile = ({ user, updateUser }) => {
               )
             }}
           </Dropzone>
-        </Grid.Column>
-        <Grid.Column width={8}>
-          <Form.Input
-            label="Name"
-            name="name"
-            value={editUser.name}
-            required
-            onChange={(e) => setUser({ ...editUser, name: e.target.value })}
-          />
-          <Form.Input
-            label="Email"
-            name="email"
-            value={editUser.email}
-            required
-            onChange={(e) => setUser({ ...editUser, email: e.target.value })}
-          />
+          </Media.Body>
+        </Media>
+      
+        <Media>
+          <Media.Body>
+          <Form.Group controlId="formBasicUserName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control 
+              type="text" 
+              placeholder="Name" 
+              name="name"
+              value={editUser.name}
+              onChange={(e) => setUser({...editUser, name: e.target.value})}
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicUserEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control 
+              type="text" 
+              placeholder="Email" 
+              name="email"
+              value={editUser.email}
+              onChange={(e) => setUser({...editUser, email: e.target.value})}
+            />
+          </Form.Group>
           <Button>Update</Button>
-        </Grid.Column>
-      </Form>
+          </Media.Body>
+        </Media>
+        </Form>
     )
   }
   return(
     <Container>
-      <Grid>
-        <Grid.Row>
+      <Media>
+        <Media.Body>
           { editing ? editView() : profileView() }
-          <Grid.Column>
+          <Media.Body>
             <Button onClick={() => setEditing(!editing)}>
               { editing ? 'Cancel' : 'Edit'}
             </Button>
-          </Grid.Column>
-        </Grid.Row>  
-      </Grid>
+          </Media.Body>
+        </Media.Body>  
+      </Media>
     </Container>
   )
 }
