@@ -1,5 +1,6 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState } from 'react';
 import axios from 'axios';
+
 
 export const BookContext =  React.createContext();
 
@@ -8,11 +9,14 @@ export const BookConsumer = BookContext.Consumer;
 const BookProvider = ({ children }) => {
     // this will grab all the books and fill the array up with books from database
     const [books, setBooks] = useState([])
-    useEffect( () => {
+    
+    const getAllBooks = () => {
         axios.get('/api/books')
-        .then( res => setBooks(res.data))
+        .then( res => {
+            setBooks(res.data)
+        })
         .catch(err => console.log(err))
-    }, [])
+    }
 
    const addBook = (book) => {
        axios.post('/api/books', { book })
@@ -22,7 +26,7 @@ const BookProvider = ({ children }) => {
         .catch( err => console.log(err))
    }
 
-   const updateBook = (id, book) => {
+   const updateBook = (id, book ) => {
        axios.put(`/api/books/${id}`, { book })
         .then(res => {
             const updatedBooks = books.map( b => {
@@ -36,19 +40,20 @@ const BookProvider = ({ children }) => {
         .catch( err => console.log(err) )
    }
 
-   const deleteBook = (id) => {
+   const deleteBook = (id, history) => {
        axios.delete(`/api/books/${id}`)
         .then( res => {
             setBooks(books.filter(b => b.id !== id))
             alert(res.data.message)
+            history.push ("/books")
         })
         .catch( err => console.log(err) )
-
    }
    
     return (
         <BookContext.Provider value={{
             books, 
+            getAllBooks: getAllBooks,
             addBook: addBook,
             updateBook: updateBook,
             deleteBook: deleteBook,

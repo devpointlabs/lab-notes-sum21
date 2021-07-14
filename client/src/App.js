@@ -9,6 +9,8 @@ import Register from './components/auth/Register';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import ColShow from './components/cols/ColShow';
 import ColForm from './components/cols/ColForm';
+import Books from './components/books/Books';
+import BookShow from './components/books/BookShow';
 
 const App = () => (
   <>
@@ -20,6 +22,8 @@ const App = () => (
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
+          <ProtectedRoute exact path="/books" component={Books} />
+          <ProtectedRoute exact path="/books/:id" component={BookShow} />
           <ProtectedRoute exact path="/days/:dayId/cols/:id" component={ColShow} />
           <ProtectedRoute exact path="/days/:dayId/cols" component={ColForm} />
           <Route component={Nomatch} />

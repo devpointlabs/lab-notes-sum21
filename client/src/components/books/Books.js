@@ -1,10 +1,19 @@
-import BookForm from './BookForm';
+import { Container, Modal } from "react-bootstrap";
+import BookList from "./BookList";
+import BookForm from "./BookForm";
 
 const Books = () => (
-    <>
-    <h1>Books Page</h1>
-    <BookForm />
-    </>
-)
+  <>
+    <Container fluid='md'>
+      <p>My Books</p>
+      {/* </Jumbotron> */}
+      <BookList />
+      {/* <Modal> */}
+        <BookForm />
+      {/* </Modal> */}
+    </Container>
+  </>
+);
 
 export default Books;
+
