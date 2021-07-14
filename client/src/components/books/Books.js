@@ -7,9 +7,9 @@ const Books = () => (
     <Container fluid='md'>
       <p>My Books</p>
       <BookList />
-      <Modal>
+      {/* <Modal> */}
         <BookForm />
-      </Modal>
+      {/* </Modal> */}
     </Container>
   </>
 );
