@@ -19,10 +19,10 @@ const BookShow = ({ location, deleteBook, match, history}) => {
         Book Description: {location.state.description}
       </p>
       <p>
-        Book start_date ${location.state.start_date}
+        Tracking  ${location.state.start_date}
       </p>
       <p>
-        Book end_date ${location.state.end_date}
+        Tracking End Date: ${location.state.end_date}
       </p>
       <Button variant="warning" onClick={() => handleEditShow()}>Edit</Button>
       {' '}
