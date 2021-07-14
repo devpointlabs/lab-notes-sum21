@@ -8,7 +8,7 @@ import FetchUser from './components/auth/FetchUser';
 import Register from './components/auth/Register';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import ColShow from './components/cols/ColShow';
-import ColForm from './components/cols/ColForm';
+import Cols from './components/cols/Cols';
 import Books from './components/books/Books';
 import BookShow from './components/books/BookShow';
 
@@ -24,8 +24,8 @@ const App = () => (
           <Route exact path="/register" component={Register} />
           <ProtectedRoute exact path="/books" component={Books} />
           <ProtectedRoute exact path="/books/:id" component={BookShow} />
+          <ProtectedRoute exact path="/days/:dayId/cols" component={Cols} />
           <ProtectedRoute exact path="/days/:dayId/cols/:id" component={ColShow} />
-          <ProtectedRoute exact path="/days/:dayId/cols" component={ColForm} />
           <Route component={Nomatch} />
         </Switch>
       </Container>   
