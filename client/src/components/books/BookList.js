@@ -1,11 +1,13 @@
 import { useEffect, useContext } from "react";
 import { BookContext } from "../../providers/BookProvider";
 import { Link } from "react-router-dom";
-import { Card, Button, CardGroup } from "react-bootstrap";
+import { Card, Button, CardGroup, ProgressBar } from "react-bootstrap";
 import { ColorStyles, ColorBoxes } from "../styledComponents/sharedStyles";
+
 
 const BookList = ({}) => {
   const bookContext = useContext(BookContext);
+    
 
   useEffect(() => {
     bookContext?.getAllBooks();
