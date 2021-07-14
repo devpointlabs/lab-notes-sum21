@@ -6,11 +6,8 @@ const Books = () => (
   <>
     <Container fluid='md'>
       <p>My Books</p>
-      {/* </Jumbotron> */}
       <BookList />
-      {/* <Modal> */}
-        <BookForm />
-      {/* </Modal> */}
+      <BookForm />
     </Container>
   </>
 );
