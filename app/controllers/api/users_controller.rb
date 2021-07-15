@@ -5,7 +5,6 @@ class Api::UsersController < ApplicationController
     user.email = params[:email] ? params[:email] : user.email
     
     file = params[:file] 
-    
     if file && file != ''
       begin
         ext = File.extname(file.tempfile)
@@ -13,7 +12,7 @@ class Api::UsersController < ApplicationController
         user.image = cloud_image['secure_url']
         if user.save 
           render json: user
-        else 
+        else
           render json: { errors: user.errors.full_messages }, status: 422
         end
       rescue => e 

@@ -22,7 +22,7 @@ const Profile = ({ user, updateUser }) => {
   const [editing, setEditing] = useState(false)
   const [editUser, setUser] = useState({name: '', email: '', file: ''})
   useEffect( () => {
-    setUser({ name: user.user.name, email: user.user.email})
+    setUser({ name: user.user.name, email: user.user.email, file: user.user.image})
   }, [])
   const profileView = () => {
     return (
@@ -46,7 +46,7 @@ const Profile = ({ user, updateUser }) => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    updateUser(user.id, editUser)
+    updateUser(user.user.id, editUser)
     setUser({name: '', email: '', file: ''})
     setEditing(false)
   }
@@ -101,7 +101,7 @@ const Profile = ({ user, updateUser }) => {
               onChange={(e) => setUser({...editUser, email: e.target.value})}
             />
           </Form.Group>
-          <Button>Update</Button>
+          <Button type='submit'>Update</Button>
           </Media.Body>
         </Media>
         </Form>
