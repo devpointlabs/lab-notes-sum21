@@ -4,7 +4,6 @@ import { Form, Container, Button, Media } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
 
 const defaultImage = "https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png"
-
 const styles = {
   dropzone: {
     height: "150px",

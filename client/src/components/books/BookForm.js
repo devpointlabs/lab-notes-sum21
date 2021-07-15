@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import { Form, Col, Button } from 'react-bootstrap';
 import { BookConsumer } from '../../providers/BookProvider';
@@ -127,3 +128,5 @@ export default withRouter(ConnectedBookForm);
 //     { key: "o", text: "orange", value: "#D66E33", },
 //     { key: "a", text: "aqua", value: "#44BCE0", },
 //     { key: "n", text: "bluepurple", value: "#42487E"
+=======
+>>>>>>> f45cbfe3e9e0bc363b384402259a975a2c9a8b68
