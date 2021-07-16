@@ -8,9 +8,11 @@ const MainNavbar = ({ user, handleLogout, history }) => {
     if (user) {
       return(
         <Nav className="justify-content-end">
+          <Nav.Link href="/profile">Profile</Nav.Link>
           <Button variant="outline-info" onClick={() => handleLogout(history)}>
             Logout
           </Button>
+          
         </Nav>
       )
     } else {
@@ -24,13 +26,19 @@ const MainNavbar = ({ user, handleLogout, history }) => {
   }
 
   return (
-    <Navbar bg="dark" variant="dark">
-        <Link to="/books">
-          <Navbar.Brand>Home</Navbar.Brand>
-        </Link>
-       
-     
-      { rightNavItems() }
+    <Navbar bg="light" variant="light">
+      <Link to="/">
+        <Navbar.Brand href="#home">
+          <img
+            alt=""
+            src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1625707186/logo_hy0ksx.png"
+            width="130"
+            height="30"
+            className="d-inline-block align-top"
+            />{' '}
+        </Navbar.Brand>
+      </Link>
+      { rightNavItems()}
     </Navbar>
   )
 }

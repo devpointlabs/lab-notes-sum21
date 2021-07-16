@@ -1,13 +1,9 @@
+<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import { Form, Col, Button } from 'react-bootstrap';
 import { BookConsumer } from '../../providers/BookProvider';
 import { ColorStyles } from '../styledComponents/sharedStyles';
 import { withRouter } from 'react-router-dom';
-
-
-
-
-
 
 const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, updateBook, handleEditClose, history }) => {
     // do we set up these date values to empty strings or to null?
@@ -31,8 +27,6 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
     setBook({ title: "", descript: "", start_date: "", end_date: "", color: "" })
   }
     return(
-
-
         
         <Form onSubmit={handleSubmit}>
 
@@ -110,12 +104,8 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
                                 color: "linear-gradient(to right, rgba(66, 72, 127, 1), rgba(66, 72, 127, 0.75))"})}
                         ></ColorStyles>
                     
-                
             </Form.Row>
-                
-
-                
-        
+              
             <Button variant="primary" type="submit">
                 Done
             </Button>
@@ -138,8 +128,5 @@ export default withRouter(ConnectedBookForm);
 //     { key: "o", text: "orange", value: "#D66E33", },
 //     { key: "a", text: "aqua", value: "#44BCE0", },
 //     { key: "n", text: "bluepurple", value: "#42487E"
-
-
-
-
-
+=======
+>>>>>>> f45cbfe3e9e0bc363b384402259a975a2c9a8b68
