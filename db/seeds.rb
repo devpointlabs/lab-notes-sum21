@@ -5,6 +5,8 @@
   "linear-gradient(to right, rgba(68, 188, 224, 0.9), rgba(68, 188, 224, 0.55))", 
   "linear-gradient(to right, rgba(66, 72, 127, 1), rgba(66, 72, 127, 0.75))"]
 
+
+
 5.times do
   book = Book.create(
     title: Faker::Job.position,

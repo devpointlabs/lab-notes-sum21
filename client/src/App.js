@@ -11,6 +11,7 @@ import ColShow from './components/cols/ColShow';
 import Cols from './components/cols/Cols';
 import Books from './components/books/Books';
 import BookShow from './components/books/BookShow';
+import BookForm from './components/books/BookForm';
 
 const App = () => (
   <>
@@ -23,6 +24,7 @@ const App = () => (
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <ProtectedRoute exact path="/books" component={Books} />
+          <ProtectedRoute exact path="/bookform" component={BookForm} />
           <ProtectedRoute exact path="/books/:id" component={BookShow} />
           <ProtectedRoute exact path="/days/:dayId/cols" component={Cols} />
           <ProtectedRoute exact path="/days/:dayId/cols/:id" component={ColShow} />

@@ -2,7 +2,7 @@ import { useEffect, useContext } from "react";
 import { BookContext } from "../../providers/BookProvider";
 import { Link } from "react-router-dom";
 import { Card, Button, CardGroup, ProgressBar } from "react-bootstrap";
-import { ColorStyles, ColorBoxes } from "../styledComponents/sharedStyles";
+import { ColorStyles, ColorBoxes, SettingsCardContainer } from "../styledComponents/sharedStyles";
 
 
 const BookList = ({}) => {
@@ -15,7 +15,8 @@ const BookList = ({}) => {
 
   return (
     <CardGroup>
-        {bookContext?.books?.length && bookContext?.books?.map((b) => {
+      <SettingsCardContainer>
+        {bookContext?.books?.length && bookContext?.books?.map((b,i) => {
         // { bookContext?.books?.map?.((b) => {
           console.log(b);
           // b <= 0 ? "No history":
@@ -29,18 +30,21 @@ const BookList = ({}) => {
               }}
             >
               <ColorBoxes bg={b.color}>
-              {/* <Card style={{background: "transparent", border: "none"}}> */}
+              <Card style={{background: "transparent", border: "none", textAlign: "left", marginRight: "10px"}}>
                 <Card.Body>
-                  <Card.Title>{b.title}</Card.Title>
+                  <Card.Title style= {{whiteSpace: "nowrap"}} >{b.title}</Card.Title>
                   <Card.Text>{b.descript}</Card.Text>
                 </Card.Body>
-              {/* </Card> */}
+                <Card.Footer><ProgressBar now={ (i + 1 *20) }/></Card.Footer>
+              </Card>
               </ColorBoxes>
             </Link>
            
            
           );
         })}
+
+      </SettingsCardContainer>
     </CardGroup>
   );
 };

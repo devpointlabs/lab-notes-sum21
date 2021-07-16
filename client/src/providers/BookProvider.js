@@ -22,11 +22,12 @@ const BookProvider = ({ children }) => {
        axios.post('/api/books', { book })
         .then( res => {
             setBooks([...books, res.data])
+           
         })
         .catch( err => console.log(err))
    }
 
-   const updateBook = (id, book ) => {
+   const updateBook = (id, book, history ) => {
        axios.put(`/api/books/${id}`, { book })
         .then(res => {
             const updatedBooks = books.map( b => {
@@ -36,6 +37,7 @@ const BookProvider = ({ children }) => {
                 return b
             })
             setBooks(updatedBooks)
+            history.push ("/books")
         })
         .catch( err => console.log(err) )
    }
