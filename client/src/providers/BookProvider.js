@@ -18,13 +18,15 @@ const BookProvider = ({ children }) => {
         .catch(err => console.log(err))
     }
 
-   const addBook = (book) => {
+   const addBook = (book, history) => {
        axios.post('/api/books', { book })
         .then( res => {
             setBooks([...books, res.data])
+            
            
         })
         .catch( err => console.log(err))
+        history.push("/books")
    }
 
    const updateBook = (id, book, history ) => {
@@ -33,13 +35,16 @@ const BookProvider = ({ children }) => {
             const updatedBooks = books.map( b => {
                 if (b.id === id) {
                     return res.data
+                    
                 }
                 return b
             })
             setBooks(updatedBooks)
-            history.push ("/books")
+            
+            
         })
         .catch( err => console.log(err) )
+        history.push ("/books")
    }
 
    const deleteBook = (id, history) => {
@@ -59,8 +64,6 @@ const BookProvider = ({ children }) => {
             addBook: addBook,
             updateBook: updateBook,
             deleteBook: deleteBook,
-
-
         }}>
             { children }
         </BookContext.Provider>
