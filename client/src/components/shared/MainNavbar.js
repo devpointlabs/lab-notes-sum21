@@ -27,15 +27,18 @@ const MainNavbar = ({ user, handleLogout, history }) => {
   }
 
   return (
+
     <Navbar bg="white" variant="white" borderRadius="20px" background="rgba(152, 72, 255, 100)" >
         <Link to="/books">
           <Navbar.Brand>Home</Navbar.Brand>
         </Link>
         
+        {/* if user logged in, show button, otherwise no render */}
+        { user && 
         <Link to="/bookform">
           <Button style={{background: "rgba(152, 72, 255, 100)", border: "rgba(152, 72, 255, 100)", color: "white", borderRadius: "15px", position: "absolute", right: "40px", top: "15px"}}>Create a New Book</Button>
        
-        </Link>
+        </Link> }
        
        
      

@@ -21,7 +21,7 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
       updateBook(id, book, history)
       handleEditClose()
     } else {
-      addBook(book)
+      addBook(book, history)
     }
     setBook({ title: "", descript: "", start_date: "", end_date: "", color: "" })
   }
