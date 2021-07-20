@@ -2,6 +2,9 @@ import { Button, Modal } from 'react-bootstrap';
 import { useState } from 'react';
 import BookForm from './BookForm';
 import { BookConsumer } from '../../providers/BookProvider';
+import Moment from 'react-moment';
+
+
 
 const BookShow = ({ location, deleteBook, match, history}) => {
  
@@ -10,19 +13,23 @@ const BookShow = ({ location, deleteBook, match, history}) => {
   const handleEditShow = () => setEditShow(true);
   return (
     <>
-      <h1>Book Show # {location.state.id}</h1>
-      {/* <h1>Checkout Show # {match.params.id}</h1> */}
+      {/* <h1>Book Show # {location.state.id}</h1>
+      <h1>Checkout Show # {match.params.id}</h1> */}
+      
       <p>
+    
+
         Book Title:  {location.state.title}
       </p>
       <p>
-        Book Description: {location.state.description}
+        
+        Book Description: {location.state.descript}
+      </p>
+      <p> 
+        Tracking Begin Date: <Moment format="MM-DD-YYYY">{location.state.start_date}</Moment>
       </p>
       <p>
-        Book start_date ${location.state.start_date}
-      </p>
-      <p>
-        Book end_date ${location.state.end_date}
+        Tracking End Date: <Moment format="MM-DD-YYYY">{location.state.end_date}</Moment>
       </p>
       <Button variant="warning" onClick={() => handleEditShow()}>Edit</Button>
       {' '}

@@ -13,6 +13,7 @@ import Books from './components/books/Books';
 import BookShow from './components/books/BookShow';
 import Profile from './components/auth/Profile';
 
+import BookForm from './components/books/BookForm';
 
 const App = () => (
   <>
@@ -25,6 +26,7 @@ const App = () => (
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <ProtectedRoute exact path="/books" component={Books} />
+          <ProtectedRoute exact path="/bookform" component={BookForm} />
           <ProtectedRoute exact path="/books/:id" component={BookShow} />
           <ProtectedRoute exact path="/days/:dayId/cols" component={Cols} />
           <ProtectedRoute exact path="/days/:dayId/cols/:id" component={ColShow} />

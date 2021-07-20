@@ -1,14 +1,16 @@
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Link, withRouter } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown, Image, Container } from 'react-bootstrap';
-
+import { bookformButton } from '../styledComponents/sharedStyles';
+import { Navbar, Nav, NavDropdown, Image, Container, Button } from 'react-bootstrap';
 const MainNavbar = ({ user, handleLogout, history }) => {
-
   const rightNavItems = () => {
     if (user) {
       return(
         <Container>
         <Nav className="justify-content-end" style={{ width: "100%" }}>
+        <Link to="/bookform">
+          <Button style={{background: "rgba(152, 72, 255, 100)", border: "rgba(152, 72, 255, 100)", color: "white", borderRadius: "15px", position: "absolute", right: "40px", top: "15px"}}>Create a New Book</Button>
+        </Link>
         <NavDropdown eventKey={1} 
               title={
                   <div className="pull-left">
@@ -21,8 +23,7 @@ const MainNavbar = ({ user, handleLogout, history }) => {
                       />
                     </div>
                 } 
-                    id="basic-nav-dropdown">
-
+                id="basic-nav-dropdown">
               <NavDropdown.Item eventKey={1.1} href="/profile">Profile Settings</NavDropdown.Item>
               <NavDropdown.Item divider />
               <NavDropdown.Item eventKey={1.3}>
@@ -42,17 +43,16 @@ const MainNavbar = ({ user, handleLogout, history }) => {
       )
     }
   }
-
   return (
     <Container>
-    <Navbar bg="light" variant="light">
+    <Navbar bg="white" variant="white" borderRadius="20px" background="rgba(152, 72, 255, 100)">
       <Link to="/">
         <Navbar.Brand href="#home">
           <img
             alt=""
             src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1625707186/logo_hy0ksx.png"
-            width="130"
-            height="30"
+            width="175"
+            height="50"
             className="d-inline-block align-top"
             />{' '}
         </Navbar.Brand>
@@ -62,7 +62,6 @@ const MainNavbar = ({ user, handleLogout, history }) => {
     </Container>
   )
 }
-
 const ConnectedMainNavbar = (props) => (
   <AuthConsumer>
     { auth => 
@@ -70,5 +69,14 @@ const ConnectedMainNavbar = (props) => (
     }
   </AuthConsumer>
 )
-
 export default withRouter(ConnectedMainNavbar);
+
+
+
+
+
+
+
+
+
+

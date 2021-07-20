@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, } from 'react-bootstrap';
+import styled from '../styledComponents/ColListPage';
 
 const ColList = ({ dayId, cols, getAllCols }) => {
   useEffect( () => {
@@ -11,32 +12,23 @@ const ColList = ({ dayId, cols, getAllCols }) => {
   return(
     <>
       { cols.map( (c) =>
-      c >= 0 ? "No Columsn => Create One" 
+      c >= 0 ? "No Columns => Create One" 
       :
+      <styled>
         <Container fluid="md">
           <Row>
-            <Col>
-              <h4>
-                Goals
-              </h4>
-            </Col>
-            <Col>
-              <h4>
-                In progress
-              </h4>
-            </Col>
-            <Col>
-              <h4>
-                Done
-              </h4>
-            </Col>
-            <Col>
-              <h4>
-                {c.title}
-              </h4>
-            </Col>
+              <Col>
+                <Link to={{
+                  pathname: `/col/${c.id}`
+                }}>
+                  <h4>
+                    {c.title}
+                  </h4>
+                </Link>
+              </Col>
           </Row>
         </Container>
+      </styled>
       )}
     </>
   )
