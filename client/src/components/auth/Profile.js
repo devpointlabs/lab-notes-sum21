@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
-import { Form, Container, Button, Media } from 'react-bootstrap';
+import { Form, Container, Button, Media, Image } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
 
 const defaultImage = "https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png"
@@ -27,7 +27,7 @@ const Profile = ({ user, updateUser }) => {
     return (
       <>
         <Media>
-          <img
+          <Image
             width={64}
             height={64}
             className="align-self-start mr-3"
