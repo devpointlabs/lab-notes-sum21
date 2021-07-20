@@ -21,7 +21,7 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
       updateBook(id, book, history)
       handleEditClose()
     } else {
-      addBook(book)
+      addBook(book, history)
     }
     setBook({ title: "", descript: "", start_date: "", end_date: "", color: "" })
   }
@@ -99,8 +99,7 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
                         ></ColorStyles>
                         <ColorStyles 
                             bg="#42487E" 
-                            onClick={() => setBook({...book, 
-                                color: "linear-gradient(to right, rgba(66, 72, 127, 1), rgba(66, 72, 127, 0.75))"})}
+                            onClick={() => setBook({...book, color: "linear-gradient(to right, rgba(66, 72, 127, 1), rgba(66, 72, 127, 0.75))"})}
                         ></ColorStyles>
                     
             </Form.Row>
