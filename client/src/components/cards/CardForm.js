@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 // import { Form, Card, Button } from 'react-bootstrap';
 import { CardConsumer } from '../../providers/CardProvider';
 
-
 const CardForm = ({ addCard }) => {
   const [card, setCard] = useState({ title: "", end_time: "", notes: "" })
   const handleSubmit = (e) => {
