@@ -1,39 +1,53 @@
-import {Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
+import { Form, Col, Button } from 'react-bootstrap';
 import { DayConsumer } from '../../providers/DayProvider';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import { useEffect } from 'react';
+import { ColorStyles } from '../styledComponents/sharedStyles';
+import { withRouter } from 'react-router-dom';
 
-const DayForm = ({days, bookId, getAllDays, location}) => {
+const DayForm = ({ addDay, id, day_date, updateDay, handleEditClose, history}) => {
+  const [day, setDay] = useState({ day_date: ""})
+
   useEffect( () => {
-    getAllDays(bookId)
+    if(id) {
+      setDay({ day_date})
+    }
   }, [])
-  return(
-    <>
 
-      <h1>date: {}</h1>
-      <Container>
-        <ArrowBackIosIcon/>
-        <CalendarTodayIcon/>
-        {' '}
-        <ArrowForwardIosIcon/>
-        <Row>
-          <Col md={4}>
-          <Card>
-            <Card.Body>
-            </Card.Body>
-          </Card>
-          </Col>   
-        </Row>
-      </Container>
-    </>
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setDay({...day})
+    if (id) {
+      updateDay(id, day, history)
+      handleEditClose()
+    } else {
+      addDay(day)
+    }
+    setDay({ day_date: ""})
+  }
+
+  return(
+    <Form onSubmit={handleSubmit}>
+      <Form.Label>Date</Form.Label>
+      <Form.Group controlId="formBasicDayDate">
+        <Form.Control
+          placeholder="YYYY-MM-DD"
+          type="date"
+          name="day_date"
+          value={day.day_date}
+          onChange={(e) => setDay({...day, day_date: e.target.value})}
+        />
+      </Form.Group>
+      <Button variant="primary" type="submit">Done</Button>
+    </Form>
   )
 }
 
 const ConnectedDayForm = (props) => (
   <DayConsumer>
-    { value => <DayForm {...props} {...value}/> }
+    { value => (
+      <DayForm {...props} {...value} /> 
+    )}
   </DayConsumer>
 )
-export default ConnectedDayForm;
+
+export default withRouter(ConnectedDayForm);

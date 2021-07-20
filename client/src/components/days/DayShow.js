@@ -1,13 +1,18 @@
+import {Button, Modal} from 'react-bootstrap';
 import { DayConsumer } from '../../providers/DayProvider';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import moment from 'react-moment';
-import axios from 'axios'
+import DayForm from './DayForm';
 
-const DayShow = ({getAllDays, props, book_id, days, location, id, match}) => {
+const DayShow = ({getAllDays, book_id, days, location, match, deleteDay, addDay, history }) => {
+
+  const [editshow, setEditShow] = useState(false);
+  const handleEditClose = () => setEditShow(false);
+  const handleEditShow = () => setEditShow(true);
+
   useEffect( () => {
     getAllDays(book_id)
   }, [])
@@ -48,13 +53,31 @@ const DayShow = ({getAllDays, props, book_id, days, location, id, match}) => {
         }
       </Row>
     </Container> */}
+    <br/>
+    <br/>
+    <Button variant="warning" onClick={() => handleEditShow()}>Edit</Button>
+    {' '}
+    <Button variant="danger" onClick={() => deleteDay(match.params.id, history)}>Delete</Button>
+    {' '}
+    <Modal show={editshow} onHide={handleEditClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Day {location.state.id} Edit</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+          <DayForm { ...location.state } handleEditClose={handleEditClose} />
+      </Modal.Body>
+      <Modal.Footer>
+          <Button variant="secondary" onClick={handleEditClose}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+
     </>
   )
 }
 
 const ConnectedDayShow = (props) => (
   <DayConsumer>
-    { value => <DayShow {...props} {...value} />}
+    { value => ( <DayShow {...props} {...value} /> )}
   </DayConsumer>
 )
 

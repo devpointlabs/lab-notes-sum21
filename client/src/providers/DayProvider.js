@@ -32,7 +32,7 @@ const DayProvider = ({ children}) => {
           return d
         })
         setDays(updatedDays)
-        history.push("/books/:book_id/days")
+        history.push(`/books/${bookId}/days`)
       })
       .catch( err => console.log(err) )
   }
@@ -42,7 +42,7 @@ const DayProvider = ({ children}) => {
       .then( res => {
         setDays(days.filter( d => d.id !== id))
         alert(res.data.message)
-        history.push("/books/:book_id/days")
+        history.push(`/books/${bookId}/days`)
       })
       .catch( err => console.log(err) )
   }

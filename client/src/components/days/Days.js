@@ -4,13 +4,11 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import axios from 'axios';
 import {DayConsumer} from '../../providers/DayProvider';
+import DayForm from './DayForm';
 import DayList from './DayList';
 import moment from 'moment';
 
-const Days = ({ bookId, getAllDays, days, match }) => {
-  useEffect( () => {
-    getAllDays(bookId)
-  }, [])
+const Days = ({ bookId, getAllDays, days, match, addDay }) => {
 
   // const tileContent = ({ date, view }) => {
   //   // let allDays = days
@@ -48,14 +46,15 @@ const Days = ({ bookId, getAllDays, days, match }) => {
       // value={['2017-01-01', '2017-08-01']}
       // onClickDay= "/books/book_id"
       /> */}
-      <DayList bookId={bookId}/>
+      <DayList bookId={match.params.bookId}/>
+      <DayForm addDay={addDay}/>
       </div>
       
   )
 }
 const ConnectedDays = (props) => (
   <DayConsumer>
-     { value => <Days {...props} {...value} /> }
+     { value => ( <Days {...props} {...value} /> )}
   </DayConsumer>
 
 )

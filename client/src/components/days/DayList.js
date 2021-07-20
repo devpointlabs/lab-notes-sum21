@@ -30,7 +30,7 @@ const DayList = ({ bookId, days, getAllDays, location }) => {
 
 const ConnectedDayList = (props) => (
   <DayConsumer>
-    {value => <DayList {...props} {...value} /> }
+    {value => ( <DayList {...props} {...value} /> )}
   </DayConsumer>
 )
 
