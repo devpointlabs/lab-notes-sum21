@@ -32,7 +32,7 @@ class Api::DaysController < ApplicationController
 
   def destroy
     @day.destroy
-    render json: {message: 'Day deleted'}
+    render json: {message: "Day deleted"}
   end
 
   private

@@ -3,14 +3,17 @@ import { useState } from 'react';
 import BookForm from './BookForm';
 import { BookConsumer } from '../../providers/BookProvider';
 import Moment from 'react-moment';
-
+import DayList from '../days/DayList';
+import DayForm from '../days/DayForm';
 
 
 const BookShow = ({ location, deleteBook, match, history}) => {
  
+  // const bookContext = useContext(BookContext);
   const [editshow, setEditShow] = useState(false);
   const handleEditClose = () => setEditShow(false);
   const handleEditShow = () => setEditShow(true);
+
   return (
     <>
       {/* <h1>Book Show # {location.state.id}</h1>
@@ -42,13 +45,12 @@ const BookShow = ({ location, deleteBook, match, history}) => {
           <BookForm { ...location.state } handleEditClose={handleEditClose} />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleEditClose}>
-            Close
-          </Button>
+          <Button variant="secondary" onClick={handleEditClose}>Close</Button>
         </Modal.Footer>
       </Modal>
 
       <Button variant="danger" onClick={() => deleteBook(match.params.id, history)}>Delete</Button>
+      <DayList bookId={location.state.id}/>      
     </>
   )
 }

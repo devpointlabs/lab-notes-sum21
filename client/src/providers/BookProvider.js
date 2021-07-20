@@ -28,7 +28,7 @@ const BookProvider = ({ children }) => {
         .catch( err => console.log(err))
         history.push("/books")
    }
-
+   
    const updateBook = (id, book, history ) => {
        axios.put(`/api/books/${id}`, { book })
         .then(res => {
@@ -40,8 +40,7 @@ const BookProvider = ({ children }) => {
                 return b
             })
             setBooks(updatedBooks)
-            
-            
+            history.push("/books")
         })
         .catch( err => console.log(err) )
         history.push ("/books")
@@ -64,9 +63,11 @@ const BookProvider = ({ children }) => {
             addBook: addBook,
             updateBook: updateBook,
             deleteBook: deleteBook,
+
         }}>
             { children }
         </BookContext.Provider>
     )
 }
+
 export default BookProvider;
