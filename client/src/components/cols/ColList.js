@@ -6,7 +6,7 @@ import styled from '../styledComponents/ColListPage';
 
 const ColList = ({ dayId, cols, getAllCols }) => {
   useEffect( () => {
-    getAllCols(1)
+    getAllCols(dayId)
   }, [])
 
   return(
