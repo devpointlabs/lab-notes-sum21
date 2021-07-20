@@ -21,7 +21,7 @@ const MainNavbar = ({ user, handleLogout, history }) => {
                       />
                     </div>
                 } 
-                id="basic-nav-dropdown">
+                    id="basic-nav-dropdown">
 
               <NavDropdown.Item eventKey={1.1} href="/profile">Profile Settings</NavDropdown.Item>
               <NavDropdown.Item divider />
