@@ -3,17 +3,17 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :users, only: :update
-      resources :books
-    end
+
     resources :books do
       resources :days
     end
+
     resources :days do
       resources :cols
     end
+
     resources :cols do
       resources :cards
     end
   end
-
-
+end

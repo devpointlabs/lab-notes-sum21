@@ -7,7 +7,6 @@ import MainNavbar from './components/shared/MainNavbar';
 import FetchUser from './components/auth/FetchUser';
 import Register from './components/auth/Register';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import ColShow from './components/cols/ColShow';
 import Cols from './components/cols/Cols';
 import Books from './components/books/Books';
 import BookShow from './components/books/BookShow';
@@ -33,7 +32,6 @@ const App = () => (
           <ProtectedRoute exact path="/books/:bookId/days" component={Days} />
           <ProtectedRoute exact path="/books/:bookId/days/:id" component={DayShow} />
           <ProtectedRoute exact path="/days/:dayId/cols" component={Cols} />
-          <ProtectedRoute exact path="/days/:dayId/cols/:id" component={ColShow} />
           <Route exact path="/books" component={Books}/>
           <ProtectedRoute exact path="/profile" component={Profile}/>
           <Route component={Nomatch} />
