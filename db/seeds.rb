@@ -14,7 +14,7 @@
 1.times do
   user = User.create(
     # NEED TO CHANGE EMAIL
-    email: "tonypizza@gmail.com",
+    email: "bobsharp@gmail.com",
     password: "password",
     created_at: "2021-07-15 02:34:45.128640",
     updated_at: "2021-07-15 02:34:45.128640"
