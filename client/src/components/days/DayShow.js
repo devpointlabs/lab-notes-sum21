@@ -7,27 +7,36 @@ import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import DayForm from './DayForm';
 
-const DayShow = ({getAllDays, book_id, days, location, match, deleteDay, addDay, history }) => {
+const DayShow = ({getAllDays, bookId, days, location, match, deleteDay, history }) => {
 
   const [editshow, setEditShow] = useState(false);
   const handleEditClose = () => setEditShow(false);
   const handleEditShow = () => setEditShow(true);
 
+  const [deleteShow, setDeleteShow] = useState(false);
+  const handleDeleteClose = () => setDeleteShow(false);
+  const handleDeleteShow = () => setDeleteShow(true);
+
+  const destroyDay = () => { deleteDay(location.state.id, history);}
+
   useEffect( () => {
-    getAllDays(book_id)
+    getAllDays(bookId, days)
   }, [])
   
   
-  let incId = parseInt(match.params.id) + 1;
-  let decId = parseInt(match.params.id) - 1;
+  // let incId = parseInt(match.params.id) + 1;
+  // let decId = parseInt(match.params.id) - 1;
 
   return(
     <>
-      <Link book_id={location.state.book_id} to={{pathname: "/books/" + location.state.book_id + "/days/" + decId, state: {...days}}}><ArrowBackIosIcon/></Link>
+      {/* <Link book_id={location.state.book_id} to={{pathname: "/books/" + location.state.book_id + "/days/" + decId, state: {...days}}}><ArrowBackIosIcon/></Link>
       <Link book_id={location.state.book_id} to={{pathname: "/books/" + location.state.book_id, state: {days}}}><CalendarTodayIcon/></Link>
-      <Link book_id={location.state.book_id} to={{pathname: "/books/" + location.state.book_id + "/days/" + incId, state: {...days}}}><ArrowForwardIosIcon/></Link>
+      <Link book_id={location.state.book_id} to={{pathname: "/books/" + location.state.book_id + "/days/" + incId, state: {...days}}}><ArrowForwardIosIcon/></Link> */}
+      <ArrowBackIosIcon/>
       {' '}
+      <CalendarTodayIcon/>
       {' '}
+      <ArrowForwardIosIcon/>
       {' '}
       <text style={{fontWeight: "bold"}}>{location.state.day_date}</text>
     {/* <Container>
@@ -57,7 +66,7 @@ const DayShow = ({getAllDays, book_id, days, location, match, deleteDay, addDay,
     <br/>
     <Button variant="warning" onClick={() => handleEditShow()}>Edit</Button>
     {' '}
-    <Button variant="danger" onClick={() => deleteDay(match.params.id, history)}>Delete</Button>
+    <Button variant="danger" onClick={() => handleDeleteShow()}>Delete</Button>
     {' '}
     <Modal show={editshow} onHide={handleEditClose}>
       <Modal.Header closeButton>
@@ -68,6 +77,16 @@ const DayShow = ({getAllDays, book_id, days, location, match, deleteDay, addDay,
       </Modal.Body>
       <Modal.Footer>
           <Button variant="secondary" onClick={handleEditClose}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+    <Modal show={deleteShow} onHide={handleDeleteClose}>
+      <Modal.Header closeButton/>
+      <Modal.Body>
+        <h1>WARNING!!</h1> <p>IF YOU DELETE THIS DAY, YOU WILL DELETE ALL GOALS AND NOTES ASSOCIATED WITH THIS DAY. THIS ACTION CANNOT BE UNDONE.</p><p>CLICK "Confirm" TO CONTINUE. TO GO BACK, CLICK "Close".</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="danger" onClick={() => destroyDay()}>Delete</Button>
+        <Button variant="secondary" onClick={handleDeleteClose}>Close</Button>
       </Modal.Footer>
     </Modal>
 
