@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import styled from '../styledComponents/ColListPage';
 
 const ColList = ({ dayId, cols, getAllCols }) => {
@@ -17,7 +17,7 @@ const ColList = ({ dayId, cols, getAllCols }) => {
       <styled>
         <Container fluid="md">
           <Row>
-              <Col>
+              <Col xs={4} md={3}>
                 <Link to={{
                   pathname: `/col/${c.id}`
                 }}>

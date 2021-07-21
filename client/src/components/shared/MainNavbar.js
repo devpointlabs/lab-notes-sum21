@@ -47,7 +47,7 @@ const MainNavbar = ({ user, handleLogout, history }) => {
     <Container>
     <Navbar bg="white" variant="white" borderRadius="20px" background="rgba(152, 72, 255, 100)">
       <Link to="/books">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/books">
           <img
             alt=""
             src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1625707186/logo_hy0ksx.png"
