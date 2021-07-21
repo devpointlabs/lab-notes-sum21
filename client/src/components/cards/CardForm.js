@@ -1,12 +1,34 @@
 import { useState, useEffect } from 'react';
-// import { Form, Card, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { CardConsumer } from '../../providers/CardProvider';
 
-const CardForm = ({ addCard }) => {
-  const [card, setCard] = useState({ title: "", end_time: "", notes: "" })
-  const handleSubmit = (e) => {
+// const CardForm = ({ addCard, history }) => {
+//   const [card, setCard] = useState({ title: "", end_time: "", notes: "" })
+//   const handleSubmit = (e) => {
+//     e.preventDefault()
+//     addCard(card, history)
+//     setCard({ title: "", end_time: "", notes: "" })
+//   }
+
+  const CardForm = ({ addCard, id, title, end_time, notes, updateCard, handleEditClose, history }) => {
+    const [card, setCard] = useState({ title: "", end_time: "", notes: "" })
+
+ useEffect( ()  => {
+     if (id) {
+         setCard({ title, end_time, notes, })
+     }
+ }, [] )
+    
+ const handleSubmit = (e) => {
     e.preventDefault()
-    addCard(card)
+    setCard({...card})
+    if (id) {
+      updateCard(id, card, history)
+      handleEditClose()
+    } 
+    else {
+      addCard(card, history)
+    }
     setCard({ title: "", end_time: "", notes: "" })
   }
 

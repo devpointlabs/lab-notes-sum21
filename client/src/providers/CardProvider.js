@@ -14,7 +14,7 @@ const CardProvider = ({ children }) => {
         .catch(err => console.log(err))
     }, [])
 
-   const addCard = (card) => {
+   const addCard = (colId, card) => {
        axios.post('/api/cols/${colId}/cards', { card })
         .then( res => {
             setCards([...cards, res.data])
@@ -22,7 +22,7 @@ const CardProvider = ({ children }) => {
         .catch( err => console.log(err))
    }
 
-   const updateCard = (id, card) => {
+   const updateCard = (colId, id, card) => {
        axios.put(`/api/cols/${colId}/cards/${id}`, { card })
         .then(res => {
             const updatedCards = cards.map( c => {
@@ -36,7 +36,7 @@ const CardProvider = ({ children }) => {
         .catch( err => console.log(err) )
    }
 
-   const deleteCard = (id) => {
+   const deleteCard = (colId, id) => {
        axios.delete(`/api/cols/${colId}/cards/${id}`)
         .then( res => {
             setCards(cards.filter(c => c.id !== id))

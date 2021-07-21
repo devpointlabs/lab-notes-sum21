@@ -1,4 +1,4 @@
-import { Button, Modal } from 'react-bootstrap';
+import { Card, Button, Modal } from 'react-bootstrap';
 import { useState } from 'react';
 import CardForm from './CardForm';
 import { CardConsumer } from '../../providers/CardProvider';
@@ -10,7 +10,7 @@ const CardShow = ({ location, match, deleteCard, history }) => {
 
   return (
     <>
-      <h1>Card Show # {location.state.id}</h1>
+      <h1>Card Show: {location.state.id}</h1>
       <p>
         Title: {location.state.title}
       </p>
