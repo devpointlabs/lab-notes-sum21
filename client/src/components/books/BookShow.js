@@ -2,13 +2,11 @@ import { Button, Modal } from 'react-bootstrap';
 import { useState } from 'react';
 import BookForm from './BookForm';
 import { BookConsumer } from '../../providers/BookProvider';
-import Moment from 'react-moment';
+import Moment from 'react-moment'; 
 import DayList from '../days/DayList';
 import DayForm from '../days/DayForm';
 
-
-const BookShow = ({ location, deleteBook, match, history}) => {
- 
+const BookShow = ({ location, deleteBook, match, history }) => {
   // const bookContext = useContext(BookContext);
   const [editshow, setEditShow] = useState(false);
   const handleEditClose = () => setEditShow(false);
