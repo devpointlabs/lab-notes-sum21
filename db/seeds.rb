@@ -5,6 +5,10 @@
   "linear-gradient(to right, rgba(68, 188, 224, 0.9), rgba(68, 188, 224, 0.55))", 
   "linear-gradient(to right, rgba(66, 72, 127, 1), rgba(66, 72, 127, 0.75))"
 ]
+<<<<<<< HEAD
+=======
+
+>>>>>>> a761913 (change to seed file)
 1.times do
   user = User.create(
     # NEED TO CHANGE EMAIL
