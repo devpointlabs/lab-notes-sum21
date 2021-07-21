@@ -5,16 +5,11 @@
   "linear-gradient(to right, rgba(68, 188, 224, 0.9), rgba(68, 188, 224, 0.55))", 
   "linear-gradient(to right, rgba(66, 72, 127, 1), rgba(66, 72, 127, 0.75))"
 ]
-5.times do
-  book = Book.create(
-    title: Faker::Job.position,
-    descript: Faker::Marketing.buzzwords,
-    user_id: 4
 
 1.times do
   user = User.create(
     # NEED TO CHANGE EMAIL
-    email: "tonypizza@gmail.com",
+    email: "bobsharp@gmail.com",
     password: "password",
     created_at: "2021-07-15 02:34:45.128640",
     updated_at: "2021-07-15 02:34:45.128640"
