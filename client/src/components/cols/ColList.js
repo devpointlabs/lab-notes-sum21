@@ -40,4 +40,4 @@ const ConnectedColList = (props) => (
   </ColConsumer>
 )
 
-export default ConnectedColList;
+export default ConnectedColList; 
