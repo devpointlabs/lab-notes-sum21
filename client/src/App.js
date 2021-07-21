@@ -7,7 +7,6 @@ import MainNavbar from './components/shared/MainNavbar';
 import FetchUser from './components/auth/FetchUser';
 import Register from './components/auth/Register';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import ColShow from './components/cols/ColShow';
 import Cols from './components/cols/Cols';
 import Books from './components/books/Books';
 import BookShow from './components/books/BookShow';
