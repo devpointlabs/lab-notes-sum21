@@ -46,7 +46,7 @@ const MainNavbar = ({ user, handleLogout, history }) => {
   return (
     <Container>
     <Navbar bg="white" variant="white" borderRadius="20px" background="rgba(152, 72, 255, 100)">
-      <Link to="/">
+      <Link to="/books">
         <Navbar.Brand href="#home">
           <img
             alt=""

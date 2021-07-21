@@ -50,7 +50,7 @@ const BookShow = ({ location, deleteBook, match, history}) => {
       </Modal>
 
       <Button variant="danger" onClick={() => deleteBook(match.params.id, history)}>Delete</Button>
-      <DayList bookId={location.state.id}/>      
+      <DayList bookId={location.state.id}/>    
     </>
   )
 }
