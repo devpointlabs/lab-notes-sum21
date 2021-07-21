@@ -17,7 +17,7 @@ const DayShow = ({getAllDays, bookId, days, location, match, deleteDay, history 
   const handleDeleteClose = () => setDeleteShow(false);
   const handleDeleteShow = () => setDeleteShow(true);
 
-  const destroyDay = () => { deleteDay(location.state.id, history);}
+  const destroyDay = () => { deleteDay(location.state.book_id, location.state.id);}
 
   useEffect( () => {
     getAllDays(bookId, days)
@@ -64,21 +64,9 @@ const DayShow = ({getAllDays, bookId, days, location, match, deleteDay, history 
     </Container> */}
     <br/>
     <br/>
-    <Button variant="warning" onClick={() => handleEditShow()}>Edit</Button>
     {' '}
     <Button variant="danger" onClick={() => handleDeleteShow()}>Delete</Button>
     {' '}
-    <Modal show={editshow} onHide={handleEditClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Day {location.state.id} Edit</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-          <DayForm { ...location.state } handleEditClose={handleEditClose} />
-      </Modal.Body>
-      <Modal.Footer>
-          <Button variant="secondary" onClick={handleEditClose}>Close</Button>
-      </Modal.Footer>
-    </Modal>
     <Modal show={deleteShow} onHide={handleDeleteClose}>
       <Modal.Header closeButton/>
       <Modal.Body>

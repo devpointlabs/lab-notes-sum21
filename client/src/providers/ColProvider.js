@@ -5,7 +5,7 @@ export const ColContext = React.createContext();
 
 export const ColConsumer = ColContext.Consumer;
 
-const LeaseProvider = ({ children }) => {
+const ColProvider = ({ children }) => {
   const [cols, setCols] = useState([])
 
   const getAllCols = (dayId) => {
@@ -59,4 +59,4 @@ const LeaseProvider = ({ children }) => {
   )
 }
 
-export default LeaseProvider
+export default ColProvider;
