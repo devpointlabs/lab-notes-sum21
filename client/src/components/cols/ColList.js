@@ -45,40 +45,9 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                       <Link onClick={() => deleteCol(dayId, c.id, history)}>Delete</Link>
                     </Dropdown.Item>
                   </DropdownButton>
-                  {/* <Button variant="primary" onClick={handleShow}>
-                      Edit
-                    </Button>
-                    <Button variant="danger" onClick={() => deleteCol(dayId, c.id, history)}>
-                      Delete
-                    </Button> */}
                     </Card.Header>
                   <Card.Text>(input cards here)</Card.Text>
                 </Card>
-                  {/* <h4>
-                    {c.title}
-                    <Link to={{
-                      pathname: `/days/${dayId}/cols/${c.id}`, state:{c}
-                    }}>
-                    <Button variant="primary" onClick={handleShow}>
-                      Edit
-                    </Button>
-                    <Button variant="danger" onClick={() => deleteCol(dayId, c.id, history)}>
-                      Delete
-                    </Button>
-                  </h4>
-                  <Cards ColId={c.id} />
-                  {/* <ColUpdate
-                    getAllCols = {getAllCols}
-                    dayId = {dayId}
-                    id={c.id}
-                    col= {c}
-                    setCol = {setCols}
-                    updateCol= {updateCol}
-                    handleClose = {handleClose}
-                    handleShow = {handleShow}
-                    show = {show}
-                    setShow = {setShow}
-                  /> */}
               </Col>
               )}
           </Row>
