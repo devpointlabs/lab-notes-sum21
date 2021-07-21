@@ -6,7 +6,10 @@
   "linear-gradient(to right, rgba(66, 72, 127, 1), rgba(66, 72, 127, 0.75))"
 ]
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a761913 (change to seed file)
 
 >>>>>>> a761913 (change to seed file)
 1.times do
