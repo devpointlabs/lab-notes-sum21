@@ -71,7 +71,6 @@ const BookList = ({ books, getAllBooks, end_date, start_date }) => {
               </ColorBoxes>
             </Link>
           ))}
-          ;
         </SettingsCardContainer>
       </CardGroup>
     </>
