@@ -24,8 +24,8 @@ const ColProvider = ({ children }) => {
       .catch( err => console.log(err) )
   }
 
-  const updateCol = (dayId, id, cols) => {
-    axios.put(`/api/days/${dayId}/cols/${id}`, { cols })
+  const updateCol = (dayId, id, col) => {
+    axios.put(`/api/days/${dayId}/cols/${id}`, col )
       .then( res => {
         const updatedCol = cols.map( c => {
           if (c.id === id) {

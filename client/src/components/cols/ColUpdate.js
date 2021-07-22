@@ -1,48 +1,41 @@
-import { Form, Modal, Button, } from 'react-bootstrap';
+import { Form, Button, } from 'react-bootstrap';
 import { useState, } from 'react';
-// import { ColConsumer } from '../../providers/ColProvider';
+import { ColConsumer } from '../../providers/ColProvider';
 
-const ColUpdate = ({ dayId, id, col, setCols, colUpdate, handleClose, handleShow, getAllCols }) => {
-  const [show, setShow] = useState(false);
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-
+const ColUpdate = ({ location, match, updateCol }) => {
+  const[col, setCol] = useState({title: location.state.c.title})
+  const{dayId, id } = match.params
+  
   const handleSubmit = (e) => {
     e.preventDefault()
-    setCols({...col})
+    setCol({...col})
+    updateCol(dayId, id, col)
   }
   
-  <>
-    <Modal show={show} onHide={handleClose} animation={false}>
-    <Modal.Header closeButton>
-      <Modal.Title>
-        Update Column({col.title})
-      </Modal.Title>
-    </Modal.Header>
-    <Form onSubmit={handleSubmit}>
-      <Form.Group className="mb-3" controlId="formBasicTitle">
-      <Form.Label>
-        Pick a new name
-      </Form.Label>
-      <Form.Control 
-        type="text"
-        name="title"
-        value= {col.title}
-        onChange={(e) => setCols({...col, title: e.target.value})}
-      />
-      </Form.Group>
-    </Form>
-    <Modal.Footer>
-      <Button variant="secondary" onClick={handleClose}>
-        Close
-      </Button>
-      <Button variant="primary" onClick={handleClose} type='submit'>
-      Submit
-    </Button>
-    </Modal.Footer>
-  </Modal>
-  </>
+  return(
+    <>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicTitle">
+        <Form.Label>
+          Pick a new name
+        </Form.Label>
+        <Form.Control 
+          type="text"
+          name="title"
+          value= {col.title}
+          onChange={(e) => setCol({...col, title: e.target.value})}
+        />
+        </Form.Group>
+        <Button type="submit">Submit</Button>
+      </Form>
+    </>
+  )
 }
 
-export default ColUpdate;
+const ConnectedColUpdate = (props) => (
+  <ColConsumer>
+    { value => <ColUpdate {...props} {...value} /> }
+  </ColConsumer>
+)
+
+export default ConnectedColUpdate;

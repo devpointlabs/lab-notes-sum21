@@ -21,9 +21,9 @@ ReactDOM.render(
         <DayProvider>
           <ColProvider>
             <CardProvider>
-            <BrowserRouter>
-              <App />
-            </BrowserRouter>
+              <BrowserRouter>
+                <App />
+              </BrowserRouter>
             </CardProvider>
           </ColProvider>
         </DayProvider>
