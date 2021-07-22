@@ -2,6 +2,7 @@ import { Form, Modal, Button, } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
 
+
 const ColForm = ({ addCol, id, title, history, updateCol, handleEditClose, dayId}) => {
   const [col, setCols] = useState({title: "",})
   const [show, setShow] = useState(false);

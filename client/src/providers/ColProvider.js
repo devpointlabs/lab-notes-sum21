@@ -38,12 +38,14 @@ const ColProvider = ({ children }) => {
       .catch( err => console.log(err) )
   }
 
-  const deleteCol = (dayId, id) => {
+  const deleteCol = (dayId, id, history) => {
     axios.delete(`/api/days/${dayId}/cols/${id}`)
       .then( res => {
         setCols(cols.filter( c => c.id !== id))
         alert(res.data.message)
       })
+      .catch(err => console.log(err) )
+      history.push(`/days/${dayId}/cols`)
   }
   
   return(

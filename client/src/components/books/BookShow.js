@@ -11,7 +11,6 @@ const BookShow = ({ location, deleteBook, match, history }) => {
   const [editshow, setEditShow] = useState(false);
   const handleEditClose = () => setEditShow(false);
   const handleEditShow = () => setEditShow(true);
-
   return (
     <>
       {/* <h1>Book Show # {location.state.id}</h1>
@@ -48,7 +47,7 @@ const BookShow = ({ location, deleteBook, match, history }) => {
       </Modal>
 
       <Button variant="danger" onClick={() => deleteBook(match.params.id, history)}>Delete</Button>
-      <DayList bookId={location.state.id}/>      
+      <DayList bookId={location.state.id}/>
     </>
   )
 }
