@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, Button,} from 'react-bootstrap';
+import { Container, Row, Col, Button, Card} from 'react-bootstrap';
 import ColUpdate from './ColUpdate';
+// import { Card } from '@material-ui/core';
 
 const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history, id, handleEditClose}) => {
   const [col, setCols] = useState({title: "",})
@@ -17,13 +18,24 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
   
     return(
       <>
-      { cols.map( (c) =>
-      c >= 0 ? "No Columns => Create One" 
-      :
-      <Container fluid="md" key={c.id}>
-          <Row>
-              <Col>
-                  <h4>
+      <Container fluid="md" >
+      <Row>
+        { cols.map( (c) =>
+        c >= 0 ? "No Columns => Create One" 
+        :
+              <Col key={c.id}>
+                <Card>
+                  <Card.Header as="h5">{c.title}
+                  <Button variant="primary" onClick={handleShow}>
+                      Edit
+                    </Button>
+                    <Button variant="danger" onClick={() => deleteCol(dayId, c.id, history)}>
+                      Delete
+                    </Button>
+                    </Card.Header>
+                  <Card.Text>(input cards here)</Card.Text>
+                </Card>
+                  {/* <h4>
                     {c.title}
                     <Button variant="primary" onClick={handleShow}>
                       Edit
@@ -31,7 +43,7 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                     <Button variant="danger" onClick={() => deleteCol(dayId, c.id, history)}>
                       Delete
                     </Button>
-                  </h4>
+                  </h4> */}
                   {/* <ColUpdate
                     getAllCols = {getAllCols}
                     dayId = {dayId}
@@ -43,9 +55,9 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                     handleShow = {handleShow}
                     /> */}
               </Col>
+              )}
           </Row>
         </Container>
-      )}
     </>
   )
 };
