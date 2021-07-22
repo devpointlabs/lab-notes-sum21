@@ -37,7 +37,6 @@ const App = () => (
           <ProtectedRoute exact path="/books/:bookId/days" component={Days} />
           <ProtectedRoute exact path="/books/:bookId/days/:id" component={DayShow} />
           <ProtectedRoute exact path="/days/:dayId/cols" component={Cols} />
-          <ProtectedRoute exact path="/days/:dayId/cols/:id" component={ColUpdate} />
           <ProtectedRoute exact path="/cols/:colId/cards/cardform" component={CardForm} />
           <ProtectedRoute exact path="/cols/:colId/cards/:id" component={CardShow} />
           <ProtectedRoute exact path="/books" component={Books}/>
