@@ -16,6 +16,7 @@ import Days from './components/days/Days';
 import DayShow from './components/days/DayShow';
 import CardForm from './components/cards/CardForm';
 import CardShow from './components/cards/CardShow';
+import ColUpdate from './components/cols/ColUpdate';
 
 
 
@@ -36,7 +37,7 @@ const App = () => (
           <ProtectedRoute exact path="/books/:bookId/days" component={Days} />
           <ProtectedRoute exact path="/books/:bookId/days/:id" component={DayShow} />
           <ProtectedRoute exact path="/days/:dayId/cols" component={Cols} />
-          <ProtectedRoute exact path="/days/:dayId/cols/:id" component={ColShow} />
+          <ProtectedRoute exact path="/days/:dayId/cols/:id" component={ColUpdate} />
           <ProtectedRoute exact path="/cols/:colId/cards/cardform" component={CardForm} />
           <ProtectedRoute exact path="/cols/:colId/cards/:id" component={CardShow} />
           <Route exact path="/books" component={Books}/>
