@@ -113,3 +113,4 @@ export const QuoteCard = styled(Card)`
 
 
 // , linear-gradient(to right, rgba(152, 72, 255, 100),rgba(152, 72, 255, 73)
+
