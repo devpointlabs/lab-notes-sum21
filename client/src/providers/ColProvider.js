@@ -5,7 +5,7 @@ export const ColContext = React.createContext();
 
 export const ColConsumer = ColContext.Consumer;
 
-const LeaseProvider = ({ children }) => {
+const ColProvider = ({ children }) => {
   const [cols, setCols] = useState([])
 
   const getAllCols = (dayId) => {
@@ -38,12 +38,14 @@ const LeaseProvider = ({ children }) => {
       .catch( err => console.log(err) )
   }
 
-  const deleteCol = (dayId, id) => {
+  const deleteCol = (dayId, id, history) => {
     axios.delete(`/api/days/${dayId}/cols/${id}`)
       .then( res => {
         setCols(cols.filter( c => c.id !== id))
         alert(res.data.message)
       })
+      .catch(err => console.log(err) )
+      history.push(`/days/${dayId}/cols`)
   }
   
   return(
@@ -59,4 +61,4 @@ const LeaseProvider = ({ children }) => {
   )
 }
 
-export default LeaseProvider
+export default ColProvider
