@@ -61,4 +61,4 @@ const ColProvider = ({ children }) => {
   )
 }
 
-export default ColProvider
+export default ColProvider;

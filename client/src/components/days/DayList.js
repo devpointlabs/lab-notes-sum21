@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { DayConsumer } from '../../providers/DayProvider';
 import { Link } from 'react-router-dom';
 
-const DayList = ({ bookId, days, getAllDays, location }) => {
+const DayList = ({ bookId, days, getAllDays}) => {
   useEffect( () => {
     getAllDays(bookId)
   }, [])
@@ -30,7 +30,7 @@ const DayList = ({ bookId, days, getAllDays, location }) => {
 
 const ConnectedDayList = (props) => (
   <DayConsumer>
-    {value => ( <DayList {...props} {...value} /> )}
+    {value =>  <DayList {...props} {...value} /> }
   </DayConsumer>
 )
 

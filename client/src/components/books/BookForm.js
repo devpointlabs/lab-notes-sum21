@@ -52,7 +52,7 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
                 />
             </Form.Group>
 
-            <Form.Row>
+            {/* <Form.Row>
                 <Form.Group as={Col} controlId="start_date">
                 <Form.Label>Start Day</Form.Label>
                 <Form.Control 
@@ -75,7 +75,7 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
                 />             
                 </Form.Group>
 
-            </Form.Row>  
+            </Form.Row>   */}
             
             <Form.Row>
                 

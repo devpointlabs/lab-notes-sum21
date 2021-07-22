@@ -14,6 +14,10 @@ import Profile from './components/auth/Profile';
 import BookForm from './components/books/BookForm';
 import Days from './components/days/Days';
 import DayShow from './components/days/DayShow';
+import CardForm from './components/cards/CardForm';
+import CardShow from './components/cards/CardShow';
+
+
 
 
 const App = () => (
@@ -32,6 +36,9 @@ const App = () => (
           <ProtectedRoute exact path="/books/:bookId/days" component={Days} />
           <ProtectedRoute exact path="/books/:bookId/days/:id" component={DayShow} />
           <ProtectedRoute exact path="/days/:dayId/cols" component={Cols} />
+          <ProtectedRoute exact path="/days/:dayId/cols/:id" component={ColShow} />
+          <ProtectedRoute exact path="/cols/:colId/cards/cardform" component={CardForm} />
+          <ProtectedRoute exact path="/cols/:colId/cards/:id" component={CardShow} />
           <Route exact path="/books" component={Books}/>
           <ProtectedRoute exact path="/profile" component={Profile}/>
           <Route component={Nomatch} />
