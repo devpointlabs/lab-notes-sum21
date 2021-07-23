@@ -9,9 +9,9 @@ const MainNavbar = ({ user, handleLogout, history }) => {
         <Container>
         <Nav className="justify-content-end" style={{ width: "100%" }}>
         <Link to="/bookform">
-          <Button style={{background: "rgba(152, 72, 255, 100)", border: "rgba(152, 72, 255, 100)", color: "white", borderRadius: "15px", position: "absolute", right: "40px", top: "15px"}}>Create a New Book</Button>
+          <Button style={{background: "rgba(152, 72, 255, 100)", border: "rgba(152, 72, 255, 100)", color: "white", borderradius: "15px", position: "absolute", right: "40px", top: "15px"}}>Create a New Book</Button>
         </Link>
-        <NavDropdown eventKey={1} 
+        <NavDropdown eventkey={1} 
               title={
                   <div className="pull-left">
                       <Image className="thumbnail-image" 
@@ -45,7 +45,7 @@ const MainNavbar = ({ user, handleLogout, history }) => {
   }
   return (
     <Container>
-    <Navbar bg="white" variant="white" borderRadius="20px" background="rgba(152, 72, 255, 100)">
+    <Navbar bg="white" variant="white" borderradius="20px" background="rgba(152, 72, 255, 100)">
       <Link to="/books">
         <Navbar.Brand href="/home">
           <img

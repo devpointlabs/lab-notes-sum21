@@ -3,8 +3,10 @@ import 'react-calendar/dist/Calendar.css';
 import {DayConsumer} from '../../providers/DayProvider';
 import DayList from './DayList';
 
-const Days = ({ match, addDay }) => {
-
+const Days = ({ getAllDays, bookId, match, addDay }) => {
+  useEffect( () => {
+    getAllDays(bookId)
+  }, [])
   
 
   return(

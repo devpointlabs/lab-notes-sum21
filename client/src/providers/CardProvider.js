@@ -8,14 +8,16 @@ export const CardConsumer = CardContext.Consumer;
 const CardProvider = ({ children }) => {
 
     const [cards, setCards] = useState([])
-    useEffect( () => {
-        axios.get('/api/cols/${colId}/cards')
-        .then( res => setCards(res.data))
-        .catch(err => console.log(err))
-    }, [])
+    const getAllCards = (colId) => {
+        axios.get(`/api/cols/${colId}/cards`)
+            .then( res => {
+                setCards(res.data)
+            })
+            .catch(err => console.log(err))
+    }
 
    const addCard = (colId, card) => {
-       axios.post('/api/cols/${colId}/cards', { card })
+       axios.post(`/api/cols/${colId}/cards`, { card })
         .then( res => {
             setCards([...cards, res.data])
         })
@@ -48,7 +50,8 @@ const CardProvider = ({ children }) => {
    
     return (
         <CardContext.Provider value={{
-            cards, 
+            cards,
+            getAllCards: getAllCards,
             addCard: addCard,
             updateCard: updateCard,
             deleteCard: deleteCard,

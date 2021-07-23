@@ -1,44 +1,43 @@
-import {Button, Modal} from 'react-bootstrap';
+import {Button, Modal, Col, Form} from 'react-bootstrap';
 import { DayConsumer } from '../../providers/DayProvider';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import DayForm from './DayForm';
+import DayPicker from './DayPicker';
 
-const DayShow = ({getAllDays, bookId, days, location, match, deleteDay, history }) => {
+const DayShow = ({getDay, getAllDays, days, bookId, day, location, match, deleteDay, history, day_date, start_date, end_date }) => {
+  const [currentDay, setCurrentDay] = useState({});
+  // const [editshow, setEditShow] = useState(false);
+  // const handleEditClose = () => setEditShow(false);
+  // const handleEditShow = () => setEditShow(true);
 
-  const [editshow, setEditShow] = useState(false);
-  const handleEditClose = () => setEditShow(false);
-  const handleEditShow = () => setEditShow(true);
+  // const [deleteShow, setDeleteShow] = useState(false);
+  // const handleDeleteClose = () => setDeleteShow(false);
+  // const handleDeleteShow = () => setDeleteShow(true);
 
-  const [deleteShow, setDeleteShow] = useState(false);
-  const handleDeleteClose = () => setDeleteShow(false);
-  const handleDeleteShow = () => setDeleteShow(true);
-
-  const destroyDay = () => { deleteDay(location.state.book_id, location.state.id);}
+  const destroyDay = () => { deleteDay(match.params.bookId, match.params.id, history);}
 
   useEffect( () => {
-    getAllDays(bookId, days)
+    getAllDays(match.params.bookId)
+    setCurrentDay(getDay(match.params.bookId, match.params.id))
   }, [])
   
-  
-  // let incId = parseInt(match.params.id) + 1;
-  // let decId = parseInt(match.params.id) - 1;
-
   return(
     <>
-      {/* <Link book_id={location.state.book_id} to={{pathname: "/books/" + location.state.book_id + "/days/" + decId, state: {...days}}}><ArrowBackIosIcon/></Link>
-      <Link book_id={location.state.book_id} to={{pathname: "/books/" + location.state.book_id, state: {days}}}><CalendarTodayIcon/></Link>
-      <Link book_id={location.state.book_id} to={{pathname: "/books/" + location.state.book_id + "/days/" + incId, state: {...days}}}><ArrowForwardIosIcon/></Link> */}
       <ArrowBackIosIcon/>
       {' '}
       <CalendarTodayIcon/>
+      <DayPicker 
+      day={day}
+      setCurrentDay={setCurrentDay}
+      days={days}
+      bookId={match.params.bookId}
+      history={history}/>
       {' '}
       <ArrowForwardIosIcon/>
       {' '}
-      <text style={{fontWeight: "bold"}}>{location.state.day_date}</text>
+      <text style={{fontWeight: "bold"}}>{day.day_date}</text>
     {/* <Container>
       <Row> 
         {
@@ -62,10 +61,10 @@ const DayShow = ({getAllDays, bookId, days, location, match, deleteDay, history 
         }
       </Row>
     </Container> */}
+    {/* <br/>
     <br/>
-    <br/>
-    {' '}
-    <Button variant="danger" onClick={() => handleDeleteShow()}>Delete</Button>
+    {' '} */}
+    {/* <Button variant="danger" onClick={() => handleDeleteShow()}>Delete</Button>
     {' '}
     <Modal show={deleteShow} onHide={handleDeleteClose}>
       <Modal.Header closeButton/>
@@ -76,7 +75,7 @@ const DayShow = ({getAllDays, bookId, days, location, match, deleteDay, history 
         <Button variant="danger" onClick={() => destroyDay()}>Delete</Button>
         <Button variant="secondary" onClick={handleDeleteClose}>Close</Button>
       </Modal.Footer>
-    </Modal>
+    </Modal> */}
 
     </>
   )

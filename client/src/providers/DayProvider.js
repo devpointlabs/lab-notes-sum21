@@ -6,12 +6,21 @@ export const DayConsumer = DayContext.Consumer;
 
 const DayProvider = ({ children}) => {
   const [days, setDays] = useState([])
+  const [day, setDay] = useState({})
   const getAllDays = (bookId) => {
     axios.get(`/api/books/${bookId}/days`)
       .then( res => {
         setDays(res.data)
       })
       .catch( err => console.log(err) )
+  }
+
+  const getDay = (bookId, id) => {
+    axios.get(`/api/books/${bookId}/days/${id}`)
+      .then( res => {
+        setDay(res.data)
+      })
+      .catch( err => console.log(err))
   }
   
   const addDay = (bookId, day) => {
@@ -42,7 +51,7 @@ const DayProvider = ({ children}) => {
       .then( res => {
         setDays(days.filter( d => d.id !== id))
         alert(res.data.message)
-        history.push(`/books/${bookId}/`)
+        history.push(`/books/${bookId}/days`)
       })
       .catch( err => console.log(err) )
   }
@@ -50,7 +59,9 @@ const DayProvider = ({ children}) => {
   return(
     <DayContext.Provider value={{
       days,
+      day,
       getAllDays: getAllDays,
+      getDay: getDay,
       addDay: addDay,
       updateDay: updateDay,
       deleteDay: deleteDay,
