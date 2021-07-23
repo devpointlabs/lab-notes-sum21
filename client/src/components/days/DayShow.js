@@ -5,16 +5,17 @@ import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import {useState, useEffect} from 'react';
 import DayPicker from './DayPicker';
+import Cols from '../cols/Cols';
 
 const DayShow = ({getDay, getAllDays, days, bookId, day, location, match, deleteDay, history, day_date, start_date, end_date }) => {
   const [currentDay, setCurrentDay] = useState({});
-  // const [editshow, setEditShow] = useState(false);
-  // const handleEditClose = () => setEditShow(false);
-  // const handleEditShow = () => setEditShow(true);
+  const [editshow, setEditShow] = useState(false);
+  const handleEditClose = () => setEditShow(false);
+  const handleEditShow = () => setEditShow(true);
 
-  // const [deleteShow, setDeleteShow] = useState(false);
-  // const handleDeleteClose = () => setDeleteShow(false);
-  // const handleDeleteShow = () => setDeleteShow(true);
+  const [deleteShow, setDeleteShow] = useState(false);
+  const handleDeleteClose = () => setDeleteShow(false);
+  const handleDeleteShow = () => setDeleteShow(true);
 
   const destroyDay = () => { deleteDay(match.params.bookId, match.params.id, history);}
 
@@ -60,11 +61,11 @@ const DayShow = ({getDay, getAllDays, days, bookId, day, location, match, delete
           )
         }
       </Row>
-    </Container> */}
-    {/* <br/>
+    </Container> */} 
+    <h4>Col component</h4>
+    <Cols dayId={match.params.id} />
     <br/>
-    {' '} */}
-    {/* <Button variant="danger" onClick={() => handleDeleteShow()}>Delete</Button>
+    <Button variant="danger" onClick={() => handleDeleteShow()}>Delete</Button>
     {' '}
     <Modal show={deleteShow} onHide={handleDeleteClose}>
       <Modal.Header closeButton/>
@@ -75,8 +76,7 @@ const DayShow = ({getDay, getAllDays, days, bookId, day, location, match, delete
         <Button variant="danger" onClick={() => destroyDay()}>Delete</Button>
         <Button variant="secondary" onClick={handleDeleteClose}>Close</Button>
       </Modal.Footer>
-    </Modal> */}
-
+    </Modal>
     </>
   )
 }

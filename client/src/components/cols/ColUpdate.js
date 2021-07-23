@@ -2,14 +2,14 @@ import { Form, Button, } from 'react-bootstrap';
 import { useState, } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
 
-const ColUpdate = ({ location, match, updateCol }) => {
+const ColUpdate = ({ location, match, updateCol, history }) => {
   const[col, setCol] = useState({title: location.state.c.title})
   const{dayId, id } = match.params
   
   const handleSubmit = (e) => {
     e.preventDefault()
     setCol({...col})
-    updateCol(dayId, id, col)
+    updateCol(dayId, id, col, history)
   }
   
   return(

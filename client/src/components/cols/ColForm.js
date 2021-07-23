@@ -4,7 +4,7 @@ import { ColConsumer } from '../../providers/ColProvider';
 
 
 const ColForm = ({ addCol, id, title, history, updateCol, handleEditClose, dayId}) => {
-  const [col, setCols] = useState({title: "",})
+  const [cols, setCols] = useState({title: "",})
   const [show, setShow] = useState(false);
 
   useEffect( () => {
@@ -15,12 +15,12 @@ const ColForm = ({ addCol, id, title, history, updateCol, handleEditClose, dayId
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setCols({...col})
+    setCols({...cols})
     if (id) {
-      updateCol(id, col, history)
+      updateCol( cols, history, dayId)
       handleEditClose()
     } else {
-      addCol(col)
+      addCol(dayId, cols)
     }
     setCols({ title: ""})
   }
@@ -49,8 +49,8 @@ const ColForm = ({ addCol, id, title, history, updateCol, handleEditClose, dayId
               type="text"
               placeholder="example: todos" 
               name="title"
-              value={col.title} 
-              onChange={(e) => setCols({...col, title: e.target.value})}
+              value={cols.title} 
+              onChange={(e) => setCols({...cols, title: e.target.value})}
             />
             </Form.Group>
           <Button variant="primary" onClick={handleClose} type='submit'>
