@@ -61,7 +61,7 @@ const BookList = ({ books, getAllBooks, end_date, start_date }) => {
                   }}
                 >
                   <Card.Body>
-                    <Card.Title style={{ whiteSpace: "nowrap" }}>
+                    <Card.Title style={{ whiteSpace: "wrap" }}>
                       {b.title}
                     </Card.Title>
                     <Card.Text>{b.descript}</Card.Text>

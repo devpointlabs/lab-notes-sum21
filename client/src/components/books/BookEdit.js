@@ -5,13 +5,13 @@ import { ColorStyles } from '../styledComponents/sharedStyles';
 import { withRouter } from 'react-router-dom';
 
 
-const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, updateBook, handleEditClose, history }) => {
+const BookEdit = ({ addBook, id, title, descript, start_date, end_date, color, updateBook, handleEditClose, history }) => {
     // do we set up these date values to empty strings or to null?
-    const [book, setBook] = useState({ title: "", descript: "", start_date: "", end_date: "", color: "" })
+    const [book, setBook] = useState({ title: "", descript: "", color: "" })
 
  useEffect( ()  => {
      if (id) {
-         setBook({ title, descript, start_date, end_date, color })
+         setBook({ title, descript, color })
      }
  }, [] )
     
@@ -24,7 +24,7 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
     } else {
       addBook(book, history)
     }
-    setBook({ title: "", descript: "", start_date: "", end_date: "", color: "" })
+    setBook({ title: "", descript: "", color: "" })
   }
     return(
         
@@ -52,7 +52,7 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
                 />
             </Form.Group>
 
-            <Form.Row>
+            {/* <Form.Row>
                 <Form.Group as={Col} controlId="start_date">
                 <Form.Label>Start Day</Form.Label>
                 <Form.Control 
@@ -75,7 +75,7 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
                 />             
                 </Form.Group>
 
-            </Form.Row>  
+            </Form.Row>   */}
             
             <Form.Row>
                 
@@ -112,15 +112,15 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
     )
 }
 // , linear-gradient(to right, rgba(152, 72, 255, 100),rgba(152, 72, 255, 73)
-const ConnectedBookForm = (props) => (
+const ConnectedBookEdit = (props) => (
     <BookConsumer>
         { value => (
-            <BookForm {...props} {...value} />
+            <BookEdit {...props} {...value} />
         )}
     </BookConsumer>
 )
 
-export default withRouter(ConnectedBookForm);
+export default withRouter(ConnectedBookEdit);
 
 //     { key: "p", text: "purple", value: "#9848FF", },
 //     { key: "g", text: "green", value: "#407D60", },

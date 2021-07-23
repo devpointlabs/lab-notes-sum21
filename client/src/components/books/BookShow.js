@@ -1,10 +1,9 @@
 import { Button, Modal } from 'react-bootstrap';
 import { useState } from 'react';
-import BookForm from './BookForm';
+import BookEdit from './BookEdit';
 import { BookConsumer } from '../../providers/BookProvider';
 import Moment from 'react-moment'; 
 import DayList from '../days/DayList';
-import DayForm from '../days/DayForm';
 
 const BookShow = ({ location, deleteBook, match, history }) => {
   // const bookContext = useContext(BookContext);
@@ -39,7 +38,7 @@ const BookShow = ({ location, deleteBook, match, history }) => {
           <Modal.Title>Book {location.state.id} Edit</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <BookForm { ...location.state } handleEditClose={handleEditClose} />
+          <BookEdit { ...location.state } handleEditClose={handleEditClose} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleEditClose}>Close</Button>

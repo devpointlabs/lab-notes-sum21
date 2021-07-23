@@ -2,10 +2,12 @@ import { useEffect } from 'react';
 import { DayConsumer } from '../../providers/DayProvider';
 import { Link } from 'react-router-dom';
 
-const DayList = ({ bookId, days, getAllDays}) => {
+const DayList = ({ bookId, days, getAllDays, }) => {
   useEffect( () => {
     getAllDays(bookId)
   }, [])
+  
+  
 
   return (
     <>
