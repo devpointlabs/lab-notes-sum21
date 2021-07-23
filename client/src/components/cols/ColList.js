@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
 import { Link, } from 'react-router-dom';
 import { Container, Row, Col, Button,} from 'react-bootstrap';
-import ColUpdate from './ColUpdate';
 
-const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history, id, handleEditClose}) => {
+const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history, id, handleEditClose, location }) => {
   const [col, setCols] = useState({title: "",})
   const [show, setShow] = useState(false);
 

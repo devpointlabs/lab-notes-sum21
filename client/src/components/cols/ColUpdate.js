@@ -1,9 +1,11 @@
 import { Form, Button, } from 'react-bootstrap';
 import { useState, } from 'react';
+import { useHistory } from 'react-router-dom';
 import { ColConsumer } from '../../providers/ColProvider';
 
 const ColUpdate = ({ location, match, updateCol, history }) => {
-  const[col, setCol] = useState({title: location.state.c.title})
+  const histore = useHistory();
+  const[col, setCol] = useState({title: history.location.state.c.title})
   const{dayId, id } = match.params
   
   const handleSubmit = (e) => {
@@ -26,7 +28,7 @@ const ColUpdate = ({ location, match, updateCol, history }) => {
           onChange={(e) => setCol({...col, title: e.target.value})}
         />
         </Form.Group>
-        <Button type="submit">Submit</Button>
+        <Button type="submit"  onClick={() => histore.goBack()}>Submit</Button>
       </Form>
     </>
   )

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
 
 
-const ColForm = ({ addCol, id, title, history, updateCol, handleEditClose, dayId}) => {
+const ColForm = ({ addCol, id, title, history, location, updateCol, handleEditClose, dayId}) => {
   const [cols, setCols] = useState({title: "",})
   const [show, setShow] = useState(false);
 
@@ -13,11 +13,17 @@ const ColForm = ({ addCol, id, title, history, updateCol, handleEditClose, dayId
     }
   }, [])
 
+  const refreshpage = () => {
+    window.location.reload(false);
+    setShow(false);
+
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     setCols({...cols})
     if (id) {
-      updateCol( cols, history, dayId)
+      updateCol( cols, dayId)
       handleEditClose()
     } else {
       addCol(dayId, cols)
@@ -53,7 +59,7 @@ const ColForm = ({ addCol, id, title, history, updateCol, handleEditClose, dayId
               onChange={(e) => setCols({...cols, title: e.target.value})}
             />
             </Form.Group>
-          <Button variant="primary" onClick={handleClose} type='submit'>
+          <Button variant="primary" onClick={refreshpage} type='submit'>
             Submit
           </Button>
           </Form>
