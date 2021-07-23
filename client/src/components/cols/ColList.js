@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, Button, Card} from 'react-bootstrap';
+import { Container, Row, Col, DropdownButton, Dropdown, Image, Card} from 'react-bootstrap';
 import ColUpdate from './ColUpdate';
 // import { Card } from '@material-ui/core';
 
@@ -26,12 +26,33 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
               <Col key={c.id}>
                 <Card>
                   <Card.Header as="h5">{c.title}
-                  <Button variant="primary" onClick={handleShow}>
+                  <DropdownButton 
+                      align="end"
+                      title={
+                        <div className="pull-left">
+                        <Image className="options" 
+                          src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1626999816/Options_tvohvn.png"
+                          width="30"
+                          height="30" 
+                          alt="options button"
+                        />
+                        </div>
+                      } 
+                      id="dropdown-menu-align-right">
+                    <Dropdown.Item eventKey={1}>
+                      <Link onClick={handleShow}>Edit</Link> 
+                    </Dropdown.Item>
+                    <Dropdown.Item divider />
+                    <Dropdown.Item eventKey={2}>
+                      <Link onClick={() => deleteCol(dayId, c.id, history)}>Delete</Link>
+                    </Dropdown.Item>
+                  </DropdownButton>
+                  {/* <Button variant="primary" onClick={handleShow}>
                       Edit
                     </Button>
                     <Button variant="danger" onClick={() => deleteCol(dayId, c.id, history)}>
                       Delete
-                    </Button>
+                    </Button> */}
                     </Card.Header>
                   <Card.Text>(input cards here)</Card.Text>
                 </Card>

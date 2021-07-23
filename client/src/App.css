@@ -35,13 +35,4 @@
   to {
     transform: rotate(360deg);
   }
-<<<<<<< HEAD
-}
-
-.flex-grid {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-=======
->>>>>>> c8f8372c954087502ca4aea89c2d5616cba6a8e0
 }
