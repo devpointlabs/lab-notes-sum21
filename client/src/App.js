@@ -40,7 +40,7 @@ const App = () => (
           <ProtectedRoute exact path="/days/:dayId/cols/:id" component={ColUpdate} />
           <ProtectedRoute exact path="/cols/:colId/cards/cardform" component={CardForm} />
           <ProtectedRoute exact path="/cols/:colId/cards/:id" component={CardShow} />
-          <Route exact path="/books" component={Books}/>
+          <ProtectedRoute exact path="/books" component={Books}/>
           <ProtectedRoute exact path="/profile" component={Profile}/>
           <Route component={Nomatch} />
         </Switch>

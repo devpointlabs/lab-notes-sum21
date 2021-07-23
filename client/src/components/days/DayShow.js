@@ -5,6 +5,7 @@ import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import {useState, useEffect} from 'react';
 import DayPicker from './DayPicker';
+import Cols from '../cols/Cols';
 
 const DayShow = ({getDay, getAllDays, days, bookId, day, location, match, deleteDay, history, day_date, start_date, end_date }) => {
   const [currentDay, setCurrentDay] = useState({});
@@ -60,10 +61,10 @@ const DayShow = ({getDay, getAllDays, days, bookId, day, location, match, delete
           )
         }
       </Row>
-    </Container> */}
-    {/* <br/>
+    </Container> */} 
+    <h4>Col component</h4>
+    <Cols dayId={match.params.id} />
     <br/>
-    {' '} */}
     {/* <Button variant="danger" onClick={() => handleDeleteShow()}>Delete</Button>
     {' '}
     <Modal show={deleteShow} onHide={handleDeleteClose}>
@@ -76,7 +77,6 @@ const DayShow = ({getDay, getAllDays, days, bookId, day, location, match, delete
         <Button variant="secondary" onClick={handleDeleteClose}>Close</Button>
       </Modal.Footer>
     </Modal> */}
-
     </>
   )
 }
