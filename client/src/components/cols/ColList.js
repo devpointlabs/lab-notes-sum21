@@ -29,16 +29,14 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                   <DropdownButton 
                       align="end"
                       title={
-                        <div className="pull-left">
                         <Image className="options" 
                           src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1626999816/Options_tvohvn.png"
                           width="30"
-                          height="30" 
+                          height="12" 
                           alt="options button"
                         />
-                        </div>
-                      } 
-                      id="dropdown-menu-align-right">
+                        }
+                        id="dropdown-basic-button">
                     <Dropdown.Item eventKey={1}>
                       <Link onClick={handleShow}>Edit</Link> 
                     </Dropdown.Item>
