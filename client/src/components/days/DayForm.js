@@ -4,7 +4,7 @@ import { DayConsumer } from '../../providers/DayProvider';
 import { ColorStyles } from '../styledComponents/sharedStyles';
 import { withRouter } from 'react-router-dom';
 
-const DayForm = ({ addDay, id, day_date, updateDay, handleEditClose, history}) => {
+const DayForm = ({ addDay, match, getAvalItems, id, day_date, updateDay, handleEditClose, history}) => {
   const [day, setDay] = useState({ day_date: ""})
 
   useEffect( () => {
