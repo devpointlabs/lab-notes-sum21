@@ -17,25 +17,26 @@ const ColProvider = ({ children }) => {
   }
 
   const addCol = (dayId, cols) => {
-    axios.post(`/api/days/${dayId}/cols`, { cols })
+    axios.post(`/api/days/${dayId}/cols`, cols )
       .then( res => {
         setCols([ ...cols, res.data])
       })
       .catch( err => console.log(err) )
   }
 
-  const updateCol = (dayId, id, col) => {
+  const updateCol = (dayId, id, col, history) => {
     axios.put(`/api/days/${dayId}/cols/${id}`, col )
-      .then( res => {
-        const updatedCol = cols.map( c => {
-          if (c.id === id) {
-            return res.data
-          }
-          return c
-        })
-        setCols(updatedCol)
+    .then( res => {
+      const updatedCol = cols.map( c => {
+        if (c.id === id) {
+          return res.data
+        }
+        return c
       })
-      .catch( err => console.log(err) )
+      setCols(updatedCol)
+    })
+    .catch( err => console.log(err) );
+    history.push(`/days/${dayId}/cols`);
   }
 
   const deleteCol = (dayId, id, history) => {
@@ -45,7 +46,6 @@ const ColProvider = ({ children }) => {
         alert(res.data.message)
       })
       .catch(err => console.log(err) )
-      history.push(`/days/${dayId}/cols`)
   }
   
   return(

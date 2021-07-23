@@ -4,7 +4,7 @@ import { Container, } from 'react-bootstrap';
 import ColList from './ColList';
 import ColForm from './ColForm';
 
-const Cols = ({ dayId, id}) => {
+export const Cols = ({ dayId, id}) => {
   // const[show, setShow] = useState(false);
   
   // const handleClose = () => setShow(false);
@@ -19,8 +19,8 @@ const Cols = ({ dayId, id}) => {
           Launch demo modal
           </Button>
         </Link> */}
-        <ColForm />
-        <ColList />
+        <ColForm dayId={dayId} />
+        <ColList dayId={dayId} />
       </Container>
     </>
   )

@@ -12,6 +12,7 @@ const DayProvider = ({ children}) => {
         setDays(res.data)
       })
       .catch( err => console.log(err) )
+      console.log(bookId)
   }
   
   const addDay = (bookId, day) => {

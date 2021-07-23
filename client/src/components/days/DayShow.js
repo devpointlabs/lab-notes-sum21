@@ -6,8 +6,10 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import DayForm from './DayForm';
+import { Cols }from '../cols/Cols';
+import { ColConsumer } from '../../providers/ColProvider';
 
-const DayShow = ({getAllDays, bookId, days, location, match, deleteDay, history }) => {
+const DayShow = ({getAllDays, bookId, days, location, match, deleteDay, history, cols }) => {
 
   const [editshow, setEditShow] = useState(false);
   const handleEditClose = () => setEditShow(false);
@@ -20,7 +22,7 @@ const DayShow = ({getAllDays, bookId, days, location, match, deleteDay, history 
   const destroyDay = () => { deleteDay(location.state.book_id, location.state.id);}
 
   useEffect( () => {
-    getAllDays(bookId, days)
+    getAllDays(bookId)
   }, [])
   
   
@@ -61,7 +63,9 @@ const DayShow = ({getAllDays, bookId, days, location, match, deleteDay, history 
           )
         }
       </Row>
-    </Container> */}
+    </Container> */} 
+    <h4>Col component</h4>
+    <Cols dayId={match.params.id} />
     <br/>
     <br/>
     {' '}

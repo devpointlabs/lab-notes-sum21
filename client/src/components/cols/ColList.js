@@ -26,7 +26,7 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                   <h4>
                     {c.title}
                     <Link to={{
-                      pathname: `/days/${1}/cols/${c.id}`, state:{c}
+                      pathname: `/days/${dayId}/cols/${c.id}`, state:{c}
                     }}>
                     <Button variant="primary" onClick={handleShow}>
                       Edit
@@ -36,6 +36,18 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                       Delete
                     </Button>
                   </h4>
+                  {/* <ColUpdate
+                    getAllCols = {getAllCols}
+                    dayId = {dayId}
+                    id={c.id}
+                    col= {c}
+                    setCol = {setCols}
+                    updateCol= {updateCol}
+                    handleClose = {handleClose}
+                    handleShow = {handleShow}
+                    show = {show}
+                    setShow = {setShow}
+                    /> */}
               </Col>
           </Row>
         </Container>
@@ -51,3 +63,8 @@ const ConnectedColList = (props) => (
 )
 
 export default ConnectedColList;
+
+// {/* <Link to={{
+//   pathname: `/col/${c.id}`
+// }}> */}
+// {/* </Link> */}

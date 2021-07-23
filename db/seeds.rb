@@ -27,7 +27,7 @@
         day_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
         book_id: book.id
       )
-      1.times do
+      3.times do
         col = Col.create(
           title: "Goals",
           day_id: day.id
