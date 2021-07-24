@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, DropdownButton, Dropdown, Image, Card} from 'react-bootstrap';
-import ColUpdate from './ColUpdate';
+import { Container, Row, Col, DropdownButton, Dropdown, Image, Card, InputGroup} from 'react-bootstrap';
+import CardForm from '../cards/CardForm';
+import CardShow from '../cards/CardShow';
 // import { Card } from '@material-ui/core';
 
 const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history, id, handleEditClose, location }) => {
@@ -26,7 +27,8 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
               <Col key={c.id}>
                 <Card>
                   <Card.Header as="h5">{c.title}
-                  <DropdownButton 
+                  <DropdownButton
+                      variant="light" 
                       align="end"
                       title={
                         <Image className="options" 
@@ -38,7 +40,7 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                         }
                         id="dropdown-basic-button">
                     <Dropdown.Item eventKey={1}>
-                      <Link to ={{pathname: `days/${dayId}/cols/${c.id}`, state:{c}}} onClick={handleShow}>Edit</Link>
+                      <Link to ={{pathname: `${dayId}/cols/${c.id}`, state:{c}}} onClick={handleShow}>Edit</Link>
                     </Dropdown.Item>
                     <Dropdown.Item divider />
                     <Dropdown.Item eventKey={2}>
@@ -47,7 +49,7 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                   </DropdownButton>
                   </Card.Header>
                   <Card.Text>(input cards here)</Card.Text>
-                  
+                  <CardForm/>
                 </Card>
               </Col>
               )}
