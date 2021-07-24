@@ -38,15 +38,16 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                         }
                         id="dropdown-basic-button">
                     <Dropdown.Item eventKey={1}>
-                      <Link onClick={handleShow}>Edit</Link> 
+                      <Link to ={{pathname: `days/${dayId}/cols/${c.id}`, state:{c}}} onClick={handleShow}>Edit</Link>
                     </Dropdown.Item>
                     <Dropdown.Item divider />
                     <Dropdown.Item eventKey={2}>
                       <Link onClick={() => deleteCol(dayId, c.id, history)}>Delete</Link>
                     </Dropdown.Item>
                   </DropdownButton>
-                    </Card.Header>
+                  </Card.Header>
                   <Card.Text>(input cards here)</Card.Text>
+                  
                 </Card>
               </Col>
               )}
