@@ -2339,6 +2339,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 "@wojtekmaj/date-utils@^1.0.2", "@wojtekmaj/date-utils@^1.0.3":
 =======
 "@wojtekmaj/date-utils@^1.0.2":
@@ -2346,6 +2347,9 @@
 =======
 "@wojtekmaj/date-utils@^1.0.2":
 >>>>>>> a761913 (change to seed file)
+=======
+"@wojtekmaj/date-utils@^1.0.2", "@wojtekmaj/date-utils@^1.0.3":
+>>>>>>> 36d462b9e4ec600156c7e17b56a3e2acd0cb2c9c
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@wojtekmaj/date-utils/-/date-utils-1.0.3.tgz#2dcfd92881425c5923e429c2aec86fb3609032a1"
   integrity sha512-1VPkkTBk07gMR1fjpBtse4G+oJqpmE+0gUFB0dg3VIL7qJmUVaBoD/vlzMm/jNeOPfvlmerl1lpnsZyBUFIRuw==
@@ -7333,15 +7337,21 @@ lodash.memoize@^4.1.2:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 36d462b9e4ec600156c7e17b56a3e2acd0cb2c9c
 lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
+<<<<<<< HEAD
 =======
 >>>>>>> fa0cb6c (change to seed file)
 =======
 >>>>>>> a761913 (change to seed file)
+=======
+>>>>>>> 36d462b9e4ec600156c7e17b56a3e2acd0cb2c9c
 lodash.once@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
@@ -7352,12 +7362,15 @@ lodash.once@^4.1.1:
 =======
 >>>>>>> a761913 (change to seed file)
 
+<<<<<<< HEAD
 lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 >>>>>>> fa0cb6c (change to seed file)
 
+=======
+>>>>>>> 36d462b9e4ec600156c7e17b56a3e2acd0cb2c9c
 lodash.template@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.5.0.tgz#f976195cf3f347d0d5f52483569fe8031ccce8ab"
@@ -9452,6 +9465,7 @@ react-bootstrap@^1.6.1:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 react-calendar@^3.3.1, react-calendar@^3.4.0:
 =======
 react-calendar@^3.4.0:
@@ -9459,6 +9473,9 @@ react-calendar@^3.4.0:
 =======
 react-calendar@^3.4.0:
 >>>>>>> a761913 (change to seed file)
+=======
+react-calendar@^3.3.1, react-calendar@^3.4.0:
+>>>>>>> 36d462b9e4ec600156c7e17b56a3e2acd0cb2c9c
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/react-calendar/-/react-calendar-3.4.0.tgz#25396ca0992b3b2042abca334515f6ff4d9878bc"
   integrity sha512-ykbvXASArQQ8KZlCEXEdE+w+KFGSj7kDpdTRzbLVJeN26oUIu+EFavFDAqg4G//zTO0tSq5SMfqAa6fjrdGQjQ==
@@ -9470,6 +9487,9 @@ react-calendar@^3.4.0:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 36d462b9e4ec600156c7e17b56a3e2acd0cb2c9c
 react-date-picker@^8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/react-date-picker/-/react-date-picker-8.2.0.tgz#28d0651cc204d51ce28b84848520bce1eabc2973"

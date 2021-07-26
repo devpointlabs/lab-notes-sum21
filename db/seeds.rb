@@ -7,9 +7,13 @@
 ]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> a761913 (change to seed file)
+=======
+=======
+>>>>>>> 36d462b9e4ec600156c7e17b56a3e2acd0cb2c9c
 
 >>>>>>> a761913 (change to seed file)
 1.times do
