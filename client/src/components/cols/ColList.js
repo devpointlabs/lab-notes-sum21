@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, DropdownButton, Dropdown, Image, Card, InputGroup} from 'react-bootstrap';
+import { Container, Row, Col, DropdownButton, Dropdown, Image, Card } from 'react-bootstrap';
 import CardForm from '../cards/CardForm';
 import CardShow from '../cards/CardShow';
 import ColForm from './ColForm';
-import { ColColor, OptButton, ColWrap, NewCol } from '../styledComponents/ColStyles';
-// import { Card } from '@material-ui/core';
+import { ColColor, OptButton, ColWrap } from '../styledComponents/ColStyles';
+import { Cards } from '../cards/Cards';
 
 const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history, id, handleEditClose, location }) => {
   const [col, setCols] = useState({title: "",})
@@ -53,7 +53,7 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                 <ColWrap>
                   <Card>
                     <ColColor>
-                      <Card.Text>(input cards here)</Card.Text>
+                      <Card.Body><Cards ColId={c.id}/></Card.Body>
                       <CardForm/>
                     </ColColor>
                 </Card>
