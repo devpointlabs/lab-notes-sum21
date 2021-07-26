@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col, DropdownButton, Dropdown, Image, Card, InputGroup} from 'react-bootstrap';
 import CardForm from '../cards/CardForm';
 import CardShow from '../cards/CardShow';
+import { ColColor, OptButton } from '../styledComponents/ColStyles';
 // import { Card } from '@material-ui/core';
 
 const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history, id, handleEditClose, location }) => {
@@ -26,6 +27,7 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
         :
               <Col key={c.id}>
                 <Card>
+                  <OptButton color="white">
                   <Card.Header as="h5">{c.title}
                   <DropdownButton
                       variant="light" 
@@ -40,16 +42,18 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                         }
                         id="dropdown-basic-button">
                     <Dropdown.Item eventKey={1}>
-                      <Link to ={{pathname: `${dayId}/cols/${c.id}`, state:{c}}} onClick={handleShow}>Edit</Link>
+                      <Link to ={{pathname: `../${dayId}/cols/${c.id}`, state:{c}}} onClick={handleShow}>Edit</Link>
                     </Dropdown.Item>
                     <Dropdown.Item divider />
                     <Dropdown.Item eventKey={2}>
                       <Link onClick={() => deleteCol(dayId, c.id, history)}>Delete</Link>
                     </Dropdown.Item>
                   </DropdownButton>
-                  </Card.Header>
+                  </Card.Header></OptButton>
+                  <ColColor>
                   <Card.Text>(input cards here)</Card.Text>
                   <CardForm/>
+                  </ColColor>
                 </Card>
               </Col>
               )}
