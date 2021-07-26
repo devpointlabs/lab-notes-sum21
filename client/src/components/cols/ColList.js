@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
 import { Link, } from 'react-router-dom';
 import { Container, Row, Col, Button,} from 'react-bootstrap';
+import { Cards } from '../cards/Cards';
 
 const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history, id, handleEditClose, location }) => {
   const [col, setCols] = useState({title: "",})
@@ -35,6 +36,7 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                       Delete
                     </Button>
                   </h4>
+                  <Cards ColId={c.id} />
                   {/* <ColUpdate
                     getAllCols = {getAllCols}
                     dayId = {dayId}
@@ -46,7 +48,7 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                     handleShow = {handleShow}
                     show = {show}
                     setShow = {setShow}
-                    /> */}
+                  /> */}
               </Col>
           </Row>
         </Container>

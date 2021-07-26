@@ -1,41 +1,39 @@
 import { Card, Button, Modal } from 'react-bootstrap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Moment from 'react-moment'; 
 import CardForm from './CardForm';
 import { CardConsumer } from '../../providers/CardProvider';
 
-const CardShow = ({ location, match, deleteCard, history }) => {
+const CardShow = ({ ColId, cards, getAllCards, location, match, deleteCard, history,}) => {
+  const [card, setCard] = useState({})
   const [editshow, setEditShow] = useState(false);
   const handleEditClose = () => setEditShow(false);
   const handleEditShow = () => setEditShow(true);
 
+  useEffect( () => {
+    getAllCards(ColId)
+  }, [])
+
   return (
     <>
-      <h1>Card Show: {location.state.id}</h1>
-      <p>
-        Title: {location.state.title}
-      </p>
-      <p>
-        End time: {location.state.end_time}
-      </p>
-      <p>
-        Notes: ${location.state.notes}
-      </p>
-      <Button variant="warning" onClick={() => handleEditShow()}>Edit</Button>
-      {' '}
-      <Button variant="danger" onClick={() => deleteCard(match.params.id, history)}>Delete</Button>
-      <Modal show={editshow} onHide={handleEditClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Card Show # {location.state.id} Edit</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <CardForm { ...location.state } handleEditClose={handleEditClose} />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleEditClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+    { cards.map( (card) =>
+      card <= 0 ? "No Cards => Create One"
+      :
+    <Card style={{ width: '18rem' }} key={card.id}>
+      <Card.Body>
+        <Card.Title>{card.title}</Card.Title>
+        <Card.Text>
+          {card.notes}
+        </Card.Text>
+        <Card.Footer>
+          <Moment format="hh A">
+            {card.end_time}
+          </Moment>
+        </Card.Footer>
+      </Card.Body>
+      <Button variant="danger" onClick={() => deleteCard(card.id, history, ColId)}> Delete</Button>
+    </Card>
+    )}
     </>
   )
 }

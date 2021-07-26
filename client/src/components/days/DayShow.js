@@ -39,44 +39,7 @@ const DayShow = ({getDay, getAllDays, days, bookId, day, location, match, delete
       <ArrowForwardIosIcon/>
       {' '}
       <text style={{fontWeight: "bold"}}>{day.day_date}</text>
-    {/* <Container>
-      <Row> 
-        {
-          items.map( i => 
-            <Col md={4}>
-              <Card>
-                <Card.Img variant="top" src={i.pic} />
-                <Card.Body>
-                  <Card.Title>Title: {i.title}</Card.Title>
-                  <Card.Text>
-                    Author: {i.author}
-                  </Card.Text>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroupItem>Genre: {i.genre}</ListGroupItem>
-                  <ListGroupItem>Item Type: {i.item_type}</ListGroupItem>
-                </ListGroup>
-              </Card>
-            </Col>  
-          )
-        }
-      </Row>
-    </Container> */} 
-    <h4>Col component</h4>
     <Cols dayId={match.params.id} />
-    <br/>
-    <Button variant="danger" onClick={() => handleDeleteShow()}>Delete</Button>
-    {' '}
-    <Modal show={deleteShow} onHide={handleDeleteClose}>
-      <Modal.Header closeButton/>
-      <Modal.Body>
-        <h1>WARNING!!</h1> <p>IF YOU DELETE THIS DAY, YOU WILL DELETE ALL GOALS AND NOTES ASSOCIATED WITH THIS DAY. THIS ACTION CANNOT BE UNDONE.</p><p>CLICK "Confirm" TO CONTINUE. TO GO BACK, CLICK "Close".</p>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="danger" onClick={() => destroyDay()}>Delete</Button>
-        <Button variant="secondary" onClick={handleDeleteClose}>Close</Button>
-      </Modal.Footer>
-    </Modal>
     </>
   )
 }
