@@ -13,12 +13,17 @@ class Api::DaysController < ApplicationController
   def create
     @day = @book.days.new(day_params)
     if @day.save
-      @day.cols.create( title: "Goals", day_id: @day.id)
-      @day.cols.create( title: "In Progress", day_id: @day.id)
-      @day.cols.create( title: "Done", day_id: @day.id)
+      @colsArray = ["Goals", "In Progress", "Done"]
+      createCols(@colsArray, @day.id)
       render json: @day
     else
       render json: {errors: @day.errors}, status: :unprocessable_entity
+    end
+  end
+
+  def createCols(colsArr, dayId)
+    colsArr.each_with_index do | col, index |
+      Col.create(title: colsArr[index], day_id: dayId)
     end
   end
 
