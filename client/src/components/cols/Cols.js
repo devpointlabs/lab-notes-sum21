@@ -19,7 +19,7 @@ export const Cols = ({ dayId, id}) => {
           Launch demo modal
           </Button>
         </Link> */}
-        <ColForm dayId={dayId} />
+        {/* <ColForm dayId={dayId} /> */}
         <ColList dayId={dayId} />
       </Container>
     </>

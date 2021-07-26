@@ -62,7 +62,7 @@ const DayShow = ({getDay, getAllDays, days, bookId, day, location, match, delete
         }
       </Row>
     </Container> */} 
-    <h4>Col component</h4>
+    {/* <h4>Col component</h4> */}
     <Cols dayId={match.params.id} />
     <br/>
     <Button variant="danger" onClick={() => handleDeleteShow()}>Delete</Button>

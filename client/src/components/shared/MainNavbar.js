@@ -1,7 +1,8 @@
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Link, withRouter } from 'react-router-dom';
-import { bookformButton } from '../styledComponents/sharedStyles';
+import { ProfButton } from '../styledComponents/sharedStyles';
 import { Navbar, Nav, NavDropdown, Image, Container, Button } from 'react-bootstrap';
+
 const MainNavbar = ({ user, handleLogout, history }) => {
   const rightNavItems = () => {
     if (user) {
@@ -9,8 +10,9 @@ const MainNavbar = ({ user, handleLogout, history }) => {
         <Container>
         <Nav className="justify-content-end" style={{ width: "100%" }}>
         <Link to="/bookform">
-          <Button style={{background: "rgba(152, 72, 255, 100)", border: "rgba(152, 72, 255, 100)", color: "white", borderradius: "15px", position: "absolute", right: "40px", top: "15px"}}>Create a New Book</Button>
+          <Button style={{background: "rgba(152, 72, 255, 100)", border: "rgba(152, 72, 255, 100)", color: "white", borderradius: "15px", position: "absolute", right: "65px", top: "15px"}}>Create a New Book</Button>
         </Link>
+        <ProfButton>
         <NavDropdown eventkey={1} 
               title={
                   <div className="pull-left">
@@ -31,6 +33,7 @@ const MainNavbar = ({ user, handleLogout, history }) => {
                   <Link onClick={() => handleLogout(history)}>Logout</Link>
               </NavDropdown.Item>
             </NavDropdown>
+            </ProfButton>
         </Nav>
         </Container>
       )
