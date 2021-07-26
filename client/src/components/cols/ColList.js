@@ -16,7 +16,7 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
   const handleShow = () => setShow(true);
   
   useEffect( () => {
-    getAllCols(1)
+    getAllCols(dayId)
   }, [])
   
     return(
@@ -41,7 +41,7 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                         }
                         id="dropdown-basic-button">
                     <Dropdown.Item eventKey={1}>
-                      <Link to ={{pathname: `../${dayId}/cols/${c.id}`, state:{c}}} onClick={handleShow}>Edit</Link>
+                      <Link to ={{pathname: `/days/${dayId}/cols/${c.id}`, state:{c}}} onClick={handleShow}>Edit</Link>
                     </Dropdown.Item>
                     <Dropdown.Item divider />
                     <Dropdown.Item eventKey={2}>
