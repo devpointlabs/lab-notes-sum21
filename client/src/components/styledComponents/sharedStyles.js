@@ -96,6 +96,13 @@ export const QuoteCard = styled(Card)`
     // margin-left: 16px;
     `
 
+  export const ProfButton = styled.div`
+    $enable-caret: false;
+    .dropdown-toggle:after {
+      display:none;
+    }
+  `
+
 // export const bookformButton = styled(Button)`
 //       border-radius: 25px;
 //       color: white;

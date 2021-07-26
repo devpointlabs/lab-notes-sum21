@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col, DropdownButton, Dropdown, Image, Card, InputGroup} from 'react-bootstrap';
 import CardForm from '../cards/CardForm';
 import CardShow from '../cards/CardShow';
-import { ColColor, OptButton } from '../styledComponents/ColStyles';
+import ColForm from './ColForm';
+import { ColColor, OptButton, ColWrap, NewCol } from '../styledComponents/ColStyles';
 // import { Card } from '@material-ui/core';
 
 const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history, id, handleEditClose, location }) => {
@@ -26,9 +27,7 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
         c >= 0 ? "No Columns => Create One" 
         :
               <Col key={c.id}>
-                <Card>
                   <OptButton color="white">
-                  <Card.Header as="h5">{c.title}
                   <DropdownButton
                       variant="light" 
                       align="end"
@@ -49,14 +48,19 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                       <Link onClick={() => deleteCol(dayId, c.id, history)}>Delete</Link>
                     </Dropdown.Item>
                   </DropdownButton>
-                  </Card.Header></OptButton>
-                  <ColColor>
-                  <Card.Text>(input cards here)</Card.Text>
-                  <CardForm/>
-                  </ColColor>
+                  </OptButton>
+                  <h5>{c.title}</h5>
+                <ColWrap>
+                  <Card>
+                    <ColColor>
+                      <Card.Text>(input cards here)</Card.Text>
+                      <CardForm/>
+                    </ColColor>
                 </Card>
+                </ColWrap>
               </Col>
               )}
+            <ColForm dayId={dayId} />
           </Row>
         </Container>
     </>
