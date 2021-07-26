@@ -17,6 +17,9 @@ class Api::BooksController < ApplicationController
       @endDate = @book.end_date
       @daysArray = (@start..@endDate).to_a
       createDays(@daysArray, @book.id)
+      @book.days.cols.create( title: "Goals", day_id: @day.id)
+      @book.days.cols.create( title: "In Progress", day_id: @day.id)
+      @book.days.cols.create( title: "Done", day_id: @day.id)
       render json: @book
     else
       render json: { errors: @book.errors }, status: :unprocessable_entity

@@ -16,7 +16,6 @@ const ColForm = ({ addCol, id, title, history, location, updateCol, handleEditCl
   const refreshpage = () => {
     window.location.reload(false);
     setShow(false);
-
   }
 
   const handleSubmit = (e) => {
