@@ -4,6 +4,7 @@ import BookEdit from './BookEdit';
 import { BookConsumer } from '../../providers/BookProvider';
 import Moment from 'react-moment'; 
 import DayList from '../days/DayList';
+import {CenterBookShow} from '../styledComponents/BookShowStyle';
 
 const BookShow = ({ location, deleteBook, match, history }) => {
   // const bookContext = useContext(BookContext);
@@ -12,6 +13,7 @@ const BookShow = ({ location, deleteBook, match, history }) => {
   const handleEditShow = () => setEditShow(true);
   return (
     <>
+    <CenterBookShow>
       {/* <h1>Book Show # {location.state.id}</h1>
       <h1>Checkout Show # {match.params.id}</h1> */}
       <Card style={{width: '18rem'}} className="text-center">
@@ -48,6 +50,7 @@ const BookShow = ({ location, deleteBook, match, history }) => {
       </Modal>
 
       <Button variant="danger" onClick={() => deleteBook(match.params.id, history)}>Delete Book</Button>
+    </CenterBookShow>
     </>
   )
 }
