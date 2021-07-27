@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col, DropdownButton, Dropdown, Image, Card } from 'react-bootstrap';
 import { ColColor, OptButton, ColWrap } from '../styledComponents/ColStyles';
 import  Cards from '../cards/Cards';
+import ColForm from '../cols/ColForm';
 
 const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history, id, handleEditClose, location }) => {
   const [col, setCols] = useState({title: "",})
@@ -58,6 +59,7 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                 </ColWrap>
               </Col>
               )}
+              <ColForm dayId={dayId}/>
           </Row>
         </Container>
     </>
