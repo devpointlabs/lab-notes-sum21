@@ -1,4 +1,4 @@
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal, Card } from 'react-bootstrap';
 import { useState } from 'react';
 import BookEdit from './BookEdit';
 import { BookConsumer } from '../../providers/BookProvider';
@@ -14,13 +14,11 @@ const BookShow = ({ location, deleteBook, match, history }) => {
     <>
       {/* <h1>Book Show # {location.state.id}</h1>
       <h1>Checkout Show # {match.params.id}</h1> */}
-      
-      <p>
-    
-
-        Book Title:  {location.state.title}
-      </p>
-      <p>
+      <Card style={{width: '18rem'}} className="text-center">
+      <Card.Header >
+      <text style={{fontWeight: "bold"}}>{location.state.title}</text>
+      </Card.Header>
+      {/* <p>
         
         Book Description: {location.state.descript}
       </p>
@@ -29,8 +27,12 @@ const BookShow = ({ location, deleteBook, match, history }) => {
       </p>
       <p>
         Tracking End Date: <Moment format="MM-DD-YYYY">{location.state.end_date}</Moment>
-      </p>
-      <Button variant="warning" onClick={() => handleEditShow()}>Edit</Button>
+      </p> */}
+      <Card.Body>
+        <DayList bookId={location.state.id}/>
+      </Card.Body>
+      </Card>
+      <Button variant="warning" onClick={() => handleEditShow()}>Edit Book</Button>
       {' '}
       
       <Modal show={editshow} onHide={handleEditClose}>
@@ -45,8 +47,7 @@ const BookShow = ({ location, deleteBook, match, history }) => {
         </Modal.Footer>
       </Modal>
 
-      <Button variant="danger" onClick={() => deleteBook(match.params.id, history)}>Delete</Button>
-      <DayList bookId={location.state.id}/>    
+      <Button variant="danger" onClick={() => deleteBook(match.params.id, history)}>Delete Book</Button>
     </>
   )
 }
