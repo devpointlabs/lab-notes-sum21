@@ -10,7 +10,7 @@ import BookProvider from './providers/BookProvider';
 import AuthProvider from './providers/AuthProvider';
 import ColProvider from './providers/ColProvider';
 import DayProvider from './providers/DayProvider';
-import CardProvider from './providers/CardProvider';
+// import CardProvider from './providers/CardProvider';
 
 initMiddleware();
 
@@ -20,11 +20,11 @@ ReactDOM.render(
       <BookProvider>
         <DayProvider>
           <ColProvider>
-            <CardProvider>
+            {/* <CardProvider> */}
               <BrowserRouter>
                 <App />
               </BrowserRouter>
-            </CardProvider>
+            {/* </CardProvider> */}
           </ColProvider>
         </DayProvider>
       </BookProvider>

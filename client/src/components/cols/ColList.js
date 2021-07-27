@@ -7,8 +7,19 @@ import ColForm from './ColForm';
 import { ColColor, OptButton, ColWrap, NewCol } from '../styledComponents/ColStyles';
 import Cards from '../cards/Cards';
 
-const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history, id, handleEditClose, location }) => {
-  const [col, setCols] = useState({title: "",})
+const ColList = ({
+  dayId,
+  cols,
+  getAllCols,
+  deleteCol,
+  updateCol,
+  match,
+  history,
+  id,
+  handleEditClose,
+  location,
+}) => {
+  const [col, setCols] = useState({ title: "" });
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -63,14 +74,12 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
           </ColWrap>
         </Container>
     </>
-  )
+  );
 };
 
 const ConnectedColList = (props) => (
-  <ColConsumer>
-    { value => <ColList {...props} {...value} /> }
-  </ColConsumer>
-)
+  <ColConsumer>{(value) => <ColList {...props} {...value} />}</ColConsumer>
+);
 
 export default ConnectedColList;
 

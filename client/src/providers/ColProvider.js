@@ -8,12 +8,14 @@ export const ColConsumer = ColContext.Consumer;
 const ColProvider = ({ children }) => {
   const [cols, setCols] = useState([])
 
-  const getAllCols = (dayId) => {
-    axios.get(`/api/days/${dayId}/cols`)
-      .then( res => {
-        setCols(res.data)
-      })
-      .catch( err => console.log(err) )
+  const getAllCols = async (dayId) => {
+    try {
+      const response = await axios.get(`/api/days/${dayId}/cols`);
+
+      setCols(response.data) 
+    } catch(e) {
+      console.log(e)
+    }
   }
 
   const addCol = (dayId, cols, location) => {

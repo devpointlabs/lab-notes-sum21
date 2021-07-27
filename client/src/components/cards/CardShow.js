@@ -1,47 +1,55 @@
-import { Card, Button, Modal, } from 'react-bootstrap';
-import CardForm from './CardForm';
-import { useState } from 'react';
+import { Card, Button, Modal } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import Moment from "react-moment";
+import { CardConsumer } from "../../providers/CardProvider";
 
-const CardShow = ({ ColId,  deleteCard, history, id, title, notes, end_time, updateCard, }) => {
-  const [show, setShow] = useState(false)
+const CardShow = ({
+  ColId,
+  cards,
+  getAllCards,
+  location,
+  match,
+  deleteCard,
+  history,
+}) => {
+  const [card, setCard] = useState({});
+  const [editshow, setEditShow] = useState(false);
+  const handleEditClose = () => setEditShow(false);
+  const handleEditShow = () => setEditShow(true);
+  useEffect(() => {
+    getAllCards(ColId);
+  }, []);
+  console.log('cards', cards)
 
   return (
     <>
-      <Card style={{ width: '18rem' }} key={id}>
-        <Card.Body onClick={() => setShow(true)}>
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>
-            {notes}
-          </Card.Text>
-          <Card.Footer>
-            {end_time}
-          </Card.Footer>
-        </Card.Body>
-        <Button variant="danger" onClick={() => deleteCard(ColId, id, history)}> 
-          Delete
-        </Button>
-        <CardForm
-          ColId={ColId}
-          id={id}
-          title={title}
-          notes={notes}
-          end_time={end_time}
-          history={history}
-          updateCard={updateCard}
-        />
-      </Card>
-      <Modal show={show} fullscreen={true} onHide={() => setShow(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>
-            {title} {end_time}
-          </Modal.Title>
-          <Modal.Body>
-            {notes}
-          </Modal.Body>
-        </Modal.Header>
-      </Modal>
+      {/* {cards?.[ColId]?.map((card) => { */}
+      {(cards?.length &&
+        cards?.map((card) => {
+          return (
+            <Card style={{ width: "18rem" }} key={card.id}>
+              <Card.Body>
+                <Card.Title>{card.title}</Card.Title>
+                <Card.Text>{card.notes}</Card.Text>
+                <Card.Footer>
+                  <Moment format="hh A">{card.end_time}</Moment>
+                </Card.Footer>
+              </Card.Body>
+              <Button
+                variant="danger"
+                onClick={() => deleteCard(card.id, history, ColId)}
+              >
+                {" "}
+                Delete
+              </Button>
+            </Card>
+          );
+        })) ||
+        "No Cards => Create One"}
     </>
-  )
-}
-
-export default CardShow;
+  );
+};
+const ConnectedCardShow = (props) => (
+  <CardConsumer>{(value) => <CardShow {...props} {...value} />}</CardConsumer>
+);
+export default ConnectedCardShow;
