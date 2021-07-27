@@ -61,6 +61,7 @@ import { OptButton } from '../styledComponents/ColStyles';
               onChange={(e) => setCard({ ...card, end_time: e.target.value })}
               placeholder="end_time"
               required
+              type="datetime-local"
             />
             <input
               name="notes"

@@ -90,7 +90,8 @@ export const QuoteCard = styled(Card)`
     width: 250px;
     background: rgba(152, 71, 255, 0.06);
     color: black;
-    font-size: 36px;
+    font-size: 12px;
+    font-weight: 700px;
     text-align: left;
     // padding: 0 16px;
     // margin-left: 16px;

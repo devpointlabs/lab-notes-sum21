@@ -17,7 +17,7 @@ const CardShow = ({ ColId,  deleteCard, history, id, title, notes, end_time, upd
             {end_time}
           </Card.Footer>
         </Card.Body>
-        <Button variant="danger" onClick={() => deleteCard(ColId, id, history)}> 
+        <Button style={{backgroundColor: 'rgba(152, 71, 255, 0.06)', color: 'black'} } onClick={() => deleteCard(ColId, id, history)}> 
           Delete
         </Button>
         <CardForm

@@ -64,4 +64,3 @@ const CardProvider = ({ children }) => {
 }
 
 export default CardProvider;
-
