@@ -23,11 +23,30 @@ const DayPicker = ({setCurrentDay, getBook, days, bookId, book, history, day}) =
     })
   }
 
-  
+  const clickForward = () => {
+    if (day.id == days[days.length - 1].id){
+      history.push(`/books/${bookId}/days/${days[0].id}`)
+    }
+    else {
+      history.push(`/books/${bookId}/days/${day.id + 1}` )
+    }
+    window.location.reload()
+      // moment.utc(day.day_date).add(1,"day").valueOf()
+      // setCurrentDay()
+  }
+  const clickBackward = () => {
+    if (day.id == days[0].id){
+      history.push(`/books/${bookId}/days/${days[days.length - 1].id}`)
+    }
+    else {
+      history.push(`/books/${bookId}/days/${day.id - 1}` )
+    }
+    window.location.reload()
+  }
 
   return(
     <>
-    <Button>
+    <Button onClick={clickBackward}>
       <ArrowBackIosIcon/>
     </Button>
     <DatePicker 
@@ -36,7 +55,7 @@ const DayPicker = ({setCurrentDay, getBook, days, bookId, book, history, day}) =
       onChange={(value) => grabDayId(value)}
       selected={moment.utc(day.day_date).add(1,"days").valueOf()}
       dateFormat="yyyy-MM-dd"/>
-    <Button>
+    <Button onClick={clickForward}>
       <ArrowForwardIosIcon/>
     </Button>
     </>
