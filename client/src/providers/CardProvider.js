@@ -6,8 +6,8 @@ export const CardContext =  React.createContext();
 export const CardConsumer = CardContext.Consumer;
 
 const CardProvider = ({ children }) => {
-
     const [cards, setCards] = useState([])
+    
     const getAllCards = (colId) => {
         axios.get(`/api/cols/${colId}/cards`)
             .then( res => {

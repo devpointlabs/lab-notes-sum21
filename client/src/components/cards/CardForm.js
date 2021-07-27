@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Form, Button, Modal, Image } from 'react-bootstrap';
-import { CardConsumer } from '../../providers/CardProvider';
 import { OptButton } from '../styledComponents/ColStyles';
 
 // const CardForm = ({ addCard, history }) => {
@@ -11,32 +10,27 @@ import { OptButton } from '../styledComponents/ColStyles';
 //     setCard({ title: "", end_time: "", notes: "" })
 //   }
 
-  const CardForm = ({ addCard, id, title, end_time, notes, updateCard, handleEditClose, history }) => {
+  const CardForm = ({ addCard, id, ColId, title, end_time, notes, updateCard, handleEditClose, history }) => {
     const [card, setCard] = useState({ title: "", end_time: "", notes: "" })
-    const [show, setShow] = useState(false);
- useEffect( ()  => {
-  if (id) {
-    setCard({ title, end_time, notes, })
-  }
- }, [])
+    const [show, setShow] = useState(false)
+
+  useEffect( ()  => {
+    if (id) {
+      setCard({ title, end_time, notes, })
+    }
+  }, [])
     
  const handleSubmit = (e) => {
     e.preventDefault()
-    setCard({...card})
     if (id) {
       updateCard(id, card, history)
       handleEditClose()
     } 
     else {
-      addCard(card, history)
+      addCard(ColId, card)
+      handleClose()
     }
     setCard({ title: "", end_time: "", notes: "" })
-  }
-
-
-  const refreshpage = () => {
-    window.location.reload(false);
-    setShow(false);
   }
 
   const handleClose = () => setShow(false);
@@ -72,6 +66,7 @@ import { OptButton } from '../styledComponents/ColStyles';
 
             <input
               name="end_time"
+              type="time"
               value={card.end_time}
               onChange={(e) => setCard({ ...card, end_time: e.target.value })}
               placeholder="end_time"
@@ -93,9 +88,4 @@ import { OptButton } from '../styledComponents/ColStyles';
   )
 }
 
-const ConnectedCardForm = (props) => (
-  <CardConsumer>
-    { value => ( <CardForm {...props} {...value} /> )}
-  </CardConsumer>
-)
-export default ConnectedCardForm;
+export default CardForm;

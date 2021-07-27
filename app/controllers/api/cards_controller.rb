@@ -11,7 +11,7 @@ class Api::CardsController < ApplicationController
   end
 
   def create 
-    @card = @col.card.new(card_params)
+    @card = @col.cards.new(card_params)
     if @card.save 
       render json: @card
     else
@@ -42,6 +42,6 @@ class Api::CardsController < ApplicationController
     end
     
     def card_params
-      params.require(:card).permit(:title, :end_time, :notes)
+      params.require(:card).permit(:title, :end_time, :notes )
     end
 end
