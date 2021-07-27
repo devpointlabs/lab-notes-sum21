@@ -5,7 +5,7 @@ import { Container, Row, Col, DropdownButton, Dropdown, Image, Card } from 'reac
 import CardForm from '../cards/CardForm';
 import ColForm from './ColForm';
 import { ColColor, OptButton, ColWrap, NewCol } from '../styledComponents/ColStyles';
-import { Cards } from '../cards/Cards';
+import Cards from '../cards/Cards';
 
 const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history, id, handleEditClose, location }) => {
   const [col, setCols] = useState({title: "",})
@@ -50,7 +50,6 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                   </DropdownButton>
                   </OptButton>
                   <h7>{c.title}</h7>
-                <div>
                   <Card className="row-max">
                     <ColColor>
                       <Card.Body>
@@ -58,7 +57,6 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                       </Card.Body>
                     </ColColor>
                 </Card>
-                </div>
               </Col>
               )}
               <ColForm dayId={dayId}/>          
