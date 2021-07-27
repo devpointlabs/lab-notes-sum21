@@ -97,6 +97,7 @@ export const QuoteCard = styled(Card)`
     `
 
   export const ProfButton = styled.div`
+    float: right;
     $enable-caret: false;
     .dropdown-toggle:after {
       display:none;

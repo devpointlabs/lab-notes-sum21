@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, DropdownButton, Dropdown, Image, Card } from 'react-bootstrap';
-import { ColColor, OptButton, ColWrap } from '../styledComponents/ColStyles';
-import  Cards from '../cards/Cards';
-import ColForm from '../cols/ColForm';
+import CardForm from '../cards/CardForm';
+import ColForm from './ColForm';
+import { ColColor, OptButton, ColWrap, NewCol } from '../styledComponents/ColStyles';
+import Cards from '../cards/Cards';
 
 const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history, id, handleEditClose, location }) => {
   const [col, setCols] = useState({title: "",})
@@ -20,11 +21,12 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
     return(
       <>
       <Container fluid="md" >
-      <Row>
+      <ColForm dayId={dayId} />
+      <ColWrap>
         { cols.map( (c) =>
         c >= 0 ? "No Columns => Create One" 
         :
-              <Col key={c.id}>
+              <Col className="row-max" key={c.id}>
                   <OptButton color="white">
                   <DropdownButton
                       variant="light" 
@@ -47,20 +49,18 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                     </Dropdown.Item>
                   </DropdownButton>
                   </OptButton>
-                  <h5>{c.title}</h5>
-                <ColWrap>
-                  <Card>
+                  <h7>{c.title}</h7>
+                  <Card className="row-max">
                     <ColColor>
                       <Card.Body>
                         <Cards ColId={c.id}/>
                       </Card.Body>
                     </ColColor>
                 </Card>
-                </ColWrap>
               </Col>
               )}
-              <ColForm dayId={dayId}/>
-          </Row>
+              <ColForm dayId={dayId}/>          
+          </ColWrap>
         </Container>
     </>
   )

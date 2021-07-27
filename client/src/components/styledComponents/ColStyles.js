@@ -18,9 +18,16 @@ export const OptButton = styled.button`
 
 export const ColWrap = styled.div`
   display: flex;
-  column-gap: normal;
-  grid-auto-flow: row;
-  grid-template-columns: repeat(3, minmax(200px, auto));
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  .item {
+    height: 100px;
+    margin-bottom: 2%; /* (100-32*3)/2 */
+  };
+  .row-max {
+    justify-content: space-between;
+    flex: 0 0 33%;
+  }
 `
 
 export const NewCol = styled.div`
