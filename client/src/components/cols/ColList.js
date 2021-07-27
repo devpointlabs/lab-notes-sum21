@@ -55,7 +55,7 @@ const ColList = ({ dayId, cols, getAllCols, deleteCol, updateCol, match, history
                         <Cards ColId={c.id}/>
                       </Card.Body>
                     </ColColor>
-                </Card>
+                  </Card>
                 </ColWrap>
               </Col>
               )}
