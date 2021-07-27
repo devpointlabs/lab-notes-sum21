@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import Home from './components/shared/Home';
 import Nomatch from './components/shared/Nomatch';
@@ -23,7 +23,7 @@ import ColUpdate from './components/cols/ColUpdate';
 
 const App = () => (
   <>
-    <MainNavbar />
+  <MainNavbar />
     <FetchUser>
       <Container>
         <Switch>
