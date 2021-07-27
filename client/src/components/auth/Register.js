@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Button, Form } from 'react-bootstrap';
+import { CenterLogin } from "../../components/styledComponents/LoginPage";
 
 const Register = ({ handleRegister, history }) => {
   const [user, setUser] = useState({name:"", email: "", password: "", passwordConfirmation: ""})
@@ -17,10 +18,15 @@ const Register = ({ handleRegister, history }) => {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+    <CenterLogin>
+      <img src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1625707186/logo_hy0ksx.png"
+            width="250"
+            height="71"/>
+      <Form style={{width: "20rem"}} onSubmit={handleSubmit}>
       <Form.Group controlId="formBasicName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control 
+          <Form.Label><b>Name</b></Form.Label>
+          <Form.Control
+            className="inputGrey" 
             type="name" 
             placeholder="bob vance" 
             name="name"
@@ -29,8 +35,9 @@ const Register = ({ handleRegister, history }) => {
           />
         </Form.Group>
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email</Form.Label>
+          <Form.Label><b>Email</b></Form.Label>
           <Form.Control 
+            className="inputGrey"
             type="email" 
             placeholder="bob@email.com" 
             name="email"
@@ -39,8 +46,9 @@ const Register = ({ handleRegister, history }) => {
           />
         </Form.Group>
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control 
+          <Form.Label><b>Password</b></Form.Label>
+          <Form.Control
+            className="inputPurple" 
             type="password" 
             placeholder="Password" 
             name="password"
@@ -49,8 +57,9 @@ const Register = ({ handleRegister, history }) => {
           />
         </Form.Group>
         <Form.Group controlId="formBasicPasswordConfirmation">
-          <Form.Label>Password Confirmation</Form.Label>
-          <Form.Control 
+          <Form.Label><b>Password Confirmation</b></Form.Label>
+          <Form.Control
+            className="inputPurple" 
             type="password" 
             placeholder="retype password" 
             name="passwordConfirmation"
@@ -58,10 +67,11 @@ const Register = ({ handleRegister, history }) => {
             onChange={(e) => setUser({...user, passwordConfirmation: e.target.value})}
           />
         </Form.Group>
-        <Button type="submit" variant="primary">
-          Submit
+        <Button type="submit" style={{background: "rgba(152, 72, 255, 100)", border: "rgba(152, 72, 255, 100)", color: "white", width: "20rem"}}>
+          <b>Submit</b>
         </Button>
       </Form>
+    </CenterLogin>
     </>
   )
 }

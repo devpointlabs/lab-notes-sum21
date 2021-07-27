@@ -20,6 +20,7 @@ const styles = {
 const Profile = ({ user, updateUser }) => {
   const [editing, setEditing] = useState(false)
   const [editUser, setUser] = useState({name: '', email: '', file: ''})
+
   useEffect( () => {
     setUser({ name: user.user.name, email: user.user.email, file: user.user.image})
   }, [])
@@ -121,6 +122,7 @@ const Profile = ({ user, updateUser }) => {
     </Container>
   )
 }
+
 
 const ConnectedProfile = (props) => (
   <AuthConsumer>
