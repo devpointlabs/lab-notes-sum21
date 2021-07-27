@@ -18,7 +18,8 @@ const Cards = ({ ColId, cards, }) => {
   const deleteCard = (colId, id) => {
     axios.delete(`/api/cols/${colId}/cards/${id}`)
      .then( res => {
-         setCards(cards.filter(c => c.id !== id))
+        setCards(cards.filter(c => c.id !== id))
+        window.location.reload()
      })
      .catch( err => console.log(err) )
 }
@@ -27,6 +28,7 @@ const addCard = (colId, card) => {
   axios.post(`/api/cols/${colId}/cards`, { card })
    .then( res => {
        setCards([...cards, res.data])
+       window.location.reload()
    })
    .catch( err => console.log(err))
 }
@@ -41,6 +43,7 @@ const updateCard = (colId, id, card) => {
            return c
        })
        setCards(updatedCards)
+       window.location.reload()
    })
    .catch( err => console.log(err) )
 }

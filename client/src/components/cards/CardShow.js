@@ -1,13 +1,7 @@
 import { Card, Button, Modal, } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
-import Moment from 'react-moment'; 
-import { CardConsumer } from '../../providers/CardProvider';
+import CardForm from './CardForm';
 
-const CardShow = ({ ColId, location, match, deleteCard, history, id, title, notes, end_time, }) => {
-  const [card, setCard] = useState({})
-  const [editshow, setEditShow] = useState(false);
-  const handleEditClose = () => setEditShow(false);
-  const handleEditShow = () => setEditShow(true);
+const CardShow = ({ ColId,  deleteCard, history, id, title, notes, end_time, updateCard, }) => {
 
   return (
     <>
@@ -18,12 +12,21 @@ const CardShow = ({ ColId, location, match, deleteCard, history, id, title, note
             {notes}
           </Card.Text>
           <Card.Footer>
-            <Moment format="hh A">
-              {end_time}
-            </Moment>
+            {end_time}
           </Card.Footer>
         </Card.Body>
-        <Button variant="danger" onClick={() => deleteCard(ColId, id, history)}> Delete</Button>
+        <Button variant="danger" onClick={() => deleteCard(ColId, id, history)}> 
+          Delete
+        </Button>
+        <CardForm
+          ColId={ColId}
+          id={id}
+          title={title}
+          notes={notes}
+          end_time={end_time}
+          history={history}
+          updateCard={updateCard}
+        />
       </Card>
     </>
   )
