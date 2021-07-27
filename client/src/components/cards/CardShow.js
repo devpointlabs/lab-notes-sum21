@@ -1,12 +1,14 @@
 import { Card, Button, Modal, } from 'react-bootstrap';
 import CardForm from './CardForm';
+import { useState } from 'react';
 
 const CardShow = ({ ColId,  deleteCard, history, id, title, notes, end_time, updateCard, }) => {
+  const [show, setShow] = useState(false)
 
   return (
     <>
       <Card style={{ width: '18rem' }} key={id}>
-        <Card.Body>
+        <Card.Body onClick={() => setShow(true)}>
           <Card.Title>{title}</Card.Title>
           <Card.Text>
             {notes}
@@ -28,6 +30,16 @@ const CardShow = ({ ColId,  deleteCard, history, id, title, notes, end_time, upd
           updateCard={updateCard}
         />
       </Card>
+      <Modal show={show} fullscreen={true} onHide={() => setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            {title} {end_time}
+          </Modal.Title>
+          <Modal.Body>
+            {notes}
+          </Modal.Body>
+        </Modal.Header>
+      </Modal>
     </>
   )
 }
