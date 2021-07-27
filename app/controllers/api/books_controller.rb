@@ -25,7 +25,7 @@ class Api::BooksController < ApplicationController
       render json: { errors: @book.errors }, status: :unprocessable_entity
     end
   end
-
+  
   def createDays(daysArr, bookId)
     daysArr.each_with_index do | day, index | 
       Day.create(day_date: daysArr[index], book_id: bookId)

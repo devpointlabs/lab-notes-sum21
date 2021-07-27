@@ -42,6 +42,6 @@ class Api::ColsController < ApplicationController
   end
 
   def col_params
-    params.require(:col).permit(:title, :day_id)
+    params.require(:col).permit(:title)
   end
 end

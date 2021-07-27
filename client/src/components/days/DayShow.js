@@ -23,12 +23,23 @@ const DayShow = ({getDay, getAllDays, days, bookId, day, location, match, delete
     getAllDays(match.params.bookId)
     setCurrentDay(getDay(match.params.bookId, match.params.id))
   }, [])
+
+  // const incDay = () => {
+  //   days.map( d => {
+  //       d.id
+  //       setCurrentDay(d)
+  //       history.push(`/books/${bookId}/days/${d.id}`)
+  //       // window.location.reload()
+  //   })
+  // }
   
   return(
     <>
-      <ArrowBackIosIcon/>
+      {/* <Button onChange= {incDay}>
+        <ArrowBackIosIcon/>
+      </Button> */}
       {' '}
-      <CalendarTodayIcon/>
+      {/* <CalendarTodayIcon/> */}
       <DayPicker 
       day={day}
       setCurrentDay={setCurrentDay}
@@ -36,7 +47,9 @@ const DayShow = ({getDay, getAllDays, days, bookId, day, location, match, delete
       bookId={match.params.bookId}
       history={history}/>
       {' '}
-      <ArrowForwardIosIcon/>
+      {/* <Button onClick={incDay}>
+        <ArrowForwardIosIcon/>
+      </Button> */}
       {' '}
       <text style={{fontWeight: "bold"}}>{day.day_date}</text>
     <Cols dayId={match.params.id} />
