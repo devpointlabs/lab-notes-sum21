@@ -30,19 +30,15 @@ import { OptButton } from '../styledComponents/ColStyles';
   
   return (
     <>
-      <OptButton>
-      <Button variant="light" onClick={handleShow}>
-        { id ? "Edit":
-          <Image className="add" 
-          src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1627152011/Screen_Shot_2021-07-24_at_12.38.51_PM_jc5dfm.png"
-          roundedCircle
-          align='right'
-          width="30"
-          height="30" 
-          alt="add"
-          />
-        }
-      </Button></OptButton>
+      <OptButton onClick={handleShow}>
+        <Image className="add" 
+        src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1627152011/Screen_Shot_2021-07-24_at_12.38.51_PM_jc5dfm.png"
+        roundedCircle
+        align='right'
+        width="30"
+        height="30" 
+        alt="add"/>
+      </OptButton>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>
