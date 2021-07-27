@@ -13,7 +13,7 @@ const Login = ({ handleLogin, history }) => {
 
   return(
     <>
-    <Container class="d-flex justify-content-center">
+    <Container>
       <Form onSubmit={handleSubmit}>  
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email</Form.Label>
@@ -35,8 +35,8 @@ const Login = ({ handleLogin, history }) => {
           onChange={(e) => setUser({...user, password: e.target.value})}
         />
       </Form.Group>
-        <Button variant="primary" type="submit" color="purple" >
-          Login
+        <Button variant="primary" type="submit">
+          Submit
         </Button>
       </Form>
     </Container>
