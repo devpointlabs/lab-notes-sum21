@@ -1,7 +1,7 @@
 import { Form, Modal, Button, } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
-import { NewCol, NewColumnCard } from '../styledComponents/ColStyles';
+import { NewCol } from '../styledComponents/ColStyles';
 
 
 const ColForm = ({ addCol, id, title, history, location, updateCol, handleEditClose, dayId}) => {
@@ -37,9 +37,9 @@ const ColForm = ({ addCol, id, title, history, location, updateCol, handleEditCl
   return (
     <>
       <NewCol>
-      <NewColumnCard onClick={handleShow}>
+      <Button onClick={handleShow}>
         New Column
-      </NewColumnCard></NewCol>
+      </Button></NewCol>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>

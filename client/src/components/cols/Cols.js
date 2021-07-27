@@ -1,21 +1,17 @@
-import { Container } from "react-bootstrap";
+import { Container, } from 'react-bootstrap';
 // import { useState, } from 'react';
 // import { Link } from 'react-router-dom';
-import ColList from "./ColList";
-import ColForm from "./ColForm";
-import {
-  NewColumnContainer,
-  CardPageGrid,
-} from "../styledComponents/ColStyles";
+import ColList from './ColList';
+import ColForm from './ColForm';
 
-export const Cols = ({ dayId, id }) => {
+export const Cols = ({ dayId, id}) => {
   // const[show, setShow] = useState(false);
-
+  
   // const handleClose = () => setShow(false);
   // const handleShow = () => handleShow(true);
-  return (
+  return(
     <>
-      <CardPageGrid>
+      <Container>
         {/* <Link to={{
             pathname:  "/days/" + dayId + "/cols/" + id 
           }}>
@@ -25,9 +21,9 @@ export const Cols = ({ dayId, id }) => {
         </Link> */}
         <ColList dayId={dayId} />
         {/* <ColForm dayId={dayId} /> */}
-      </CardPageGrid>
+      </Container>
     </>
-  );
-};
+  )
+}
 
-export default Cols;
+export default Cols; 
