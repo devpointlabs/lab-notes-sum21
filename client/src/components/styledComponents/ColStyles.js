@@ -17,30 +17,32 @@ export const OptButton = styled.button`
   }
 `;
 
-export const ColWrap = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  .item {
-    height: 100px;
-    margin-bottom: 2%; /* (100-32*3)/2 */
-  };
-  .row-max {
-    justify-content: space-between;
-    flex: 0 0 33%;
-  }
-`
+// export const ColWrap = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: flex-start;
+//   .item {
+//     height: 100px;
+//     margin-bottom: 2%; /* (100-32*3)/2 */
+//   };
+//   .row-max {
+//     justify-content: space-between;
+//     flex: 0 0 33%;
+//   }
+// `
+
+
 
 export const NewCol = styled.div`
-  .button {
-    background-color: #4caf50; /* Green */
+    background-color: rgba(152, 71, 255, 0.06); 
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    // display: flex;
     font-size: 16px;
+    
   }
 `;
 export const CardPageGrid = styled.div`
@@ -56,12 +58,27 @@ export const NewColumnContainer = styled.p`
   margin-right: 16px;
 `;
 
-export const NewColumnCard = styled(Button)`
-  width: 150px;
+export const NewColumnButton = styled(Button)`
+  max-width: 200px;
+  flex-flow: no wrap row;
   background: rgba(152, 71, 255, 0.06);
+  border: transparent;
   color: black;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
-  // padding: 0 16px;
-  // margin-left: 16px;
-`;
+  position: absolute;
+  margin-right: 16px;
+  
+// can't get this work
+  // &:hover 
+  //   position: fixed;
+  //   // transform: translate(0%, 30%);
+  //   // transition: 0.3s ease-out;
+  //   background: rgba(152, 71, 255, 0.06) !important;
+    
+    
+  
+  
+`
+ 
+

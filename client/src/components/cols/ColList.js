@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col, DropdownButton, Dropdown, Image, Card } from 'react-bootstrap';
 import CardForm from '../cards/CardForm';
 import ColForm from './ColForm';
-import { ColColor, OptButton, ColWrap, NewCol } from '../styledComponents/ColStyles';
+import { ColColor, OptButton, ColWrap, NewCol, CardPageGrid } from '../styledComponents/ColStyles';
 import Cards from '../cards/Cards';
 
 const ColList = ({
@@ -32,8 +32,8 @@ const ColList = ({
     return(
       <>
       <Container fluid="md" >
-      <ColForm dayId={dayId} />
-      <ColWrap>
+    
+      <CardPageGrid>
         { cols.map( (c) =>
         c >= 0 ? "No Columns => Create One" 
         :
@@ -71,7 +71,7 @@ const ColList = ({
               </Col>
               )}
               <ColForm dayId={dayId}/>          
-          </ColWrap>
+          </CardPageGrid>
         </Container>
     </>
   );
