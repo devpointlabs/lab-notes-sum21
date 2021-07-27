@@ -20,7 +20,7 @@ export const Cols = ({ dayId, id}) => {
           </Button>
         </Link> */}
         <ColList dayId={dayId} />
-        <ColForm dayId={dayId} />
+        {/* <ColForm dayId={dayId} /> */}
       </Container>
     </>
   )
