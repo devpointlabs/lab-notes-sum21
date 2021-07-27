@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
 import { Button, Form, Container } from 'react-bootstrap';
+import { CenterLogin } from "../../components/styledComponents/LoginPage";
 
 const Login = ({ handleLogin, history }) => {
   const [user, setUser] = useState({ email: '', password: '' })
@@ -12,9 +13,9 @@ const Login = ({ handleLogin, history }) => {
   }
 
   return(
-    <>
-    <Container>
-      <Form onSubmit={handleSubmit}>  
+    <> 
+    <CenterLogin>
+      <Form style={{width: "25rem"}} onSubmit={handleSubmit}>  
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email</Form.Label>
         <Form.Control 
@@ -39,7 +40,7 @@ const Login = ({ handleLogin, history }) => {
           Submit
         </Button>
       </Form>
-    </Container>
+      </CenterLogin>
     </>
   )
 }

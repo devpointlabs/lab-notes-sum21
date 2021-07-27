@@ -7,39 +7,24 @@ const CardShow = ({ ColId,  deleteCard, history, id, title, notes, end_time, upd
 
   return (
     <>
-      <Card style={{ width: '18rem' }} key={id}>
-        <Card.Body onClick={() => setShow(true)}>
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>
-            {notes}
-          </Card.Text>
-          <Card.Footer>
-            {end_time}
-          </Card.Footer>
-        </Card.Body>
-        <Button variant="danger" onClick={() => deleteCard(ColId, id, history)}> 
-          Delete
-        </Button>
-        <CardForm
-          ColId={ColId}
-          id={id}
-          title={title}
-          notes={notes}
-          end_time={end_time}
-          history={history}
-          updateCard={updateCard}
-        />
-      </Card>
-      <Modal show={show} fullscreen={true} onHide={() => setShow(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>
-            {title} {end_time}
-          </Modal.Title>
-          <Modal.Body>
-            {notes}
-          </Modal.Body>
-        </Modal.Header>
-      </Modal>
+    { cards.map( (card) =>
+      card <= 0 ? "No Cards => Create One"
+      :
+    <Card style={{ width: '10rem' }} key={card.id}>
+      <Card.Body>
+        <Card.Title>{card.title}</Card.Title>
+        <Card.Text>
+          {card.notes}
+        </Card.Text>
+        <Card.Footer>
+          <Moment format="hh A">
+            {card.end_time}
+          </Moment>
+        </Card.Footer>
+      </Card.Body>
+      <Button variant="danger" onClick={() => deleteCard(card.id, history, ColId)}> Delete</Button>
+    </Card>
+    )}
     </>
   )
 }
