@@ -20,10 +20,12 @@ const styles = {
 const Profile = ({ user, updateUser }) => {
   const [editing, setEditing] = useState(false)
   const [editUser, setUser] = useState({name: '', email: '', file: ''})
+  
   const [show, setShow] = useState(false)
   
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
 
   useEffect( () => {
     setUser({ name: user.user.name, email: user.user.email, file: user.user.image})
