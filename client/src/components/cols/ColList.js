@@ -32,7 +32,7 @@ const ColList = ({
     return(
       <>
       <Container fluid="md" >
-      <ColForm dayId={dayId} />
+      {/* <ColForm dayId={dayId} /> */}
       <ColWrap>
         { cols.map( (c) =>
         c >= 0 ? "No Columns => Create One" 
