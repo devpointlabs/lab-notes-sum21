@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
-import { Form, Container, Button, Media, Image } from 'react-bootstrap';
+import { Form, Container, Button, Media, Image, Modal } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
 
 const defaultImage = "https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png"
@@ -20,6 +20,10 @@ const styles = {
 const Profile = ({ user, updateUser }) => {
   const [editing, setEditing] = useState(false)
   const [editUser, setUser] = useState({name: '', email: '', file: ''})
+  const [show, setShow] = useState(false)
+  
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect( () => {
     setUser({ name: user.user.name, email: user.user.email, file: user.user.image})
@@ -51,8 +55,25 @@ const Profile = ({ user, updateUser }) => {
     setEditing(false)
   }
   
-  const editView = () => {
-    return (
+  return(
+    <Container>
+      <Media>
+        <Media.Body>
+          { profileView() }
+          <Media.Body>
+            <Button onClick={() => handleShow()}>
+              Edit
+            </Button>
+          </Media.Body>
+        </Media.Body>  
+      </Media>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            Edit Profile
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
       <Form onSubmit={handleSubmit}>
         <Media>
           <Media.Body>
@@ -105,20 +126,8 @@ const Profile = ({ user, updateUser }) => {
           </Media.Body>
         </Media>
         </Form>
-    )
-  }
-  return(
-    <Container>
-      <Media>
-        <Media.Body>
-          { editing ? editView() : profileView() }
-          <Media.Body>
-            <Button onClick={() => setEditing(!editing)}>
-              { editing ? 'Cancel' : 'Edit'}
-            </Button>
-          </Media.Body>
-        </Media.Body>  
-      </Media>
+        </Modal.Body>
+      </Modal>
     </Container>
   )
 }

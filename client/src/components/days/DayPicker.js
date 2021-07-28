@@ -52,6 +52,8 @@ const DayPicker = ({setCurrentDay, getBook, days, bookId, book, history, day}) =
     <Button variant="link">
       <CalendarTodayIcon>
         </CalendarTodayIcon>
+        <br/>
+        <br/>
         <DatePicker 
           minDate={moment.utc(book.start_date).add(1,"days").valueOf()} 
           maxDate={moment.utc(book.end_date).add(1,"days").valueOf()} 

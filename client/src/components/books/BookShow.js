@@ -20,7 +20,9 @@ const BookShow = ({ location, deleteBook, match, history }) => {
         <DayList bookId={location.state.id}/>
       </Card.Body>
       </Card>
+      <br/>
       <Button variant="warning" onClick={() => handleEditShow()}>Edit Book</Button>
+      <br/>
       {' '}
       
       <Modal show={editshow} onHide={handleEditClose}>

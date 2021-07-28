@@ -62,6 +62,7 @@ const updateCard = (colId, id, card) => {
         )
       }
       <CardForm ColId={ColId} addCard={addCard} />
+      <br/>
     </>
   )
 }
