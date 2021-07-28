@@ -1,4 +1,4 @@
-import { Card, Dropdown, DropdownButton, Image, Modal, } from 'react-bootstrap';
+import { Card, Dropdown, DropdownButton, Image, Modal, Button } from 'react-bootstrap';
 import CardForm from './CardForm';
 import { useState } from 'react';
 import { ColColor, OptButton, ColWrap, NewCol, CardPageGrid } from '../styledComponents/ColStyles';
@@ -33,27 +33,38 @@ const CardShow = ({ ColId,  deleteCard, history, id, title, notes, end_time, upd
               />
               }
               id="dropdown-basic-button">
-            <Dropdown.Item eventKey={1}>
-              <CardForm
-                ColId={ColId}
-                id={id}
-                title={title}
-                notes={notes}
-                end_time={end_time}
-                history={history}
-                updateCard={updateCard}
-              />
-            </Dropdown.Item>
+            <Dropdown.Item eventKey={1} />
+            <CardForm
+              ColId={ColId}
+              id={id}
+              title={title}
+              notes={notes}
+              end_time={end_time}
+              history={history}
+              updateCard={updateCard}
+            />
+            {/* </Dropdown.Item> */}
             <Dropdown.Item divider />
             <Dropdown.Item eventKey={2}>
               <Link onClick={() => deleteCard(ColId, id, history)}>Delete</Link>
             </Dropdown.Item>
           </DropdownButton>
         </OptButton>
-        {/* <Button style={{backgroundColor: 'rgba(152, 71, 255, 0.06)', color: 'black'} } onClick={() => deleteCard(ColId, id, history)}>  */}
-          {/* Delete
-        </Button> */}
-        
+        {/* <Button style={{backgroundColor: 'rgba(152, 71, 255, 0.06)', color: 'black'} } onClick={() => deleteCard(ColId, id, history)}>
+          Delete
+        </Button>  */}
+        {/* <Button variant="danger" onClick={() => deleteCard(ColId, id, history)}> 
+          Delete
+        </Button>
+        <CardForm
+          ColId={ColId}
+          id={id}
+          title={title}
+          notes={notes}
+          end_time={end_time}
+          history={history}
+          updateCard={updateCard}
+        /> */}
       </Card>
       <Modal show={show} fullscreen={true} onHide={() => setShow(false)}>
         <Modal.Header closeButton>

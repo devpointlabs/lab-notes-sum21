@@ -24,7 +24,7 @@ const CardProvider = ({ children }) => {
         .catch( err => console.log(err))
    }
 
-   const updateCard = (colId, id, card) => {
+   const updateCard = (colId, id, card) =>{
        axios.put(`/api/cols/${colId}/cards/${id}`, { card })
         .then(res => {
             const updatedCards = cards.map( c => {
