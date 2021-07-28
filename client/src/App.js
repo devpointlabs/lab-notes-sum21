@@ -17,6 +17,8 @@ import DayShow from './components/days/DayShow';
 import CardForm from './components/cards/CardForm';
 import CardShow from './components/cards/CardShow';
 import ColUpdate from './components/cols/ColUpdate';
+import About from './components/shared/About';
+import Footer from './components/shared/Footer';
 
 
 
@@ -24,28 +26,30 @@ import ColUpdate from './components/cols/ColUpdate';
 const App = () => (
   <>
   <MainNavbar />
-    <FetchUser>
-      <Container>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <ProtectedRoute exact path="/books" component={Books} />
-          <ProtectedRoute exact path="/books/:id" component={BookShow} />
-          <ProtectedRoute exact path="/bookform" component={BookForm} />
-          <ProtectedRoute exact path="/books/:bookId/days" component={Days} />
-          <ProtectedRoute exact path="/books/:bookId/days/:id" component={DayShow} />
-          <ProtectedRoute exact path="/days/:dayId/cols" component={Cols} />
-          <ProtectedRoute exact path="/days/:dayId/cols/:id" component={ColUpdate} />
-          <ProtectedRoute exact path="/cols/:colId/cards/cardform" component={CardForm} />
-          <ProtectedRoute exact path="/cols/:colId/cards/:id" component={CardShow} />
-          <ProtectedRoute exact path="/books" component={Books}/>
-          <ProtectedRoute exact path="/profile" component={Profile}/>
-          <Route component={Nomatch} />
-        </Switch>
-      </Container>   
+      <FetchUser>
+        <Container>
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/About" component={About}/>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
+            <ProtectedRoute exact path="/books" component={Books} />
+            <ProtectedRoute exact path="/books/:id" component={BookShow} />
+            <ProtectedRoute exact path="/bookform" component={BookForm} />
+            <ProtectedRoute exact path="/books/:bookId/days" component={Days} />
+            <ProtectedRoute exact path="/books/:bookId/days/:id" component={DayShow} />
+            <ProtectedRoute exact path="/days/:dayId/cols" component={Cols} />
+            <ProtectedRoute exact path="/days/:dayId/cols/:id" component={ColUpdate} />
+            <ProtectedRoute exact path="/cols/:colId/cards/cardform" component={CardForm} />
+            <ProtectedRoute exact path="/cols/:colId/cards/:id" component={CardShow} />
+            <ProtectedRoute exact path="/books" component={Books}/>
+            <ProtectedRoute exact path="/profile" component={Profile}/>
+            <Route component={Nomatch} />
+          </Switch>
+        </Container>   
     </FetchUser>
+    <Footer/>
   </>
 )
 export default App;
