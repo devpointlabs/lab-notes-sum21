@@ -13,18 +13,15 @@ const BookShow = ({ location, deleteBook, match, history }) => {
     <>
     <CenterBookShow>
       <Card style={{width: '18rem'}} className="text-center">
-      <Card.Header >
+      <Card.Header className="item" style={{background: "rgba(152, 72, 255, 100)", border: "rgba(152, 72, 255, 100)", color: "white"}}>
       <text style={{fontWeight: "bold"}}>{location.state.title}</text>
       </Card.Header>
       <Card.Body>
         <DayList bookId={location.state.id}/>
       </Card.Body>
       </Card>
-      <br/>
-      <Button variant="warning" onClick={() => handleEditShow()}>Edit Book</Button>
-      <br/>
+      <Button variant="warning" style={{background:"#ebe5f5", border: "#ebe5f5", color: "black", width: "20rem"}} onClick={() => handleEditShow()}>Edit Book</Button>
       {' '}
-      
       <Modal show={editshow} onHide={handleEditClose}>
         <Modal.Header closeButton>
           <Modal.Title>Book {location.state.id} Edit</Modal.Title>
@@ -37,7 +34,7 @@ const BookShow = ({ location, deleteBook, match, history }) => {
         </Modal.Footer>
       </Modal>
 
-      <Button variant="danger" onClick={() => deleteBook(match.params.id, history)}>Delete Book</Button>
+      <Button variant="danger" className="item" style={{background: "rgba(152, 72, 255, 100)", border: "rgba(152, 72, 255, 100)", color: "white", width: "20rem"}} onClick={() => deleteBook(match.params.id, history)}>Delete Book</Button>
     </CenterBookShow>
     </>
   )
