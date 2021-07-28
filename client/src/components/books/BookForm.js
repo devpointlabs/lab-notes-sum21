@@ -31,7 +31,7 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
         <Form onSubmit={handleSubmit}>
 
             <Form.Group controlId="title">
-                <Form.Label>Name</Form.Label>
+                <Form.Label>Goal</Form.Label>
                 <Form.Control 
                     placeholder="Build an app" 
                     type="text" 
@@ -42,7 +42,7 @@ const BookForm = ({ addBook, id, title, descript, start_date, end_date, color, u
             </Form.Group>
 
             <Form.Group controlId="descript">
-                <Form.Label>Goal</Form.Label>
+                <Form.Label>Description</Form.Label>
                 <Form.Control 
                     placeholder="I want to build a native app in 20 weeks." 
                     type="text" 
