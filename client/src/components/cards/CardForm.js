@@ -51,32 +51,33 @@ import { Link } from 'react-router-dom';
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={handleSubmit}>
-            <input
+          <Form onSubmit={handleSubmit}>
+            <Form.Control
               name="title"
               value={card.title}
               onChange={(e) => setCard({ ...card, title: e.target.value })}
               placeholder="title"
               required
             />
-            <input
+            <Form.Control
               name="end_time"
               type="time"
               value={card.end_time}
               onChange={(e) => setCard({ ...card, end_time: e.target.value })}
               placeholder="end_time"
               required
-              type="datetime-local"
+              // type="datetime-local"
             />
-            <input
+            <Form.Control
               name="notes"
               value={card.notes}
               onChange={(e) => setCard({ ...card, notes: e.target.value })}
               placeholder="notes"
               required
+              as="textarea"
             />
           <button type="submit">Submit</button>
-        </form>
+        </Form>
       </Modal.Body>
     </Modal>
   </>

@@ -3,5 +3,4 @@ class Book < ApplicationRecord
   has_many :days, dependent: :destroy
 
   validates :title, :descript, :start_date, :end_date, presence: true
-  validates :title, uniqueness: true
 end
