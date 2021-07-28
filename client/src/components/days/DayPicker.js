@@ -46,14 +46,11 @@ const DayPicker = ({setCurrentDay, getBook, days, bookId, book, history, day}) =
 
   return(
     <>
-    <Button variant="link" onClick={clickBackward}>
+    <Button variant="link" style={{ color: "rgba(152, 72, 255, 100)"}} onClick={clickBackward}>
       <ArrowBackIosIcon/>
     </Button>
     <Button variant="link">
-      <CalendarTodayIcon>
-        </CalendarTodayIcon>
-        <br/>
-        <br/>
+      <CalendarTodayIcon style={{ color: "rgba(152, 72, 255, 100)"}}/>
         <DatePicker 
           minDate={moment.utc(book.start_date).add(1,"days").valueOf()} 
           maxDate={moment.utc(book.end_date).add(1,"days").valueOf()} 
@@ -62,7 +59,7 @@ const DayPicker = ({setCurrentDay, getBook, days, bookId, book, history, day}) =
           dateFormat="yyyy-MM-dd"
           />
       </Button>
-    <Button variant="link" onClick={clickForward}>
+    <Button variant="link" style={{ color: "rgba(152, 72, 255, 100)"}} onClick={clickForward}>
       <ArrowForwardIosIcon/>
     </Button>
     </>
