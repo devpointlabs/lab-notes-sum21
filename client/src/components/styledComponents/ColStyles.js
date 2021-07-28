@@ -17,19 +17,21 @@ export const OptButton = styled.button`
   }
 `;
 
-// export const ColWrap = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: flex-start;
-//   .item {
-//     height: 100px;
-//     margin-bottom: 2%; /* (100-32*3)/2 */
-//   };
-//   .row-max {
-//     justify-content: space-between;
-//     flex: 0 0 33%;
-//   }
-// `
+export const ColWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction:column;
+  .item {
+    height: 2rem;
+    // margin-bottom: 2%; /* (100-32*3)/2 */
+    margin: 0.5rem;
+  };
+  .row-max {
+    justify-content: space-between;
+    flex: 0 0 33%;
+  }
+`
 
 
 

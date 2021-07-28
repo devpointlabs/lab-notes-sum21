@@ -37,7 +37,7 @@ const ColList = ({
         { cols.map( (c) =>
         c >= 0 ? "No Columns => Create One" 
         :
-              <Col className="row-max" key={c.id}>
+              <ColWrap className="row-max" key={c.id}>
                   <OptButton color="white">
                   <DropdownButton
                       variant="light" 
@@ -61,14 +61,14 @@ const ColList = ({
                   </DropdownButton>
                   </OptButton>
                   <h7>{c.title}</h7>
-                  <Card className="row-max">
+                  <Card className="item">
                     <ColColor>
                       <Card.Body>
                         <Cards ColId={c.id}/>
                       </Card.Body>
                     </ColColor>
                 </Card>
-              </Col>
+              </ColWrap>
               )}
               <ColForm dayId={dayId}/>          
           </CardPageGrid>
