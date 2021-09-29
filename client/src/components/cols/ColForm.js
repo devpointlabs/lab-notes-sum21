@@ -1,10 +1,10 @@
 import { Form, Modal, Button, } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
-import { NewCol, NewColumnButton, NewColumnContainer} from '../styledComponents/ColStyles';
+import { NewColumnButton, NewColumnContainer} from '../styledComponents/ColStyles';
 
 
-const ColForm = ({ addCol, id, title, history, location, updateCol, handleEditClose, dayId}) => {
+const ColForm = ({ addCol, id, title, updateCol, handleEditClose, dayId}) => {
   const [cols, setCols] = useState({title: "",})
   const [show, setShow] = useState(false);
 

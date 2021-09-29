@@ -1,9 +1,6 @@
 import React from "react";
-import {
-  Box,
-  Container
-} from "../styledComponents/AboutStyle";
-import { Row, Img, Button, Card } from 'react-bootstrap';
+import { Container } from "../styledComponents/AboutStyle";
+import { Row, Card } from 'react-bootstrap';
 
 const About = () => {
   return (

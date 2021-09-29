@@ -1,9 +1,8 @@
-import { Card, Dropdown, DropdownButton, Image, Modal, Button } from 'react-bootstrap';
+import { Card, Dropdown, DropdownButton, Image, Modal } from 'react-bootstrap';
 import CardForm from './CardForm';
 import { useState } from 'react';
-import { ColColor, OptButton, ColWrap, NewCol, CardPageGrid } from '../styledComponents/ColStyles';
+import { OptButton } from '../styledComponents/ColStyles';
 import { Link } from 'react-router-dom';
-import moment from 'moment';
 
 const CardShow = ({ ColId,  deleteCard, history, id, title, notes, end_time, updateCard, }) => {
   const [show, setShow] = useState(false)

@@ -1,4 +1,4 @@
-import { Switch, Route, useLocation } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import Home from './components/shared/Home';
 import Nomatch from './components/shared/Nomatch';
@@ -20,12 +20,9 @@ import ColUpdate from './components/cols/ColUpdate';
 import About from './components/shared/About';
 import Footer from './components/shared/Footer';
 
-
-
-
 const App = () => (
   <>
-  <MainNavbar />
+    <MainNavbar />
       <FetchUser>
         <Container>
           <Switch>
@@ -48,8 +45,9 @@ const App = () => (
             <Route component={Nomatch} />
           </Switch>
         </Container>   
-    </FetchUser>
+      </FetchUser>
     <Footer/>
   </>
 )
+
 export default App;

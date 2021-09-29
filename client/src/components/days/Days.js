@@ -1,4 +1,4 @@
-import React, { useState, useEffect, } from 'react';
+import React, { useEffect, } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import {DayConsumer} from '../../providers/DayProvider';
 import DayList from './DayList';

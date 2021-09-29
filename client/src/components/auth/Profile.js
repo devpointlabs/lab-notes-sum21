@@ -18,7 +18,7 @@ const styles = {
 }
 
 const Profile = ({ user, updateUser }) => {
-  const [editing, setEditing] = useState(false)
+  const [ setEditing] = useState(false)
   const [editUser, setUser] = useState({name: '', email: '', file: ''})
   
   const [show, setShow] = useState(false)

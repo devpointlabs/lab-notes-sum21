@@ -29,7 +29,7 @@ const MainNavbar = ({ user, handleLogout, history }) => {
               title={
                   <div className="justify-content-end" style={{width: "100%"}}>
                       <Image className="thumbnail-image" 
-                          src={user.user != undefined ? user.user.image : "https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png"}
+                          src={user.user !== undefined ? user.user.image : "https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png"}
                           roundedCircle
                           width="30"
                           height="30" 

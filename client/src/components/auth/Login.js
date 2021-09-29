@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
-import { Button, Form, Container } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { CenterLogin } from "../../components/styledComponents/LoginPage";
 
@@ -18,7 +18,9 @@ const Login = ({ handleLogin, history }) => {
     <CenterLogin>
       <img src="https://res.cloudinary.com/dg1eqxvwf/image/upload/v1625707186/logo_hy0ksx.png"
             width="250"
-            height="71"/>
+            height="71"
+            alt=""
+            />
     
       <Form style={{width: "20rem"}} onSubmit={handleSubmit}>  
       <Form.Group controlId="formBasicEmail">

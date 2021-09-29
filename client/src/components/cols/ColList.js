@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ColConsumer } from '../../providers/ColProvider';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, DropdownButton, Dropdown, Image, Card } from 'react-bootstrap';
-import CardForm from '../cards/CardForm';
+import { Container, DropdownButton, Dropdown, Image, Card } from 'react-bootstrap';
 import ColForm from './ColForm';
-import { ColColor, OptButton, ColWrap, NewCol, CardPageGrid } from '../styledComponents/ColStyles';
+import { ColColor, OptButton, ColWrap, CardPageGrid } from '../styledComponents/ColStyles';
 import Cards from '../cards/Cards';
 
 const ColList = ({
@@ -12,17 +11,10 @@ const ColList = ({
   cols,
   getAllCols,
   deleteCol,
-  updateCol,
-  match,
   history,
-  id,
-  handleEditClose,
-  location,
 }) => {
-  const [col, setCols] = useState({ title: "" });
-  const [show, setShow] = useState(false);
+  const [ setShow ] = useState(false);
 
-  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
   useEffect( () => {

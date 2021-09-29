@@ -15,7 +15,7 @@ const DayPicker = ({setCurrentDay, getBook, days, bookId, book, history, day}) =
 
   const grabDayId = (clickDate) => {
     days.map( d => {
-      if (d.day_date == moment(clickDate).format("YYYY-MM-DD") ){
+      if (d.day_date === moment(clickDate).format("YYYY-MM-DD") ){
         setCurrentDay(d)
         history.push(`/books/${bookId}/days/${d.id}`)
         window.location.reload()
@@ -24,7 +24,7 @@ const DayPicker = ({setCurrentDay, getBook, days, bookId, book, history, day}) =
   }
 
   const clickForward = () => {
-    if (day.id == days[days.length - 1].id){
+    if (day.id === days[days.length - 1].id){
       history.push(`/books/${bookId}/days/${days[0].id}`)
     }
     else {
@@ -35,7 +35,7 @@ const DayPicker = ({setCurrentDay, getBook, days, bookId, book, history, day}) =
       // setCurrentDay()
   }
   const clickBackward = () => {
-    if (day.id == days[0].id){
+    if (day.id === days[0].id){
       history.push(`/books/${bookId}/days/${days[days.length - 1].id}`)
     }
     else {

@@ -2,13 +2,11 @@ import { useEffect } from "react";
 import { BookConsumer } from "../../providers/BookProvider";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import { Card, Button, CardGroup, ProgressBar } from "react-bootstrap";
+import { Card, CardGroup, ProgressBar } from "react-bootstrap";
 import {
-  ColorStyles,
   ColorBoxes,
   SettingsCardContainer,
 } from "../styledComponents/sharedStyles";
-import { end } from "@popperjs/core";
 
 const BookList = ({ books, getAllBooks, end_date, start_date }) => {
   // const bookContext = useContext(BookContext);

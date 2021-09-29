@@ -2,7 +2,6 @@ import { Container, } from 'react-bootstrap';
 // import { useState, } from 'react';
 // import { Link } from 'react-router-dom';
 import ColList from './ColList';
-import ColForm from './ColForm';
 
 export const Cols = ({ dayId, id}) => {
   // const[show, setShow] = useState(false);

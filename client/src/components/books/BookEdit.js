@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Form, Col, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import { BookConsumer } from '../../providers/BookProvider';
 import { ColorStyles } from '../styledComponents/sharedStyles';
 import { withRouter } from 'react-router-dom';
