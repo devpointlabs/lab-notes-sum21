@@ -1,8 +1,7 @@
-require 'rails/application_controller'
-class StaticController < Rails::ApplicationController
-  #  layout false
+require "test_helper"
 
-   def index
-     render file: Rails.root.join('public', 'index.html')
-   end
+class StaticControllerTest < ActionDispatch::IntegrationTest
+  # test "the truth" do
+  #   assert true
+  # end
 end

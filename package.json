@@ -10,11 +10,11 @@
   "dependencies": {
     "get-user-locale": "^1.4.0",
     "js-tokens": "^4.0.0",
-    "loose-envify": "^1.4.0",
     "lodash.once": "^4.1.1",
+    "loose-envify": "^1.4.0",
     "merge-class-names": "^1.4.0",
-    "object-assign": "^4.1.1",
     "moment": "^2.29.1",
+    "object-assign": "^4.1.1",
     "prop-types": "^15.7.2",
     "react-calendar": "^3.4.0",
     "react-is": "^16.13.1"
